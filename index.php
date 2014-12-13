@@ -16,12 +16,47 @@
     <![endif]-->
   </head>
   <body>
-    <h1>Hello, world!</h1>
-    <div class="member-frame pale_blue">
-		<div id="costa" class="member-glass"></div>
-	</div>
-	<div class="member-frame pale_blue">
-		<div id="costa" class="member-glass"></div>
+  	<div class="container-fluid">
+  		<div class="row">
+  			<nav class="navbar navbar-default" role="navigation">
+  				<!-- Brand and toggle get grouped for better mobile display -->
+			    <div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">CCSPS</a>
+			    </div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#">Events</a></li>
+						<li><a href="#">Resources</a></li>
+						<li><a href="#">Gallery</a></li>
+						<li><a href="#">About</a></li>
+						<li><a href="#">Contact</a></li>
+					</ul>
+				</div>
+  			</nav>
+  		</div>
+  		<div class="row">
+  			<div class="col-xs-6 col-sm-6 col-md-6	col-lg-6">
+  				<div class="member-frame pale_blue">
+					<div id="costa" class="member-glass"></div>
+				</div>
+  			</div>
+		</div>
+  		<div class="row">
+		</div>
+  		<div class="row">
+		</div>
+  		<div class="row">
+		</div>
+  		<div class="row">
+		</div>
+  		<div class="row">
+		</div>
 	</div>
 
     <!-- javascript -->

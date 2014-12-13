@@ -20,9 +20,13 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 392.0,
+		"height": 243.0,
 		"selected_items":
 		[
+			[
+				"package in",
+				"Package Control: Install Package"
+			],
 			[
 				"plain",
 				"Set Syntax: Plain Text"
@@ -56,8 +60,8 @@
 	},
 	"file_history":
 	[
-		"/home/trivigy/Google/Repositories/ccsps/css/reset.css",
 		"/home/trivigy/Google/Repositories/ccsps/README.md",
+		"/home/trivigy/Google/Repositories/ccsps/css/reset.css",
 		"/home/trivigy/Google/Repositories/ccsps/.project",
 		"/home/trivigy/Google/Repositories/findmine/data/image.json",
 		"/home/trivigy/Mishki Inc./Development/RESTful_API.txt",

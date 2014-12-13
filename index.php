@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Columbia Computer Science Pre-Professional Society</title>
+    <link href="css/reset.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
 
@@ -16,6 +17,12 @@
   </head>
   <body>
     <h1>Hello, world!</h1>
+    <div class="member-frame pale_blue">
+		<div id="costa" class="member-glass"></div>
+	</div>
+	<div class="member-frame pale_blue">
+		<div id="costa" class="member-glass"></div>
+	</div>
 
     <!-- javascript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

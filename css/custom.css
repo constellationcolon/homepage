@@ -1,8 +1,7 @@
 @charset "utf-8";
-@import url("../_fonts/fontello/fontello.css");
 html, body {
 	font-size: 15px;
-	color: #FFF;
+	color: #000;
 	height: 100%;
 	margin: 0;
 	padding: 0;
@@ -16,60 +15,43 @@ a {
 a:hover {
 	color: rgb(255,255,255);
 }
-.transparent {
-	width: 100%;
+.gray {
+	background-color: #363B3B;
 }
-.opaque {
-	background-color: rgb(21,21,21);
-	width: 100%;
+.pale_blue {
+	background-color: #D7FFFD;
 }
-.social-icon {
-	font-size: 70px;
+.light_blue {
+	background-color: #ADE8E5;
 }
-.temp {
-	height: 300px;
+.orange {
+	background-color: #F26E2A;
 }
-#logo {
-	position: absolute;
-	top: 2em;
-	left: 0;
-	right: 0;
-	width: 40em;
-	margin: auto;
+.brown {
+	background-color: #3B2E28;
 }
-#equalizer {
-	height: 300px;
-}
-#audioWrapper {
-	width: 1001px;
-	height: 250px;
+.member-frame {
 	margin: 0 auto;
-}
-#social {
+	width: 150px;
 	height: 150px;
-	line-height: 150px;
-	text-align: center;
-	letter-spacing: 50px;
-	vertical-align: middle;
+	border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
 }
-#about {
-	height: 500px;
+.member-glass {
+	background-size: 100%;
+	width: 90%;
+	height: 90%;
+	margin: 0 auto;
+	border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
 }
-#about-cutout {
-	width: 151px;
-}
-#extra {
-	height: 500px;
-}
-
-@media screen and (min-width:1200px) {
-#logo {
-	top: 3em;
-}
-}
-
-@media screen and (min-width:1500px) {
-#logo {
-	top: 7em;
-}
+#costa {
+	background-image: url("../assets/costa.jpg");
 }

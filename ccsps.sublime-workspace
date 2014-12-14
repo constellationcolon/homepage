@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"bu",
+				"button	Tag"
+			],
+			[
+				"me",
+				"menu	<menu>"
+			],
+			[
 				"my",
 				"mypipe_"
 			],
@@ -20,9 +28,17 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 243.0,
+		"height": 392.0,
 		"selected_items":
 		[
+			[
+				"html5",
+				"Set Syntax: HTML5"
+			],
+			[
+				"html",
+				"HTMLPrettify"
+			],
 			[
 				"package in",
 				"Package Control: Install Package"
@@ -36,7 +52,7 @@
 				"Set Syntax: JSON"
 			]
 		],
-		"width": 449.0
+		"width": 575.0
 	},
 	"console":
 	{
@@ -60,6 +76,8 @@
 	},
 	"file_history":
 	[
+		"/home/trivigy/Google/Repositories/ccsps/index.php",
+		"/home/trivigy/Google/Repositories/ccsps/css/custom.css",
 		"/home/trivigy/Google/Repositories/ccsps/README.md",
 		"/home/trivigy/Google/Repositories/ccsps/css/reset.css",
 		"/home/trivigy/Google/Repositories/ccsps/.project",

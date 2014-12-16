@@ -1,57 +1,75 @@
 @charset "utf-8";
 html, body {
-	font-size: 15px;
-	color: #000;
-	height: 100%;
-	margin: 0;
-	padding: 0;
-	border: 0;
+    font-size: 15px;
+    color: #000;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
 }
 a {
-	color: rgba(255,255,255,0.65);
-	text-decoration: none;
-	-webkit-transition: color 0.25s linear;
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    -webkit-transition: color 0.25s linear;
 }
 a:hover {
-	color: rgb(255,255,255);
+    color: rgb(255, 255, 255);
 }
 .gray {
-	background-color: #363B3B;
+    background-color: #363B3B;
 }
 .pale_blue {
-	background-color: #D7FFFD;
+    background-color: #D7FFFD;
 }
 .light_blue {
-	background-color: #ADE8E5;
+    background-color: #ADE8E5;
 }
 .orange {
-	background-color: #F26E2A;
+    background-color: #F26E2A;
 }
 .brown {
-	background-color: #3B2E28;
+    background-color: #3B2E28;
 }
 .member-frame {
-	margin: 0 auto;
-	width: 150px;
-	height: 150px;
-	border-radius: 50%;
-	-moz-border-radius: 50%;
-	-webkit-border-radius: 50%;
+    margin: 0 auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
 }
 .member-glass {
-	background-size: 100%;
-	width: 90%;
-	height: 90%;
-	margin: 0 auto;
-	border-radius: 50%;
-	-moz-border-radius: 50%;
-	-webkit-border-radius: 50%;
-	position: relative;
-	top: 50%;
-	-webkit-transform: translateY(-50%);
-	-ms-transform: translateY(-50%);
-	transform: translateY(-50%);
+    background-size: 100%;
+    width: 90%;
+    height: 90%;
+    margin: 0 auto;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 #costa {
-	background-image: url("../assets/costa.jpg");
+    background-image: url("../assets/costa.jpg");
+}
+.pull-right-xs {
+    float: right;
+}
+@media (min-width: 768px) {
+    .pull-right-sm {
+        float: right;
+    }
+}
+@media (min-width: 992px) {
+    .pull-right-md {
+        float: right;
+    }
+}
+@media (min-width: 1200px) {
+    .pull-right-lg {
+        float: right;
+    }
 }

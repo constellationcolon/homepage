@@ -28,7 +28,7 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 392.0,
+		"height": 96.0,
 		"selected_items":
 		[
 			[
@@ -36,8 +36,12 @@
 				"Set Syntax: HTML5"
 			],
 			[
+				"php",
+				"Set Syntax: PHP"
+			],
+			[
 				"html",
-				"HTMLPrettify"
+				"HTMLPrettify: Set Prettify Preferences"
 			],
 			[
 				"package in",
@@ -76,6 +80,8 @@
 	},
 	"file_history":
 	[
+		"/home/trivigy/Google/Repositories/ccsps/index.html",
+		"/home/trivigy/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/.jsbeautifyrc",
 		"/home/trivigy/Google/Repositories/ccsps/index.php",
 		"/home/trivigy/Google/Repositories/ccsps/css/custom.css",
 		"/home/trivigy/Google/Repositories/ccsps/README.md",
@@ -226,7 +232,7 @@
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 33.0
 	},
 	"layout":
 	{

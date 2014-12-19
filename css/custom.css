@@ -30,6 +30,9 @@ a:hover {
 .brown {
     background-color: #3B2E28;
 }
+.member-block {
+    text-align: center;
+}
 .member-frame {
     margin: 0 auto;
     width: 150px;

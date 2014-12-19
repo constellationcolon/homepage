@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"span",
+				"span	Tag"
+			],
+			[
+				"html",
+				"HTML5"
+			],
+			[
+				"div",
+				"div	Tag"
+			],
+			[
 				"bu",
 				"button	Tag"
 			],
@@ -28,9 +40,17 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 96.0,
+		"height": 54.0,
 		"selected_items":
 		[
+			[
+				"pack install",
+				"Package Control: Install Package"
+			],
+			[
+				"packa remo",
+				"Package Control: Remove Package"
+			],
 			[
 				"html5",
 				"Set Syntax: HTML5"
@@ -172,6 +192,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Message",
+			">\n",
 			"`",
 			"-",
 			"^.+- ",

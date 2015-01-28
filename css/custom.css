@@ -45,6 +45,7 @@ a:hover {
 /*.btn:focus, .btn:active:focus, .btn.active:focus {
     
 }*/
+
 .btn, .btn:hover, .btn:focus, .btn:active, .btn:active:focus {
     color: #FFF;
     outline: 0 none;
@@ -80,7 +81,7 @@ a:hover {
     background-color: #fff;
 }
 #events-title {
-    margin: 40px 0px;
+    margin: 60px 0px;
 }
 #events-title > h1 {
     color: #44281A;
@@ -120,7 +121,8 @@ a:hover {
 }
 .event-name {
     text-align: center;
-    margin-bottom: 40px;
+    height: 80px;
+    margin-bottom: 20px;
 }
 .event-name > h3 {
     font-family: 'Lobster', cursive;
@@ -136,7 +138,6 @@ a:hover {
     height: 100%;
     font-size: 1.5em;
     text-align: center;
-    min-height: 100px;
     max-height: 250px;
 }
 .event-btn {
@@ -163,14 +164,26 @@ a:hover {
     .pull-right-sm {
         float: right;
     }
+    .event-description > p {
+        height: 600px;
+    }
 }
 @media (min-width: 992px) {
     .pull-right-md {
         float: right;
+    }
+    .events-container {
+        padding: 0px;
+    }
+    .event-description > p {
     }
 }
 @media (min-width: 1200px) {
     .pull-right-lg {
         float: right;
     }
+    .events-container {
+        padding: 0px;
+    }
+    .event-description > p {}
 }

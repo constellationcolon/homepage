@@ -176,26 +176,26 @@ a:hover {
 #about-container {
     position: relative;
     overflow: hidden;
-    margin-bottom: 100px;
-    max-height: 1000px;
+    margin-bottom: 220px;
+    max-height: 1200px;
 }
 #about-short > h3 {
     font-family: 'Lobster', cursive;
     text-align: center;
     margin: 0px;
     color: #E98B33;
-    font-size: 3em;
+    font-size: 2em;
 }
 #about-long > p {
     text-align: center;
-    font-size: 2em;
+    font-size: 1.5em;
     color: #FFF;
 }
 #about-btn-wrap {
     position: absolute;
     width: 100%;
     left: 0px;
-    bottom: 20px;
+    bottom: 80px;
 }
 #about-btn {
     position: relative;
@@ -238,6 +238,9 @@ a:hover {
     .event-description > p {
         height: 200px;
     }
+    #about-long > p {
+    text-align: left;
+}
 }
 @media (min-width: 992px) {
     .pull-right-md {

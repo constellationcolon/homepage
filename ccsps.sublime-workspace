@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"fo",
+				"font-size"
+			],
+			[
+				"background",
+				"background-color"
+			],
+			[
+				"backgr",
+				"background-color"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
 				"escapeshell",
 				"escapeshellcmd"
 			],
@@ -52,11 +68,75 @@
 		"selected_items":
 		[
 			[
-				"php",
-				"Set Syntax: PHP"
+				"html",
+				"HTMLPrettify"
 			],
 			[
-				"pack install",
+				"htlm",
+				"HTMLPrettify"
+			],
+			[
+				"json",
+				"Set Syntax: JSON"
+			],
+			[
+				"php",
+				"phpfmt: toggle format on save"
+			],
+			[
+				"remove pac",
+				"Package Control: Remove Package"
+			],
+			[
+				"install pack",
+				"Package Control: Install Package"
+			],
+			[
+				"insta pack",
+				"Package Control: Install Package"
+			],
+			[
+				"remove pa",
+				"Package Control: Remove Package"
+			],
+			[
+				"remove p",
+				"Package Control: Remove Package"
+			],
+			[
+				"pack insta",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"install pa",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"remove pack",
+				"Package Control: Remove Package"
+			],
+			[
+				"remove ",
+				"Package Control: Remove Package"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"pack remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"packa insta",
 				"Package Control: Install Package"
 			],
 			[
@@ -64,12 +144,32 @@
 				"Package Control: Remove Package"
 			],
 			[
-				"html5",
-				"Set Syntax: HTML5"
+				"htmlpre",
+				"HTMLPrettify"
 			],
 			[
-				"html",
-				"HTMLPrettify: Set Prettify Preferences"
+				"phpfmt: format",
+				"phpfmt: format now"
+			],
+			[
+				"packa install",
+				"Package Control: Install Package"
+			],
+			[
+				"packa instal",
+				"Package Control: Install Package"
+			],
+			[
+				"packa remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"pack install",
+				"Package Control: Install Package"
+			],
+			[
+				"html5",
+				"Set Syntax: HTML5"
 			],
 			[
 				"package in",
@@ -78,13 +178,9 @@
 			[
 				"plain",
 				"Set Syntax: Plain Text"
-			],
-			[
-				"json",
-				"Set Syntax: JSON"
 			]
 		],
-		"width": 575.0
+		"width": 539.0
 	},
 	"console":
 	{
@@ -108,6 +204,12 @@
 	},
 	"file_history":
 	[
+		"/home/trivigy/Desktop/koi2104.hw1.tex",
+		"/home/trivigy/Google/Repositories/findmine/www/marklet/css/custom.css",
+		"/home/trivigy/Google/Repositories/ccsps/css/reset.css",
+		"/home/trivigy/Google/Repositories/ccsps/.jsbeautifyrc",
+		"/home/trivigy/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/HTMLPrettify.sublime-settings",
+		"/home/trivigy/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/.jsbeautifyrc",
 		"/home/trivigy/Google/Repositories/ccsps/events/ljkdsc6o3n.evn",
 		"/home/trivigy/Google/University/Columbia/03.Fall.2014/COMSW3157/code/nc.piping.example.sh",
 		"/home/trivigy/Google/Repositories/ccsps/events/xab",
@@ -115,11 +217,9 @@
 		"/home/trivigy/Google/Repositories/ccsps/events/first event.json",
 		"/home/trivigy/Google/Repositories/findmine/.config/server.cfg",
 		"/home/trivigy/Google/Repositories/ccsps/index.html",
-		"/home/trivigy/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/.jsbeautifyrc",
 		"/home/trivigy/Google/Repositories/ccsps/index.php",
 		"/home/trivigy/Google/Repositories/ccsps/css/custom.css",
 		"/home/trivigy/Google/Repositories/ccsps/README.md",
-		"/home/trivigy/Google/Repositories/ccsps/css/reset.css",
 		"/home/trivigy/Google/Repositories/ccsps/.project",
 		"/home/trivigy/Google/Repositories/findmine/data/image.json",
 		"/home/trivigy/Mishki Inc./Development/RESTful_API.txt",
@@ -206,6 +306,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"<!",
 			"Message",
 			">\n",
 			"`",
@@ -293,6 +394,10 @@
 		]
 	},
 	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 112.0
+	},
 	"output.find_results":
 	{
 		"height": 0.0

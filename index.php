@@ -97,14 +97,14 @@
         <div class="row" id="about-wrap">
             <div id="about-overlay">
                 <div class="col-xs-12" id="about-title">
-                    <h1>ABOUT US</h1>
+                    <h1>ABOUT</h1>
                 </div>
                 <div class="col-xs-12" id="about-container">
                     <div class="col-xs-12 col-sm-4" id="about-short">
-                        <h3>Nullam mattis finibus ornare. Aliquam commodo iaculis quamibus aliqattis finibus ornare. Aliquam commodo iaculis quamibu. Ut accumsan placerat lacinia.</h3>
+                        <h3>The Columbia Computer Science Preprofessional Society works to bring a broad range of career-related programming to Columbia students.</h3>
                     </div>
                     <div class="col-xs-12 col-sm-8" id="about-long">
-                        <p>Donec dolor erat, condimentum euismod feugiat at, fringilla eget magna. Fusce ut orci turpis. Fusce malesuada tortor elit, sed imperdiet lorem vulputate et. Nullam vel diam vitae lacus dapibus hendrerit. Nullam auctor felis lectus, ut scelerisque ex aliquet sit amet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque sem eros, sodales eu odio et, dignissim tempor felis. Pellentesque aliquet sapien eros, at vulputate felis posuere in. Fusce vel tellus nec velit tempus blandit vitae non neque. Etiam lobortis fringilla placerat. Vestibulum eu nisl interdum, feugiat est at, tincidunt diam. Phasellus turpis erat, molestie in posuere sit amet, rutrum in dolor. Phasellus sollicitudin, leo vel lacinia finibus, ligula enim commodo ex, quis consectetur ipsum orci sit amet nulla. Donec congue enim sem, id tempor odio mattis sit amet. Vivamus placerat sapien non ornare maximus. Donec eros velit, aliquam id nisl in, tincidunt efficitur arcu.</p>
+                        <p>The Columbia Computer Science Preprofessional Society works to bring a broad range of career-related programming to Columbia students. We want to make it easier for students to get introduced to and explore the different CS-related career trajectories available to them, across several disciplines and roles. Ultimately, we want to be a go-to resource for CS students, whether they're interested in core tech jobs or in interdisciplinary academia.</p>
                     </div>
                 </div>
                 <div class="col-xs-12" id="about-btn-wrap">
@@ -115,23 +115,23 @@
         <div class="row" id="contact-wrap">
             <div id="contact-overlay">
                 <div class="col-xs-12" id="contact-title">
-                    <h1>CONTACT US</h1>
+                    <h1>CONTACT</h1>
                 </div>
-                <div class="contact-form-wrap col-xs-12">
+                <div class="col-xs-12" id="contact-form-wrap">
                     <form role="form">
                         <div class="col-xs-12" id="contact-form-fields">
-                            <div class="form-group col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 col-lg-offset-4 col-lg-4">
+                            <div class="form-group col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
                                 <input type="textarea" class="form-control" id="name" placeholder="Full Name">
                             </div>
-                            <div class="form-group col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 col-lg-offset-4 col-lg-4">
+                            <div class="form-group col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
                                 <input type="email" class="form-control" id="email" placeholder="Email Address">
                             </div>
-                            <div class="form-group col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 col-lg-offset-4 col-lg-4">
-                                <textarea class="form-control" rows="6" id="message" placeholder="Enter Message"></textarea>
+                            <div class="form-group col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
+                                <textarea class="form-control" rows="8" id="message" placeholder="Enter Message"></textarea>
                             </div>
                         </div>
                         <div id="contact-btn-wrap">
-                            <button type="submit" class="btn btn-default" id="contact-btn">Submit</button>
+                            <button type="button" class="btn btn-default" id="contact-btn">Submit</button>
                         </div>
                     </form>
                 </div>

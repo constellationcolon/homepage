@@ -5,7 +5,47 @@
 		[
 			[
 				"fo",
+				"font-weight"
+			],
+			[
+				"mar",
+				"margin-bottom"
+			],
+			[
+				"pad",
+				"padding-bottom"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"margi",
+				"margin-bottom"
+			],
+			[
+				"fon",
 				"font-size"
+			],
+			[
+				"rg",
+				"rgba()"
+			],
+			[
+				"styl",
+				"style	Attr"
+			],
+			[
+				"ma",
+				"margin"
+			],
+			[
+				"scri",
+				"script	Tag"
+			],
+			[
+				"scr",
+				"script	Tag"
 			],
 			[
 				"background",
@@ -204,6 +244,8 @@
 	},
 	"file_history":
 	[
+		"/home/trivigy/Google/Repositories/ccsps/example1.html",
+		"/home/trivigy/.cache/.fr-3tQwCk/css-ellipses/08-complete.html",
 		"/home/trivigy/Desktop/koi2104.hw1.tex",
 		"/home/trivigy/Google/Repositories/findmine/www/marklet/css/custom.css",
 		"/home/trivigy/Google/Repositories/ccsps/css/reset.css",
@@ -306,6 +348,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"}\n",
 			"<!",
 			"Message",
 			">\n",

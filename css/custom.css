@@ -16,13 +16,8 @@ h1, h2, h3, h4, h5, h6 {
 * {
     outline: none;
 }
-a {
-    color: rgba(255, 255, 255, 0.65);
-    text-decoration: none;
-    -webkit-transition: color 0.25s linear;
-}
-a:hover {
-    color: rgb(255, 255, 255);
+textarea {
+    resize: none
 }
 .gray {
     background-color: #D7D3D0;
@@ -45,10 +40,17 @@ a:hover {
 .brown {
     background-color: #44281A;
 }
-/*.btn:focus, .btn:active:focus, .btn.active:focus {
-    
-}*/
-
+a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    -webkit-transition: color 0.25s linear;
+}
+a:hover {
+    color: rgb(255, 255, 255);
+}
+a:focus {
+    color: rgb(255, 255, 255);
+}
 .btn, .btn:hover, .btn:focus, .btn:active, .btn:active:focus {
     color: #FFF;
     outline: 0 none;
@@ -67,6 +69,8 @@ a:hover {
 #billboard-wrap {
     height: 100%;
     background: url('../assets/billboard.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 #billboard-overlay {
     height: 100%;
@@ -76,6 +80,17 @@ a:hover {
     position: relative;
     background-color: transparent;
     border: none;
+    border-radius: 0px;
+}
+.nav {
+    color: #D7D3D0;
+    font-weight: bold;
+    font-size: 18px;
+}
+.navbar-brand {
+    color: #A8CEE2;
+    font-weight: bold;
+    font-size: 18px;
 }
 #container {
     height: 100%;
@@ -162,11 +177,10 @@ a:hover {
     padding: 0px 10px;
 }
 #about-title {
-    opacity: 1;
     margin: 60px 0px;
 }
 #about-title > h1 {
-    color: #000;
+    color: #44281A;
     text-align: center;
     font-size: 5em;
 }
@@ -224,7 +238,7 @@ a:hover {
     margin: 60px 0px;
 }
 #contact-title > h1 {
-    color: #000;
+    color: #44281A;
     text-align: center;
     font-size: 5em;
 }

@@ -18,7 +18,7 @@
 
 <body>
     <div class="container-fluid" id="container">
-        <div class="row" id="billboard-wrap">
+        <div class="row " id="billboard-wrap">
             <div id="billboard-overlay">
                 <nav class="navbar navbar-default" role="navigation">
                     <!-- Brand and toggle get grouped for better mobile display -->
@@ -33,15 +33,15 @@
                     </div>
                     <div class="collapse navbar-collapse" id="collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#">Events</a>
+                            <li><a href="#events-wrap">EVENTS</a>
                             </li>
-                            <li><a href="#">Resources</a>
+                            <li><a href="#about-wrap">ABOUT US</a>
                             </li>
-                            <li><a href="#">Gallery</a>
+                            <li><a href="#">RESOURCES</a>
                             </li>
-                            <li><a href="#">About</a>
+                            <li><a href="#">GALLERY</a>
                             </li>
-                            <li><a href="#">Contact</a>
+                            <li><a href="#contact-wrap">CONTACT</a>
                             </li>
                         </ul>
                     </div>
@@ -149,6 +149,18 @@
                 clamp: 'auto'
             });
         }
+        $('a[href*=#]:not([href=#])').click(function() {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
     </script>
 </body>
 

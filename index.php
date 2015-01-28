@@ -113,33 +113,24 @@
             </div>
         </div>
         <div class="row" id="contact-wrap">
-            <div class="col-xs-12" id="contact-title">
-                <h1>CONTACT US</h1>
-            </div>
-            <div class="container col-xs-10 col-sm-10 col-md-8 col-lg-8">
-                <div class="row">
+            <div id="contact-overlay">
+                <div class="col-xs-12" id="contact-title">
+                    <h1>CONTACT US</h1>
+                </div>
+                <div class="contact-form-wrap col-xs-12">
                     <form role="form">
-                        <div class="row">
-                            <div class="form-group col-xs-12">
+                        <div class="col-xs-12" id="contact-form-fields">
+                            <div class="form-group col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 col-lg-offset-4 col-lg-4">
                                 <input type="textarea" class="form-control" id="name" placeholder="Full Name">
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-xs-12">
+                            <div class="form-group col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 col-lg-offset-4 col-lg-4">
                                 <input type="email" class="form-control" id="email" placeholder="Email Address">
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-xs-12">
-                                <input type="password" class="form-control" id="password" placeholder="Password">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-xs-12">
+                            <div class="form-group col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 col-lg-offset-4 col-lg-4">
                                 <textarea class="form-control" rows="6" id="message" placeholder="Enter Message"></textarea>
                             </div>
                         </div>
-                        <div class="row" id="contact-btn-wrap">
+                        <div id="contact-btn-wrap">
                             <button type="submit" class="btn btn-default" id="contact-btn">Submit</button>
                         </div>
                     </form>

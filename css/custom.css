@@ -203,10 +203,21 @@ a:hover {
     font-size: 2em;
     font-weight: bold;
     height: 60px;
+    width: 160px;
     margin: 0px auto;
 }
 .pull-right-xs {
     float: right;
+}
+#contact-wrap {
+    background-color: #FFF;
+}
+#contact-overlay {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 0px 10px;
 }
 #contact-title {
     opacity: 1;
@@ -217,11 +228,14 @@ a:hover {
     text-align: center;
     font-size: 5em;
 }
+#contact-form-fields {
+    margin-bottom: 180px;
+}
 #contact-btn-wrap {
     position: absolute;
     width: 100%;
     left: 0px;
-    bottom: 20px;
+    bottom: 60px;
 }
 #contact-btn {
     position: relative;
@@ -229,6 +243,7 @@ a:hover {
     font-size: 2em;
     font-weight: bold;
     height: 60px;
+    width: 160px;
     margin: 0px auto;
 }
 @media (min-width: 768px) {

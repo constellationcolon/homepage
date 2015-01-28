@@ -31,10 +31,13 @@ a:hover {
     background-color: #7A787D;
 }
 .pale_blue {
-    background-color: #D7FFFD;
+    background-color: #C4D8E2;
 }
 .light_blue {
-    background-color: #ADE8E5;
+    background-color: #A8CEE2;
+}
+.dark_blue {
+    background-color: #75AADB;
 }
 .orange {
     background-color: #E98B33;
@@ -67,7 +70,7 @@ a:hover {
 }
 #billboard-overlay {
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.5);
 }
 .navbar {
     position: relative;
@@ -77,7 +80,7 @@ a:hover {
 #container {
     height: 100%;
 }
-#events {
+#events-wrap {
     background-color: #fff;
 }
 #events-title {
@@ -150,22 +153,90 @@ a:hover {
     bottom: 5px;
 }
 #about-wrap {
-    height: 400px;
 }
 #about-overlay {
+    position: relative;
+    overflow: hidden;
     height: 100%;
-    background-color: #ADE8E5;
-    opacity: 0.5;
+    background-color: rgba(196, 216, 226, 1);
+    padding: 0px 10px;
+}
+#about-title {
+    opacity: 1;
+    margin: 60px 0px;
+}
+#about-title > h1 {
+    color: #000;
+    text-align: center;
+    font-size: 5em;
+}
+#about-short {
+    margin-bottom: 20px;
+}
+#about-container {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 100px;
+    max-height: 1000px;
+}
+#about-short > h3 {
+    font-family: 'Lobster', cursive;
+    text-align: center;
+    margin: 0px;
+    color: #E98B33;
+    font-size: 3em;
+}
+#about-long > p {
+    text-align: center;
+    font-size: 2em;
+    color: #FFF;
+}
+#about-btn-wrap {
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    bottom: 20px;
+}
+#about-btn {
+    position: relative;
+    display: block;
+    font-size: 2em;
+    font-weight: bold;
+    height: 60px;
+    margin: 0px auto;
 }
 .pull-right-xs {
     float: right;
+}
+#contact-title {
+    opacity: 1;
+    margin: 60px 0px;
+}
+#contact-title > h1 {
+    color: #000;
+    text-align: center;
+    font-size: 5em;
+}
+#contact-btn-wrap {
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    bottom: 20px;
+}
+#contact-btn {
+    position: relative;
+    display: block;
+    font-size: 2em;
+    font-weight: bold;
+    height: 60px;
+    margin: 0px auto;
 }
 @media (min-width: 768px) {
     .pull-right-sm {
         float: right;
     }
     .event-description > p {
-        height: 600px;
+        height: 200px;
     }
 }
 @media (min-width: 992px) {
@@ -175,8 +246,6 @@ a:hover {
     .events-container {
         padding: 0px;
     }
-    .event-description > p {
-    }
 }
 @media (min-width: 1200px) {
     .pull-right-lg {
@@ -185,5 +254,4 @@ a:hover {
     .events-container {
         padding: 0px;
     }
-    .event-description > p {}
 }

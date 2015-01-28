@@ -48,7 +48,7 @@
                 </nav>
             </div>
         </div>
-        <div class="row" id="events">
+        <div class="row" id="events-wrap">
             <div class="col-xs-12" id="events-title">
                 <h1>EVENTS</h1>
             </div>
@@ -96,28 +96,27 @@
         </div>
         <div class="row" id="about-wrap">
             <div id="about-overlay">
-                <div class=""></div>
-                <div class=""></div>
-                <div class=""></div>
-                <div class=""></div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-1 col-sm-1 col-md-2 col-lg-2"></div>
-            <div class="container col-xs-10 col-sm-10 col-md-8 col-lg-8">
-                <div class="row">
+                <div class="col-xs-12" id="about-title">
+                    <h1>ABOUT US</h1>
                 </div>
-                <div class="row">
-                </div>
-                <div class="row">
-                </div>
-                <div class="row">
-                </div>
-                <div class="row">
-                    <div class="hidden-xs col-sm-6">
-                        <h2>About Us</h2>
+                <div class="col-xs-12" id="about-container">
+                    <div class="col-xs-12 col-sm-4" id="about-short">
+                        <h3>Nullam mattis finibus ornare. Aliquam commodo iaculis quamibus aliqattis finibus ornare. Aliquam commodo iaculis quamibu. Ut accumsan placerat lacinia.</h3>
+                    </div>
+                    <div class="col-xs-12 col-sm-8" id="about-long">
+                        <p>Donec dolor erat, condimentum euismod feugiat at, fringilla eget magna. Fusce ut orci turpis. Fusce malesuada tortor elit, sed imperdiet lorem vulputate et. Nullam vel diam vitae lacus dapibus hendrerit. Nullam auctor felis lectus, ut scelerisque ex aliquet sit amet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque sem eros, sodales eu odio et, dignissim tempor felis. Pellentesque aliquet sapien eros, at vulputate felis posuere in. Fusce vel tellus nec velit tempus blandit vitae non neque. Etiam lobortis fringilla placerat. Vestibulum eu nisl interdum, feugiat est at, tincidunt diam. Phasellus turpis erat, molestie in posuere sit amet, rutrum in dolor. Phasellus sollicitudin, leo vel lacinia finibus, ligula enim commodo ex, quis consectetur ipsum orci sit amet nulla. Donec congue enim sem, id tempor odio mattis sit amet. Vivamus placerat sapien non ornare maximus. Donec eros velit, aliquam id nisl in, tincidunt efficitur arcu.</p>
                     </div>
                 </div>
+                <div class="col-xs-12" id="about-btn-wrap">
+                    <button type="button" class="btn btn-default" id="about-btn">Directory</button>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="contact-wrap">
+            <div class="col-xs-12" id="contact-title">
+                <h1>CONTACT US</h1>
+            </div>
+            <div class="container col-xs-10 col-sm-10 col-md-8 col-lg-8">
                 <div class="row">
                     <form role="form">
                         <div class="row">
@@ -140,16 +139,13 @@
                                 <textarea class="form-control" rows="6" id="message" placeholder="Enter Message"></textarea>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="form-group col-xs-12">
-                                <button type="submit" class="btn btn-default pull-right">Submit</button>
-                            </div>
+                        <div class="row" id="contact-btn-wrap">
+                            <button type="submit" class="btn btn-default" id="contact-btn">Submit</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-        <div class="col-xs-1 col-sm-1 col-md-2 col-lg-2"></div>
     </div>
     <!-- javascript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

@@ -1,3 +1,8 @@
 {
-    "datetime": "2015-01-1 13:29:53"
+    "start_datetime": "2015-01-31 12:00:00",
+    "end_datetime": "2015-02-7 17:00:00",
+    "name": "Devfest",
+    "location": "Various Locations, See Schedule on devfe.st!",
+    "description": "Build something amazing. Build something unexpected. Build something musical. Build something crazy. Build something sciencey. Build something for Columbia. Build something at DevFest.<br/><br/>Registration & more information at http://devfe.st/<br/><br/>DevFest is a week-long series of technical workshops held by ADI culminating in a 24-hour hackathon. DevFest focuses on fostering community, and helping new developers end the week with a completed project. If youre new to programming, there will be special sessions filled with TAs to guide you to your first completed projects!<br/><br/>The schedule (http://devfe.st/#schedule) for the entire week is subject to change. Check this event, the DevFest website, email updates, and tweets for changes.<br/><br/>If you have any questions, the FAQs are available at http://devfe.st/#faq.Otherwise, you can get in touch with us via email (devfest@adicu.com), Facebook (/adicu), or Twitter(@adicu).",
+    "external_link": "https://www.facebook.com/events/779857615439938/?ref_dashboard_filter=upcoming"
 }

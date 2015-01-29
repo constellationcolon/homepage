@@ -1,3 +1,15 @@
+<?php
+    $events=array();
+    $cmd = "./sort.py events -d";
+    exec(escapeshellcmd($cmd), $output, $status);
+    if ($status) {
+        echo "exec command failed";
+    } else {
+        foreach($output as $line) {
+            array_push($events, json_decode($line));
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,40 +67,43 @@
             <div class="events-container col-xs-12 col-sm-12 col-md-offset-1 col-md-10">
                 <div class="event-wrap col-xs-12 col-sm-4">
                     <div class="event-date">
-                        <div class="event-date-month">FEB</div>
-                        <div class="event-date-day">12</div>
+                        <?php $date = date_create($events[2]->start_datetime) ?>
+                        <div class="event-date-month"><?php echo strtoupper($date->format('M')) ?></div>
+                        <div class="event-date-day"><?php echo $date->format('j') ?></div>
                     </div>
                     <div class="event-name">
-                        <h3>Catching Up With Github</h3>
+                        <h3><?php echo $events[2]->name ?></h3>
                     </div>
                     <div class="event-description">
-                        <p id="blue">Aliquam sit amet accumsan nisi, ut facilisis neque. Vivamus in rhoncus elit. Vestibulum ornare dignissim semper. Proin tempus enim Vestibulum leo risus,ae,quis posuere est. uere est. Vestibulum leo risus, fringilla sit amet mauris vitae, Vestibulum leo risus, fringilla sit amet mauris vitae, viverra vehicula nulla. Aliquam hendrerit odio ex, id ultricies metus ornare non. Sed placerat condiment fringilla sit amet mauris vitae,quis posuere est. uere est. Vestibulum leo risus, fringilla sit amet mauris vitae, Vestibulum leo risus, fringilla sit amet mauris vitae, vivet quam blandit, vel faucibus dolor iaculis. Sed sit amet semper.</p>
+                        <p><?php echo $events[2]->description ?></p>
                     </div>
                     <button type="button" class="event-btn btn btn-default col-xs-12 col-sm-12 col-md-12 col-lg-12">More</button>
                 </div>
                 <div class="event-wrap col-xs-12 col-sm-4">
                     <div class="event-date">
-                        <div class="event-date-month">FEB</div>
-                        <div class="event-date-day">5</div>
+                        <?php $date = date_create($events[1]->start_datetime) ?>
+                        <div class="event-date-month"><?php echo strtoupper($date->format('M')) ?></div>
+                        <div class="event-date-day"><?php echo $date->format('j') ?></div>
                     </div>
                     <div class="event-name">
-                        <h3>Startup Career Fair</h3>
+                        <h3><?php echo $events[1]->name ?></h3>
                     </div>
                     <div class="event-description">
-                        <p>Sed uere est. Vestibulum leo risus, fringilla sit amet mauris vitae,quis posuereae,quis posuere est. uere est. Vestibulum leo risus, fringilla laoreet.</p>
+                        <p><?php echo $events[1]->description ?></p>
                     </div>
                     <button type="button" class="event-btn btn btn-default col-xs-12 col-sm-12 col-md-12 col-lg-12">More</button>
                 </div>
                 <div class="event-wrap hidden-xs col-xs-12 col-sm-4">
                     <div class="event-date">
-                        <div class="event-date-month">JAN</div>
-                        <div class="event-date-day">28</div>
+                        <?php $date = date_create($events[0]->start_datetime) ?>
+                        <div class="event-date-month"><?php echo strtoupper($date->format('M')) ?></div>
+                        <div class="event-date-day"><?php echo $date->format('j') ?></div>
                     </div>
                     <div class="event-name">
-                        <h3>Blackhat Hacking</h3>
+                        <h3><?php echo $events[0]->name ?></h3>
                     </div>
                     <div class="event-description">
-                        <p>Vivamus eros ex, commodo vitae turpis nec, eleifend iaculis augue. Fusce malesuada ipsum eget torae,quis posuere est. uere est. Vestibulum leo risus, fringilla sit amet mauris vitae, Vestibulum leo risus, fringilla sit amet mauris vitae, viverra vehicula nulla. Aliquam hendrerit odio ex, id ultricies metus ornare non. Sed placerat condimenttor condimentum tincidunt. Ut vel ligula et lectus gravida pulvinar sit amet sit amet leo.Vestibulum leo risus, fringilla sit amet mauris vitae,quis posuere est. uere est. Vestibulum leo risus, fringilla sit amet mauris vitae, Vestibulum leo risus, fringilla sit amet mauris vitae, viv Integer.</p>
+                        <p><?php echo $events[0]->description ?></p>
                     </div>
                     <button type="button" class="event-btn btn btn-default col-xs-12 col-sm-12 col-md-12 col-lg-12">More</button>
                 </div>

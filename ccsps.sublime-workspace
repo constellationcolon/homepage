@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"back",
+				"background-color"
+			],
+			[
+				"backg",
+				"background-position"
+			],
+			[
 				"fo",
 				"font-weight"
 			],
@@ -109,7 +117,23 @@
 		[
 			[
 				"html",
-				"HTMLPrettify"
+				"HTMLPrettify: Set Prettify Preferences"
+			],
+			[
+				"special",
+				"HTML: Encode Special Characters"
+			],
+			[
+				"php",
+				"Set Syntax: PHP"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
 			],
 			[
 				"htlm",
@@ -118,10 +142,6 @@
 			[
 				"json",
 				"Set Syntax: JSON"
-			],
-			[
-				"php",
-				"phpfmt: toggle format on save"
 			],
 			[
 				"remove pac",
@@ -148,16 +168,8 @@
 				"Package Control: Install Package"
 			],
 			[
-				"install",
-				"Package Control: Install Package"
-			],
-			[
 				"install pa",
 				"Package Control: Install Package"
-			],
-			[
-				"remove",
-				"Package Control: Remove Package"
 			],
 			[
 				"remove pack",
@@ -220,7 +232,7 @@
 				"Set Syntax: Plain Text"
 			]
 		],
-		"width": 539.0
+		"width": 575.0
 	},
 	"console":
 	{
@@ -244,14 +256,45 @@
 	},
 	"file_history":
 	[
+		"/home/trivigy/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/trivigy/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/.jsbeautifyrc",
+		"/home/trivigy/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/HTMLPrettify.sublime-settings",
+		"/home/trivigy/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/trivigy/Google/Repositories/research/www/syscall.php",
+		"/home/trivigy/Google/Repositories/ccsps/sort.py",
+		"/home/trivigy/Google/Repositories/ccsps/events/35t0jivdhi.evnt",
+		"/home/trivigy/Google/Repositories/ccsps/events/b6cbigc0ju.evnt",
+		"/home/trivigy/Google/Repositories/ccsps/events/bf7mf3f5uq.evnt",
+		"/home/trivigy/.cache/.fr-qAj61Z/il2275_hw1.txt",
+		"/home/trivigy/.cache/.fr-SY5W8A/koi2104_hw1.txt",
+		"/home/trivigy/.cache/.fr-6YZ5MN/il2275_hw1.txt",
+		"/home/trivigy/Desktop/gm2597_hw1.txt",
+		"/home/trivigy/.cache/.fr-OLHQud/koi2104_hw1.txt",
+		"/home/trivigy/Google/DevSpace/python/PythonJunk/events.py",
+		"/home/trivigy/Google/Repositories/ccsps/events/bojncym6ez.evnt",
+		"/home/trivigy/Google/Repositories/ccsps/events/z7oaz9x7j0.evnt",
+		"/home/trivigy/Google/Repositories/ccsps/events/y3bwkjzxe7.evnt",
+		"/home/trivigy/Google/Repositories/ccsps/events/w8usye7f7t.evnt",
+		"/home/trivigy/Google/Repositories/ccsps/events/tqj5tm1krl.evnt",
+		"/home/trivigy/Google/Repositories/ccsps/events/t59od2z23g.evnt",
+		"/home/trivigy/Google/Repositories/ccsps/events/pw4ngcx8m8.evnt",
+		"/home/trivigy/Google/Repositories/ccsps/events/p6srjd66ht.evnt",
+		"/home/trivigy/Google/Repositories/ccsps/events/oxjt0t3q2e.evnt",
+		"/home/trivigy/Google/Repositories/ccsps/events/gsdrlno65k.evnt",
+		"/home/trivigy/Google/Repositories/ccsps/events/fq0y1psttt.evnt",
+		"/home/trivigy/Google/Repositories/ccsps/events/fawbo0xhwy.evnt",
+		"/home/trivigy/Google/Repositories/ccsps/events/asdf.blue",
+		"/home/trivigy/Google/Repositories/ccsps/events.php",
+		"/home/trivigy/Google/Repositories/ccsps/events/sort.py",
+		"/home/trivigy/Google/Repositories/ccsps/events/8wsfo7xfxt.evnt",
+		"/home/trivigy/Google/Repositories/ccsps/members.php",
+		"/home/trivigy/Google/Repositories/findmine/www/marklet/css/custom.css",
+		"/home/trivigy/Google/DevSpace/python/TTS/tts",
 		"/home/trivigy/Google/Repositories/ccsps/example1.html",
 		"/home/trivigy/.cache/.fr-3tQwCk/css-ellipses/08-complete.html",
 		"/home/trivigy/Desktop/koi2104.hw1.tex",
-		"/home/trivigy/Google/Repositories/findmine/www/marklet/css/custom.css",
 		"/home/trivigy/Google/Repositories/ccsps/css/reset.css",
 		"/home/trivigy/Google/Repositories/ccsps/.jsbeautifyrc",
-		"/home/trivigy/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/HTMLPrettify.sublime-settings",
-		"/home/trivigy/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/.jsbeautifyrc",
 		"/home/trivigy/Google/Repositories/ccsps/events/ljkdsc6o3n.evn",
 		"/home/trivigy/Google/University/Columbia/03.Fall.2014/COMSW3157/code/nc.piping.example.sh",
 		"/home/trivigy/Google/Repositories/ccsps/events/xab",
@@ -296,8 +339,6 @@
 		"/home/trivigy/Google/DevSpace/python/dotbs/result.txt",
 		"/home/trivigy/Google/DevSpace/python/dotbs/dotbs/gender.txt",
 		"/home/trivigy/Google/Repositories/findmine/gender.txt",
-		"/home/trivigy/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
-		"/home/trivigy/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 		"/home/trivigy/Google/DevSpace/python/dotbs/dotbs/models.py",
 		"/home/trivigy/Google/Repositories/findmine/result01.txt",
 		"/home/trivigy/Google/Repositories/findmine/result07.txt",
@@ -348,6 +389,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"characters",
+			"\\t",
+			"\\r",
+			"print",
 			"}\n",
 			"<!",
 			"Message",

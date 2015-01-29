@@ -44,6 +44,10 @@ a {
     color: rgb(255, 255, 255);
     text-decoration: none;
     -webkit-transition: color 0.25s linear;
+    -moz-transition: color 0.25s linear;
+    -ms-transition: color 0.25s linear;
+    -o-transition: color 0.25s linear;
+    transition: color 0.25s linear;
 }
 a:hover {
     color: rgb(255, 255, 255);
@@ -77,20 +81,18 @@ a:focus {
     background-color: rgba(255, 255, 255, 0.5);
 }
 .navbar {
-    position: relative;
     background-color: transparent;
     border: none;
     border-radius: 0px;
+    -webkit-transition: all 0.25s linear;
+    -moz-transition: all 0.25s linear;
+    -ms-transition: all 0.25s linear;
+    -o-transition: all 0.25s linear;
+    transition: all 0.25s linear;
 }
-.nav > li > a {
-    color: #000 !important;
-    font-weight: bold !important;
-    font-size: 18px !important;
-}
-.navbar-brand {
-    color: #000 !important;
-    font-weight: bold !important;
-    font-size: 18px !important;
+.navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand {
+    color: #44281A;
+    font-size: 18px;
 }
 #container {
     height: 100%;
@@ -114,6 +116,7 @@ a:focus {
 }
 .event-date {
     /*background-color: #D7D3D0;*/
+    
     background-color: #A8CEE2;
     color: #FFF;
     border-radius: 50%;

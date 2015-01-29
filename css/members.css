@@ -1,0 +1,12 @@
+@charset "utf-8";
+.navbar {
+    background-color: rgba(68, 40, 26, 0.6);
+    border: none;
+    border-radius: 0px;
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.6);
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.6);
+}
+#members-wrap {
+    background-color: #C4D8E2;
+    height: 100%;
+}

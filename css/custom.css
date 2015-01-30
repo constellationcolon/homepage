@@ -19,6 +19,9 @@ h1, h2, h3, h4, h5, h6 {
 textarea {
     resize: none
 }
+i[class^="icon-"]:before, i[class*=" icon-"]:before {
+    margin: 0;
+}
 .gray {
     background-color: #D7D3D0;
 }

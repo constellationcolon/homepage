@@ -3,14 +3,7 @@ body {
     background-color: #C4D8E2;
 }
 .navbar {
-    background-color: transparent;
-    border: none;
-    border-radius: 0px;
-    -webkit-transition: all 0.25s linear;
-    -moz-transition: all 0.25s linear;
-    -ms-transition: all 0.25s linear;
-    -o-transition: all 0.25s linear;
-    transition: all 0.25s linear;
+    background-color: rgba(68, 40, 26, 0.7);
 }
 #container {
     height: auto;
@@ -18,6 +11,7 @@ body {
 #event-container {
     background-color: transparent;
     margin-top: 50px;
+    padding-top: 30px;
     height: 100%;
 }
 .navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand {
@@ -25,10 +19,10 @@ body {
     font-size: 18px;
 }
 #event-wrap {
-	padding: 0px;
+    padding: 0px;
 }
 #event-details {
-	margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 #event-details > div {
     padding: 0px;
@@ -36,7 +30,7 @@ body {
 #event-name {
     text-align: center;
     height: auto;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 #event-name > h3 {
     font-family: 'Lobster', cursive;
@@ -50,61 +44,69 @@ body {
 }
 #event-description > p {
     color: #7A787D;
-    height: 100%;
     font-size: 1.5em;
     text-align: center;
     max-height: none;
 }
 #event-date {
-	text-align: center;
+    text-align: center;
 }
 #event-date > h5 > i, #event-time > h5 > i, #event-location > h5 > i {
     color: #75AADB;
-    font-size: 1em;
-    margin-right: 10px;
 }
 #event-date > h5 {
+	padding-left: 1em;
+	text-indent: -1em;
     display: inline-block;
     margin: 0px;
     font-size: 1.5em;
     color: #7A787D;
 }
 #event-time {
-	text-align: center;
+    text-align: center;
 }
 #event-time > h5 {
+	padding-left: 1em;
+	text-indent: -1em;
     display: inline-block;
     margin: 0px;
     font-size: 1.5em;
     color: #7A787D;
 }
 #event-location {
-	text-align: center;
+    text-align: center;
 }
 #event-location > h5 {
+	padding-left: 1em;
+	text-indent: -1em;
     display: inline-block;
     margin: 0px;
     font-size: 1.5em;
     color: #7A787D;
 }
 #event-links {
-	text-align: center;
-}
-.event-links {
-	padding: 0px 10px;
+    text-align: center;
 }
 #event-links i {
-	color: #75AADB;
-	font-size: 3em;
+    color: #E98B33;
+    font-size: 3em;
+}
+#event-links i:hover {
+    color: #EDA25B;
+}
+#event-speakers-wrap {
+    text-align: center;
+    margin-bottom: 30px
 }
 #event-speakers {
-	padding: 0px 15px;
-	margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
 }
 .profile {
+    display: inline-block;
     text-align: center;
     color: #7A787D;
-    padding: 0px;
+    padding: 0px 10px;
 }
 .profile-name {
     font-weight: bold;
@@ -123,7 +125,6 @@ body {
     -webkit-border-radius: 50%;
 }
 .profile-glass {
-    background-image: url("../images/profiles/costa.jpg");
     background-size: 100%;
     width: 96%;
     height: 96%;
@@ -141,8 +142,8 @@ body {
     padding: 0px;
     margin-bottom: 10px;
 }
-#register-form-wrap {
-	margin-bottom: 30px;
+#register-form {
+    margin-bottom: 30px;
 }
 #register-btn {
     font-size: 2em;
@@ -152,9 +153,31 @@ body {
     #event-name {
         text-align: left;
     }
+    #event-speakers-wrap {
+    }
     #event-description > p {
         text-align: left;
         height: auto;
+    }
+    #event-details-split > div {
+        padding: 0px;
+        margin-bottom: 10px;
+    }
+    #event-date {
+        text-align: left;
+        text-indent: 1em;
+    }
+    #event-time {
+        text-align: left;
+        text-indent: 1em;
+    }
+    #event-location {
+        text-align: left;
+        text-indent: 1em;
+        margin-bottom: 0px !important;
+    }
+    #event-links {
+        text-align: left;
     }
 }
 @media (min-width: 992px) {
@@ -167,13 +190,61 @@ body {
         text-align: left;
     }
 }
+@media (max-width: 768px) and (orientation: portrait) {
+    .event-name {
+        text-align: left;
+    }
+    #register-form {
+        position: relative;
+        display: inline-block;
+        text-align: center;
+    }
+    #register-form-wrap {
+        display: inline-block;
+        width: 50%;
+    }
+}
 @media all and (orientation: portrait) {
     .event-name {
         text-align: left;
     }
 }
-@media all and (orientation: landscape) {
+@media (max-width: 768px) and (orientation: landscape) {
     .event-name {
+        text-align: left;
+    }
+    #register-form {
+        position: relative;
+        display: inline-block;
+        text-align: center;
+    }
+    #register-form-wrap {
+        display: inline-block;
+        width: 50%;
+    }
+}
+@media (min-width: 768px) and (orientation: landscape) {
+    .event-name {
+        text-align: left;
+    }
+    .profile {
+        margin-bottom: 20px;
+    }
+    #event-details-split > div {
+        padding: 0px;
+        margin-bottom: 10px;
+    }
+    #event-date {
+        text-align: left;
+    }
+    #event-time {
+        text-align: left;
+    }
+    #event-location {
+        text-align: left;
+        margin-bottom: 5px !important;
+    }
+    #event-links {
         text-align: left;
     }
 }

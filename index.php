@@ -1,4 +1,15 @@
-<?php $events=array(); $cmd="./sort.py events -d" ; exec(escapeshellcmd($cmd), $output, $status); if ($status) { echo "exec command failed"; } else { foreach($output as $line) { array_push($events, json_decode($line)); } } ?>
+<?php 
+    $events=array();
+    $cmd="./sort.py events -d";
+    exec(escapeshellcmd($cmd), $output, $status);
+    if ($status) {
+        echo "exec command failed";
+    } else {
+        foreach($output as $line) {
+            array_push($events, json_decode($line));
+        }
+    } 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,7 +82,7 @@
                         <p>
                             <?php echo $events[2]->description ?></p>
                     </div>
-                    <button type="button" class="event-btn btn btn-default col-xs-12 col-sm-12 col-md-12 col-lg-12">More</button>
+                    <a href="<?php echo "events.php?call=" . $events[2]->filename ?>" target="_blank"><button type="button" class="event-btn btn btn-default col-xs-12 col-sm-12 col-md-12 col-lg-12">More</button></a>
                 </div>
                 <div class="event-wrap col-xs-12 col-sm-4">
                     <div class="event-date">
@@ -88,7 +99,7 @@
                         <p>
                             <?php echo $events[1]->description ?></p>
                     </div>
-                    <button type="button" class="event-btn btn btn-default col-xs-12 col-sm-12 col-md-12 col-lg-12">More</button>
+                    <a href="<?php echo "events.php?call=" . $events[1]->filename ?>" target="_blank"><button type="button" class="event-btn btn btn-default col-xs-12 col-sm-12 col-md-12 col-lg-12">More</button></a>
                 </div>
                 <div class="event-wrap hidden-xs col-xs-12 col-sm-4">
                     <div class="event-date">
@@ -105,7 +116,7 @@
                         <p>
                             <?php echo $events[0]->description ?></p>
                     </div>
-                    <button type="button" class="event-btn btn btn-default col-xs-12 col-sm-12 col-md-12 col-lg-12">More</button>
+                    <a href="<?php echo "events.php?call=" . $events[0]->filename ?>" target="_blank"><button type="button" class="event-btn btn btn-default col-xs-12 col-sm-12 col-md-12 col-lg-12">More</button></a>
                 </div>
             </div>
         </div>
@@ -178,7 +189,7 @@
         });
         $(window).scroll(function() {
             if ($(this).scrollTop() > 10) {
-                $('.navbar').css('background-color', 'rgba(68, 40, 26, 0.6)');
+                $('.navbar').css('background-color', 'rgba(68, 40, 26, 0.7)');
                 $('.navbar').css('-webkit-box-shadow', '0 1px 1px 0 rgba(0, 0, 0, 0.6)');
                 $('.navbar').css('box-shadow', '0 1px 1px 0 rgba(0, 0, 0, 0.6)');
                 $('.navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand').css('color', '#D7D3D0');

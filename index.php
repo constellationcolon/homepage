@@ -82,7 +82,7 @@
                         <p>
                             <?php echo $events[2]->description ?></p>
                     </div>
-                    <a href="<?php echo "events.php?call=" . $events[2]->filename ?>" target="_blank"><button type="button" class="event-btn btn btn-default col-xs-12 col-sm-12 col-md-12 col-lg-12">More</button></a>
+                    <a href="<?php echo "events.php?call=" . $events[2]->filename ?>" target="_self"><button type="button" class="event-btn btn btn-default col-xs-12 col-sm-12 col-md-12 col-lg-12">More</button></a>
                 </div>
                 <div class="event-wrap col-xs-12 col-sm-4">
                     <div class="event-date">
@@ -99,7 +99,7 @@
                         <p>
                             <?php echo $events[1]->description ?></p>
                     </div>
-                    <a href="<?php echo "events.php?call=" . $events[1]->filename ?>" target="_blank"><button type="button" class="event-btn btn btn-default col-xs-12 col-sm-12 col-md-12 col-lg-12">More</button></a>
+                    <a href="<?php echo "events.php?call=" . $events[1]->filename ?>" target="_self"><button type="button" class="event-btn btn btn-default col-xs-12 col-sm-12 col-md-12 col-lg-12">More</button></a>
                 </div>
                 <div class="event-wrap hidden-xs col-xs-12 col-sm-4">
                     <div class="event-date">
@@ -116,7 +116,7 @@
                         <p>
                             <?php echo $events[0]->description ?></p>
                     </div>
-                    <a href="<?php echo "events.php?call=" . $events[0]->filename ?>" target="_blank"><button type="button" class="event-btn btn btn-default col-xs-12 col-sm-12 col-md-12 col-lg-12">More</button></a>
+                    <a href="<?php echo "events.php?call=" . $events[0]->filename ?>" target="_self"><button type="button" class="event-btn btn btn-default col-xs-12 col-sm-12 col-md-12 col-lg-12">More</button></a>
                 </div>
             </div>
         </div>

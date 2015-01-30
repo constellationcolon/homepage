@@ -193,13 +193,54 @@
                 $('.navbar').css('-webkit-box-shadow', '0 1px 1px 0 rgba(0, 0, 0, 0.6)');
                 $('.navbar').css('box-shadow', '0 1px 1px 0 rgba(0, 0, 0, 0.6)');
                 $('.navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand').css('color', '#D7D3D0');
+                $('.navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand').hover(
+                    function() {
+                        $(this).css('color', '#44281A');
+                    },
+                    function() {
+                        $(this).css('color', '#D7D3D0');
+                    }
+                );
+
             } else {
                 $('.navbar').css('background-color', 'transparent');
                 $('.navbar').css('-webkit-box-shadow', 'none');
                 $('.navbar').css('box-shadow', 'none');
                 $('.navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand').css('color', '#44281A');
+                $('.navbar-default .navbar-nav>li>a').hover(
+                    function() {
+                        $(this).css('color', '#7A787D');
+                    },
+                    function() {
+                        $(this).css('color', '#44281A');
+                    }
+                );
+                $('.navbar-default .navbar-brand').hover(
+                    function() {
+                        $(this).css('color', '#D7D3D0');
+                    },
+                    function() {
+                        $(this).css('color', '#44281A');
+                    }
+                );
             }
         });
+        $('.navbar-default .navbar-nav>li>a').hover(
+            function() {
+                $(this).css('color', '#7A787D');
+            },
+            function() {
+                $(this).css('color', '#44281A');
+            }
+        );
+        $('.navbar-default .navbar-brand').hover(
+            function() {
+                $(this).css('color', '#D7D3D0');
+            },
+            function() {
+                $(this).css('color', '#44281A');
+            }
+        );
     </script>
 </body>
 

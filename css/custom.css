@@ -44,19 +44,12 @@ i[class^="icon-"]:before, i[class*=" icon-"]:before {
     background-color: #44281A;
 }
 a {
-    color: rgb(255, 255, 255);
     text-decoration: none;
     -webkit-transition: color 0.25s linear;
     -moz-transition: color 0.25s linear;
     -ms-transition: color 0.25s linear;
     -o-transition: color 0.25s linear;
     transition: color 0.25s linear;
-}
-a:hover {
-    color: rgb(255, 255, 255);
-}
-a:focus {
-    color: rgb(255, 255, 255);
 }
 .btn, .btn:hover, .btn:focus, .btn:active, .btn:active:focus {
     color: #FFF;
@@ -74,7 +67,7 @@ a:focus {
     background: #E98B33;
 }
 .btn:active {
-    background: #D7D3D0;
+    background: #7A787D;
 }
 #billboard-wrap {
     height: 100%;

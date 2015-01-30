@@ -49,9 +49,9 @@
                     </li>
                     <li><a href="index.php#about-wrap">ABOUT US</a>
                     </li>
-                    <li><a href="index.php#">RESOURCES</a>
+                    <li><a href="">RESOURCES</a>
                     </li>
-                    <li><a href="index.php#">GALLERY</a>
+                    <li><a href="">GALLERY</a>
                     </li>
                     <li><a href="index.php#contact-wrap">CONTACT</a>
                     </li>

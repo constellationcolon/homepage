@@ -18,6 +18,22 @@ body {
     color: #D7D3D0;
     font-size: 18px;
 }
+.navbar-default .navbar-nav>li>a:active, .navbar-default .navbar-brand:active {
+    color: #44281A;
+    font-size: 18px;
+}
+.navbar-default .navbar-nav>li>a:active:focus, .navbar-default .navbar-brand:active:focus {
+    color: #44281A;
+    font-size: 18px;
+}
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-brand:focus {
+    color: #D7D3D0;
+    font-size: 18px;
+}
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-brand:hover {
+    color: #44281A;
+    font-size: 18px;
+}
 #event-wrap {
     padding: 0px;
 }

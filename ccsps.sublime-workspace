@@ -4,6 +4,58 @@
 		"selected_items":
 		[
 			[
+				"var",
+				"var_dump"
+			],
+			[
+				"padd",
+				"padding-left"
+			],
+			[
+				"text",
+				"text-indent"
+			],
+			[
+				"padding",
+				"padding-left"
+			],
+			[
+				"mar",
+				"margin-right"
+			],
+			[
+				"margi",
+				"margin-bottom"
+			],
+			[
+				"marg",
+				"margin-bottom"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"inlin",
+				"inline-block"
+			],
+			[
+				"bor",
+				"border-radius"
+			],
+			[
+				"inl",
+				"inline-block"
+			],
+			[
+				"scr",
+				"src	Attr"
+			],
+			[
+				"fon",
+				"font-weight"
+			],
+			[
 				"back",
 				"background-color"
 			],
@@ -16,24 +68,12 @@
 				"font-weight"
 			],
 			[
-				"mar",
-				"margin-bottom"
-			],
-			[
 				"pad",
 				"padding-bottom"
 			],
 			[
 				"max",
 				"max-width"
-			],
-			[
-				"margi",
-				"margin-bottom"
-			],
-			[
-				"fon",
-				"font-size"
 			],
 			[
 				"rg",
@@ -52,10 +92,6 @@
 				"script	Tag"
 			],
 			[
-				"scr",
-				"script	Tag"
-			],
-			[
 				"background",
 				"background-color"
 			],
@@ -70,10 +106,6 @@
 			[
 				"escapeshell",
 				"escapeshellcmd"
-			],
-			[
-				"text",
-				"text-align"
 			],
 			[
 				"span",
@@ -256,15 +288,39 @@
 	},
 	"file_history":
 	[
+		"/home/konstantin/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/konstantin/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/trivigy/Google/Repositories/ccsps/events.php",
+		"/home/trivigy/Google/Repositories/ccsps/css/events.css",
+		"/home/trivigy/Google/Repositories/ccsps/profiles/konstantin_itskov.pro",
+		"/home/trivigy/Google/Repositories/ccsps/events/35t0jivdhi.evnt",
+		"/home/trivigy/Google/Repositories/ccsps/events/b6cbigc0ju.evnt",
+		"/home/trivigy/Google/Repositories/ccsps/events/bf7mf3f5uq.evnt",
+		"/home/trivigy/Google/Repositories/ccsps/errors/404.php",
+		"/home/trivigy/Google/Repositories/ccsps/errors/500.php",
+		"/home/trivigy/Google/Repositories/ccsps/css/fontello.css",
+		"/home/trivigy/Google/Repositories/ccsps/404.php",
+		"/home/trivigy/Google/Repositories/ccsps/400.php",
+		"/home/trivigy/Google/Repositories/ccsps/css/error.css",
+		"/home/trivigy/Google/Repositories/ccsps/css/fontello-ie7.css",
+		"/home/trivigy/Google/Repositories/ccsps/css/fontello-embedded.css",
+		"/home/trivigy/Google/Repositories/ccsps/css/fontello-codes.css",
+		"/home/trivigy/Google/Repositories/ccsps/css/fontello-ie7-codes.css",
+		"/home/trivigy/Google/Repositories/ccsps/css/animation.css",
+		"/home/trivigy/.cache/.fr-IWvhMz/fontello-b85b90d9/css/fontello.css",
+		"/home/trivigy/Google/Repositories/ccsps/css/members.css",
+		"/home/trivigy/.cache/.fr-1zBu1o/fontello-d166ad2a/README.txt",
+		"/home/trivigy/Google/Repositories/ccsps/index.php",
+		"/home/trivigy/Google/Repositories/findmine/www/landpage/css/main.css",
+		"/home/trivigy/Google/Repositories/findmine/www/landpage/index.html",
+		"/home/trivigy/Google/Repositories/findmine/www/landpage/css/custom.css",
+		"/home/trivigy/Google/Repositories/ccsps/members.php",
 		"/home/trivigy/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 		"/home/trivigy/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/.jsbeautifyrc",
 		"/home/trivigy/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/HTMLPrettify.sublime-settings",
 		"/home/trivigy/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
 		"/home/trivigy/Google/Repositories/research/www/syscall.php",
 		"/home/trivigy/Google/Repositories/ccsps/sort.py",
-		"/home/trivigy/Google/Repositories/ccsps/events/35t0jivdhi.evnt",
-		"/home/trivigy/Google/Repositories/ccsps/events/b6cbigc0ju.evnt",
-		"/home/trivigy/Google/Repositories/ccsps/events/bf7mf3f5uq.evnt",
 		"/home/trivigy/.cache/.fr-qAj61Z/il2275_hw1.txt",
 		"/home/trivigy/.cache/.fr-SY5W8A/koi2104_hw1.txt",
 		"/home/trivigy/.cache/.fr-6YZ5MN/il2275_hw1.txt",
@@ -284,10 +340,8 @@
 		"/home/trivigy/Google/Repositories/ccsps/events/fq0y1psttt.evnt",
 		"/home/trivigy/Google/Repositories/ccsps/events/fawbo0xhwy.evnt",
 		"/home/trivigy/Google/Repositories/ccsps/events/asdf.blue",
-		"/home/trivigy/Google/Repositories/ccsps/events.php",
 		"/home/trivigy/Google/Repositories/ccsps/events/sort.py",
 		"/home/trivigy/Google/Repositories/ccsps/events/8wsfo7xfxt.evnt",
-		"/home/trivigy/Google/Repositories/ccsps/members.php",
 		"/home/trivigy/Google/Repositories/findmine/www/marklet/css/custom.css",
 		"/home/trivigy/Google/DevSpace/python/TTS/tts",
 		"/home/trivigy/Google/Repositories/ccsps/example1.html",
@@ -302,7 +356,6 @@
 		"/home/trivigy/Google/Repositories/ccsps/events/first event.json",
 		"/home/trivigy/Google/Repositories/findmine/.config/server.cfg",
 		"/home/trivigy/Google/Repositories/ccsps/index.html",
-		"/home/trivigy/Google/Repositories/ccsps/index.php",
 		"/home/trivigy/Google/Repositories/ccsps/css/custom.css",
 		"/home/trivigy/Google/Repositories/ccsps/README.md",
 		"/home/trivigy/Google/Repositories/ccsps/.project",
@@ -362,16 +415,7 @@
 		"/home/trivigy/Google/University/Columbia/03.Fall.2014/COMSW3157/code/lab4/part1/mdb.h",
 		"/home/trivigy/Semester/COMSW3157/code/lab3/README.txt",
 		"/home/trivigy/Google/University/Columbia/03.Fall.2014/COMSW3157/code/lab3/README.txt",
-		"/home/trivigy/Google/University/Columbia/03.Fall.2014/COMSW3157/code/lab3/part2/Makefile",
-		"/home/trivigy/Semester/COMSW3157/code/lab3/part1/Makefile",
-		"/home/trivigy/Semester/COMSW3157/code/lab3/part2/Makefile",
-		"/home/trivigy/Google/Repositories/findmine/data.txt",
-		"/home/trivigy/ghostdriver.log",
-		"/home/trivigy/Google/University/Columbia/03.Fall.2014/COMSW3251/W3251/matrix.txt",
-		"/home/trivigy/Google/University/Columbia/03.Fall.2014/COMSW3251/W3251/result.txt",
-		"/home/trivigy/Google/DevSpace/resources/linux/vimrc",
-		"/home/trivigy/Google/Repositories/findmine/client.log",
-		"/home/trivigy/Google/DevSpace/resources/linux/apache/root.kovits.conf"
+		"/home/trivigy/Google/University/Columbia/03.Fall.2014/COMSW3157/code/lab3/part2/Makefile"
 	],
 	"find":
 	{
@@ -389,6 +433,15 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"{\n",
+			"7A787D",
+			"D7D3D0",
+			"7A787D",
+			"D7D3D0",
+			"7A787D",
+			"register",
+			";\n",
+			"member",
 			"characters",
 			"\\t",
 			"\\r",
@@ -492,7 +545,7 @@
 	},
 	"replace":
 	{
-		"height": 64.0
+		"height": 46.0
 	},
 	"save_all_on_build": true,
 	"select_file":

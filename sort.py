@@ -40,34 +40,25 @@ def main():
     else:
         raise Exception("!(args.command)")
 
-    try:
-        pq = []
-        for filename in files[:args.num]:
-            fd = open(args.loc + filename)
-            data = json.loads(fd.read())
-            fd.close()
-            data['filename'] = filename
-            
-            if args.command == "events":
-                if args.date: sort_events(pq, "datetime", "lhs", data)
-            elif args.command == "images":
-                pass
+    # try:
+    pq = []
+    mode = 0
+    for filename in files:
+        fd = open(args.loc + filename)
+        data = json.loads(fd.read())
+        fd.close()
+        data['filename'] = filename
 
-        for filename in files[args.num:]:
-            fd = open(args.loc + filename)
-            data = json.loads(fd.read())
-            fd.close()
-            data['filename'] = filename
-
-            if args.command == "events":
-                if args.date: sort_events(pq, "datetime", "rhs", data)
-            elif args.command == "images":
-                pass
-            
-        while len(pq):
-            print heapq.heappop(pq)[1]
-    except Exception as err:
-        print err
+        if args.command == "events":
+            if args.date: 
+                mode = mode + sort_events(pq, "datetime", mode, data)
+        elif args.command == "images":
+            pass
+        
+    while len(pq):
+        print heapq.heappop(pq)[1]
+    # except Exception as err:
+    #     print err
 
 def sort_events(pq = None, cmd = None, mode = None, data = None):
     if pq is None: raise Exception("sort_events(pq = None) failed")
@@ -82,12 +73,16 @@ def sort_events(pq = None, cmd = None, mode = None, data = None):
         start_ddt = start_dt - epoch
         end_ddt = end_dt - epoch
         now_ddt = datetime.now() - epoch
-        if mode == "lhs": 
-            if now_ddt <= start_ddt or now_ddt <= end_ddt: heapq.heappush(pq, (start_ddt.total_seconds() * -1, json.dumps(data)))
-        elif mode == "rhs": 
+        if mode < 3: 
+            if now_ddt <= start_ddt or now_ddt <= end_ddt: 
+                heapq.heappush(pq, (start_ddt.total_seconds() * -1, json.dumps(data)))
+                mode = mode + 1
+        elif mode >= 3: 
             if now_ddt <= start_ddt or now_ddt <= end_ddt: heapq.heappushpop(pq, (start_ddt.total_seconds() * -1, json.dumps(data)))
         else: raise ValueError("sort_events(mode) failed")
-        
     else: raise ValueError("sort_events(cmd) failed")
+
+    return mode
+
 if __name__ == "__main__":
     main()

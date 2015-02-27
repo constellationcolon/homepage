@@ -1,36 +1,42 @@
 #!/usr/bin/env python
-'''Non SQL based event sorting that sorts '''
+"""Non SQL based event sorting that sorts."""
 
-__version__ = 1.0
-__date__ = '2015-01-12'
-__author__ = 'Mengdi Lin <ml3567@columbia.edu >', 'Konstantin Itskov <konstantin.itskov@kovits.com>'
-
-import os, json, sys, calendar, argparse
+import os
+import json
+import sys
+import calendar
+import argparse
 from datetime import datetime, timedelta
 import heapq
 import pprint
 
+__version__ = 1.0
+__date__ = '2015-01-12'
+__author__ = ('Mengdi Lin <ml3567@columbia.edu >', 'Konstantin Itskov <konstantin.itskov@kovits.com>')
+
+
 def main():
-    formatter = lambda prog: argparse.HelpFormatter(prog, max_help_position = 40, width = 132)
-    prog_parser = argparse.ArgumentParser(prog = "sort", formatter_class = formatter, add_help = False, description = 'Sorts object files and prints the sort results.')
-    prog_parser.add_argument("-n", "--num", dest = "num", metavar = "", type = int, default = 3, help = "Specifies the number of outputs to return")
-    prog_parser.add_argument("-h", "--help", action = "help", help = argparse.SUPPRESS)
-    subparser = prog_parser.add_subparsers(dest = 'command')
+    """Main execution function of this sorting software."""
+    formatter = lambda prog: argparse.HelpFormatter(prog, max_help_position=40, width=132)
+    prog_parser = argparse.ArgumentParser(prog="sort", formatter_class=formatter, add_help=False, description='Sorts object files and prints the sort results.')
+    prog_parser.add_argument("-n", "--num", dest="num", metavar="", type=int, default=3, help="Specifies the number of outputs to return")
+    prog_parser.add_argument("-h", "--help", action="help", help=argparse.SUPPRESS)
+    subparser = prog_parser.add_subparsers(dest='command')
     # Sub parser for sorting events
-    parser = subparser.add_parser('events', formatter_class = formatter, add_help = False, description = 'Sorts among events.', help = 'sorts among events')
-    parser.add_argument("-h", "--help", action = "help", help = argparse.SUPPRESS)
-    parser.add_argument("-l", "--loc", dest = "loc", metavar = "", default = "events/", help = "Specifies the directory inside which events reside")
-    parser.add_argument("-d", "--date", dest = "date", action = "store_true", default = False, help = "Sorts the input based on the date")
+    parser = subparser.add_parser('events', formatter_class=formatter, add_help=False, description='Sorts among events.', help='sorts among events')
+    parser.add_argument("-h", "--help", action="help", help=argparse.SUPPRESS)
+    parser.add_argument("-l", "--loc", dest="loc", metavar="", default="events/", help="Specifies the directory inside which events reside")
+    parser.add_argument("-d", "--date", dest="date", action="store_true", default=False, help="Sorts the input based on the date")
     # Sub parser for sorting images
-    parser = subparser.add_parser('images', formatter_class = formatter, add_help = False, description = 'Sorts among images.', help = 'sorts among images')
-    parser.add_argument("-h", "--help", action = "help", help = argparse.SUPPRESS)
-    parser.add_argument("-l", "--loc", dest = "loc", metavar = "", default = "images/", help = "Specifies the directory inside which images reside")
+    parser = subparser.add_parser('images', formatter_class=formatter, add_help=False, description='Sorts among images.', help='sorts among images')
+    parser.add_argument("-h", "--help", action="help", help=argparse.SUPPRESS)
+    parser.add_argument("-l", "--loc", dest="loc", metavar="", default="images/", help="Specifies the directory inside which images reside")
     args = prog_parser.parse_args()
-    
+
     # current_time = calendar.timegm(time.gmtime())
-    
+
     # sort_var = sys.argv[4]
-    #get all filenames in current dir
+    # get all filenames in current dir
     files = [f for f in os.listdir(args.loc) if os.path.isfile(args.loc + f)]
     if args.command == "events":
         if args.date: files = [f for f in files if f.endswith(".evnt")]
@@ -50,17 +56,19 @@ def main():
         data['filename'] = filename
 
         if args.command == "events":
-            if args.date: 
+            if args.date:
                 mode = mode + sort_events(pq, "datetime", mode, data)
         elif args.command == "images":
             pass
-        
+
     while len(pq):
         print heapq.heappop(pq)[1]
     # except Exception as err:
     #     print err
 
-def sort_events(pq = None, cmd = None, mode = None, data = None):
+
+def sort_events(pq=None, cmd=None, mode=None, data=None):
+    """Function that performs the actual event sorting and is called from the main funtion."""
     if pq is None: raise Exception("sort_events(pq = None) failed")
     if cmd is None: raise Exception("sort_events(cmd = None) failed")
     if mode is None: raise Exception("sort_events(mode = None) failed")
@@ -73,11 +81,11 @@ def sort_events(pq = None, cmd = None, mode = None, data = None):
         start_ddt = start_dt - epoch
         end_ddt = end_dt - epoch
         now_ddt = datetime.now() - epoch
-        if mode < 3: 
-            if now_ddt <= start_ddt or now_ddt <= end_ddt: 
+        if mode < 3:
+            if now_ddt <= start_ddt or now_ddt <= end_ddt:
                 heapq.heappush(pq, (start_ddt.total_seconds() * -1, json.dumps(data)))
                 mode = mode + 1
-        elif mode >= 3: 
+        elif mode >= 3:
             if now_ddt <= start_ddt or now_ddt <= end_ddt: heapq.heappushpop(pq, (start_ddt.total_seconds() * -1, json.dumps(data)))
         else: raise ValueError("sort_events(mode) failed")
     else: raise ValueError("sort_events(cmd) failed")

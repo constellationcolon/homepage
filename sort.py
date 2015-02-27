@@ -33,9 +33,6 @@ def main():
     parser.add_argument("-l", "--loc", dest="loc", metavar="", default="images/", help="Specifies the directory inside which images reside")
     args = prog_parser.parse_args()
 
-    # current_time = calendar.timegm(time.gmtime())
-
-    # sort_var = sys.argv[4]
     # get all filenames in current dir
     files = [f for f in os.listdir(args.loc) if os.path.isfile(args.loc + f)]
     if args.command == "events":
@@ -57,7 +54,7 @@ def main():
 
         if args.command == "events":
             if args.date:
-                mode = mode + sort_events(pq, "datetime", mode, data)
+                mode = sort_events(pq, "datetime", mode, data)
         elif args.command == "images":
             pass
 
@@ -89,7 +86,6 @@ def sort_events(pq=None, cmd=None, mode=None, data=None):
             if now_ddt <= start_ddt or now_ddt <= end_ddt: heapq.heappushpop(pq, (start_ddt.total_seconds() * -1, json.dumps(data)))
         else: raise ValueError("sort_events(mode) failed")
     else: raise ValueError("sort_events(cmd) failed")
-
     return mode
 
 if __name__ == "__main__":

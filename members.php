@@ -47,7 +47,7 @@
     </nav>
     <div class="container-fluid" id="container">
         <div class="row" id="members-wrap">
-            </div>
+            <!-- Insert Code Here -->
         </div>
     </div>
     <!-- javascript -->

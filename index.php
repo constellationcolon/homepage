@@ -59,7 +59,7 @@
     <div class="container-fluid" id="container">
         <div class="row " id="billboard-wrap">
             <div id="billboard-overlay">
-
+                
             </div>
         </div>
         <div class="row" id="events-wrap">

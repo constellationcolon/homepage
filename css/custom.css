@@ -261,6 +261,44 @@ a {
     width: 160px;
     margin: 0px auto;
 }
+#join-btn-wrap{
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    bottom: 50px;
+    height: 120px;
+}
+#join-btn {
+    position: relative;
+    display: block;
+    font-size: 1.6em;
+    color: #43454E;
+    height: 50px;
+    width: 400px;
+    margin: 0px auto;
+}
+#joinus-btn {
+    position: relative;
+    display: block;
+    font-size: 1.6em;
+    color: #43454E;
+    height: 50px;
+    width: 150px;
+    margin: 0px auto;
+}
+#member-container {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 220px;
+    max-height: 1200px;
+}
+#member-overlay {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    background-color: #43454E;
+    padding: 0px 10px;
+}
 @media (min-width: 768px) {
     .pull-right-sm {
         float: right;

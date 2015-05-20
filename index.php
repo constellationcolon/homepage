@@ -17,7 +17,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Columbia Computer Science Pre-Professional Society</title>
+    <title>Columbia University Association for Computing Machinery</title>
     <link href="css/reset.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
@@ -67,57 +67,35 @@
                 <h1>EVENTS</h1>
             </div>
             <div class="events-container col-xs-12 col-sm-12 col-md-offset-1 col-md-10">
-                <div class="event-wrap col-xs-12 col-sm-4">
-                    <div class="event-date">
-                        <?php $date = date_create($events[2]->start_datetime) ?>
-                        <div class="event-date-month">
-                            <?php echo strtoupper($date->format('M')) ?></div>
-                        <div class="event-date-day">
-                            <?php echo $date->format('j') ?></div>
-                    </div>
-                    <div class="event-name">
-                        <h3><?php echo $events[2]->name ?></h3>
-                    </div>
-                    <div class="event-description">
-                        <p>
-                            <?php echo $events[2]->description ?></p>
-                    </div>
-                    <a href="<?php echo "events.php?call=" . $events[2]->filename ?>" target="_self"><button type="button" class="event-btn btn btn-default col-xs-12 col-sm-12 col-md-12 col-lg-12">More</button></a>
-                </div>
-                <div class="event-wrap col-xs-12 col-sm-4">
-                    <div class="event-date">
-                        <?php $date = date_create($events[1]->start_datetime) ?>
-                        <div class="event-date-month">
-                            <?php echo strtoupper($date->format('M')) ?></div>
-                        <div class="event-date-day">
-                            <?php echo $date->format('j') ?></div>
-                    </div>
-                    <div class="event-name">
-                        <h3><?php echo $events[1]->name ?></h3>
-                    </div>
-                    <div class="event-description">
-                        <p>
-                            <?php echo $events[1]->description ?></p>
-                    </div>
-                    <a href="<?php echo "events.php?call=" . $events[1]->filename ?>" target="_self"><button type="button" class="event-btn btn btn-default col-xs-12 col-sm-12 col-md-12 col-lg-12">More</button></a>
-                </div>
-                <div class="event-wrap hidden-xs col-xs-12 col-sm-4">
-                    <div class="event-date">
-                        <?php $date = date_create($events[0]->start_datetime) ?>
-                        <div class="event-date-month">
-                            <?php echo strtoupper($date->format('M')) ?></div>
-                        <div class="event-date-day">
-                            <?php echo $date->format('j') ?></div>
-                    </div>
-                    <div class="event-name">
-                        <h3><?php echo $events[0]->name ?></h3>
-                    </div>
-                    <div class="event-description">
-                        <p>
-                            <?php echo $events[0]->description ?></p>
-                    </div>
-                    <a href="<?php echo "events.php?call=" . $events[0]->filename ?>" target="_self"><button type="button" class="event-btn btn btn-default col-xs-12 col-sm-12 col-md-12 col-lg-12">More</button></a>
-                </div>
+                <?php
+                    for ($i = 0; $i < count($events); $i++)  {
+                        $date = date_create($events[$i]->start_datetime);
+                        if ($i == 0) {
+                            if (count($events) == 3) {
+                                $evnt  = '<div class="event-wrap col-xs-12 col-sm-4">';
+                            } else if (count($events) == 2) {
+                                $evnt  = '<div class="event-wrap col-xs-12 col-sm-offset-2 col-sm-4">';
+                            } else {
+                                $evnt  = '<div class="event-wrap col-xs-12 col-sm-offset-4 col-sm-4">';
+                            }
+                        } else {
+                            $evnt  = '<div class="event-wrap col-xs-12 col-sm-4">';
+                        }
+                        $evnt .=    '<div class="event-date">';
+                        $evnt .=        '<div class="event-date-month">'.strtoupper($date->format('M')).'</div>';
+                        $evnt .=        '<div class="event-date-day">'.$date->format('j').'</div>';
+                        $evnt .=    '</div>';
+                        $evnt .=    '<div class="event-name">';
+                        $evnt .=        '<h3>'.$events[$i]->name.'</h3>';
+                        $evnt .=    '</div>';
+                        $evnt .=    '<div class="event-description">';
+                        $evnt .=        '<p>'.$events[$i]->description.'</p>';
+                        $evnt .=    '</div>';
+                        $evnt .=    '<a href="events.php?call='.$events[$i]->filename.'" target="_self"><button type="button" class="event-btn btn btn-default col-xs-12 col-sm-12 col-md-12 col-lg-12">More</button></a>';
+                        $evnt .='</div>';
+                        echo $evnt;
+                    }
+                ?>
             </div>
         </div>
         <div class="row" id="about-wrap">

@@ -36,15 +36,18 @@ def main():
     # get all filenames in current dir
     files = [f for f in os.listdir(args.loc) if os.path.isfile(args.loc + f)]
     if args.command == "events":
-        if args.date: files = [f for f in files if f.endswith(".evnt")]
-        else: files = []
+        if args.date:
+            files = [f for f in files if f.endswith(".evnt")]
+        else:
+            files = []
     elif args.command == "images":
         pass
     else:
         raise Exception("!(args.command)")
 
-    # try:
-    pq = []
+    upq = []
+    rpq = []
+    queue = []
     mode = 0
     for filename in files:
         fd = open(args.loc + filename)
@@ -54,39 +57,31 @@ def main():
 
         if args.command == "events":
             if args.date:
-                mode = sort_events(pq, "datetime", mode, data)
+                start_dt = datetime.strptime(data['start_datetime'], "%Y-%m-%d %H:%M:%S")
+                end_dt = datetime.strptime(data['end_datetime'], "%Y-%m-%d %H:%M:%S")
+                epoch = datetime.utcfromtimestamp(0)
+                start_ddt = start_dt - epoch
+                end_ddt = end_dt - epoch
+                now_ddt = datetime.now() - epoch
+
+                if now_ddt > start_ddt and now_ddt < end_ddt:
+                    heapq.heappush(upq, (start_ddt.total_seconds(), json.dumps(data)))
+                elif now_ddt <= start_ddt:
+                    heapq.heappush(upq, (start_ddt.total_seconds(), json.dumps(data)))
+                else:
+                    heapq.heappush(rpq, (end_ddt.total_seconds() * -1, json.dumps(data)))
+
         elif args.command == "images":
             pass
 
-    while len(pq):
-        print heapq.heappop(pq)[1]
-    # except Exception as err:
-    #     print err
+    while len(upq):
+        queue.append(heapq.heappop(upq)[1])
 
+    while len(rpq):
+        queue.append(heapq.heappop(rpq)[1])
 
-def sort_events(pq=None, cmd=None, mode=None, data=None):
-    """Function that performs the actual event sorting and is called from the main funtion."""
-    if pq is None: raise Exception("sort_events(pq = None) failed")
-    if cmd is None: raise Exception("sort_events(cmd = None) failed")
-    if mode is None: raise Exception("sort_events(mode = None) failed")
-    if data is None: raise Exception("sort_events(data = None) failed")
-
-    if cmd == "datetime":
-        start_dt = datetime.strptime(data['start_datetime'], "%Y-%m-%d %H:%M:%S")
-        end_dt = datetime.strptime(data['end_datetime'], "%Y-%m-%d %H:%M:%S")
-        epoch = datetime.utcfromtimestamp(0)
-        start_ddt = start_dt - epoch
-        end_ddt = end_dt - epoch
-        now_ddt = datetime.now() - epoch
-        if mode < 3:
-            if now_ddt <= start_ddt or now_ddt <= end_ddt:
-                heapq.heappush(pq, (start_ddt.total_seconds() * -1, json.dumps(data)))
-                mode = mode + 1
-        elif mode >= 3:
-            if now_ddt <= start_ddt or now_ddt <= end_ddt: heapq.heappushpop(pq, (start_ddt.total_seconds() * -1, json.dumps(data)))
-        else: raise ValueError("sort_events(mode) failed")
-    else: raise ValueError("sort_events(cmd) failed")
-    return mode
+    for i in range(3):
+        print queue[i]
 
 if __name__ == "__main__":
     main()

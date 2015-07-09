@@ -122,7 +122,7 @@
                     <h1>CONTACT</h1>
                 </div>
                 <div class="col-xs-12" id="contact-form-wrap">
-                    <form role="form">
+                    <form role="form" action="scripts/send.php">
                         <div class="col-xs-12" id="contact-form-fields">
                             <div class="form-group col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
                                 <input type="textarea" class="form-control" id="name" placeholder="Full Name">
@@ -135,7 +135,7 @@
                             </div>
                         </div>
                         <div id="contact-btn-wrap">
-                            <button type="button" class="btn btn-default" id="contact-btn">Submit</button>
+                            <button type="submit" class="btn btn-default" id="contact-btn">Submit</button>
                         </div>
                     </form>
                 </div>
@@ -219,6 +219,25 @@
                 $(this).css('color', '#44281A');
             }
         );
+
+        $('form').on('submit',function(e) {
+            e.preventDefault();
+            $.ajax({
+                type        :   "POST",
+                cache       :   false,
+                url         :   $(this).attr('action'),
+                data        :   $(this).serialize(),
+                success     :   function() {
+                    $("#name").val('');
+                    $("#email").val('');
+                    $("#message").val('');
+                    alert("Your Message Has Been Sent");
+                },
+                error       :   function(xhr) {
+                    alert("Please Complete all Sections");
+                },
+            })
+        })
     </script>
 </body>
 

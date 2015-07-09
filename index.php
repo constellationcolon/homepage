@@ -125,13 +125,13 @@
                     <form role="form" action="scripts/send.php">
                         <div class="col-xs-12" id="contact-form-fields">
                             <div class="form-group col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
-                                <input type="textarea" class="form-control" id="name" placeholder="Full Name">
+                                <input type="textarea" class="form-control" id="name" name="name" placeholder="Full Name">
                             </div>
                             <div class="form-group col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
-                                <input type="email" class="form-control" id="email" placeholder="Email Address">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email Address">
                             </div>
                             <div class="form-group col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
-                                <textarea class="form-control" rows="8" id="message" placeholder="Enter Message"></textarea>
+                                <textarea class="form-control" rows="8" id="message" name="message" placeholder="Enter Message"></textarea>
                             </div>
                         </div>
                         <div id="contact-btn-wrap">

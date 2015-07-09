@@ -13,18 +13,10 @@ $name = $_POST["name"];
 $fromAddr = $_POST["email"];
 $toAddr = 'mlhaigh80@gmail.com';
 $subj = "Mailgun Form Submission";
-$body = $_POST["user_message"];
+$body = $_POST["message"];
 
-if (!$name) {
-    http_response_code(400);
-}
-
-if (!$fromAddr) {
-    http_response_code(400);
-}
-
-if (!$body) {
-    http_response_code(400);
+if ((!$name) || (!$fromAddr) || (!$body)){
+    return http_response_code(403);
 }
 
 // submission data

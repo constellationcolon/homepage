@@ -1,14 +1,32 @@
-<?php 
-    $events=array();
-    $cmd="./sort.py events -d";
-    exec(escapeshellcmd($cmd), $output, $status);
-    if ($status) {
-        echo "exec command failed";
-    } else {
-        foreach($output as $line) {
-            array_push($events, json_decode($line));
-        }
-    } 
+<?php
+
+$events = array();
+$cmd = "./sort.py events -d";
+exec(escapeshellcmd($cmd), $output, $status);
+if ($status) {
+    echo "exec command failed";
+} else {
+    foreach ($output as $line) {
+        array_push($events, json_decode($line));
+    }
+}
+
+//need to pass parameters
+require_once('scripts/query.php');
+$servername = "dev.kovits.com";
+$username = "acmcu";
+$password = "koi2104";
+$db_name = "acmcu";
+$port = 3306;
+$table = "events";
+
+function getEvents($svr, $usr, $pwrd, $d, $pt, $tbl)
+{
+    $db = new Query($svr, $usr, $pwrd, $d, $pt, $tbl);
+}
+
+getEvents($servername, $username, $password, $db_name, $port, $table);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,9 +41,9 @@
     <link href="css/custom.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 
 <body>
@@ -68,33 +86,33 @@
             </div>
             <div class="events-container col-xs-12 col-sm-12 col-md-offset-1 col-md-10">
                 <?php
-                    for ($i = 0; $i < count($events); $i++)  {
-                        $date = date_create($events[$i]->start_datetime);
-                        if ($i == 0) {
-                            if (count($events) == 3) {
-                                $evnt  = '<div class="event-wrap col-xs-12 col-sm-4">';
-                            } else if (count($events) == 2) {
-                                $evnt  = '<div class="event-wrap col-xs-12 col-sm-offset-2 col-sm-4">';
-                            } else {
-                                $evnt  = '<div class="event-wrap col-xs-12 col-sm-offset-4 col-sm-4">';
-                            }
+                for ($i = 0; $i < count($events); $i++) {
+                    $date = date_create($events[$i]->start_datetime);
+                    if ($i == 0) {
+                        if (count($events) == 3) {
+                            $evnt = '<div class="event-wrap col-xs-12 col-sm-4">';
+                        } else if (count($events) == 2) {
+                            $evnt = '<div class="event-wrap col-xs-12 col-sm-offset-2 col-sm-4">';
                         } else {
-                            $evnt  = '<div class="event-wrap col-xs-12 col-sm-4">';
+                            $evnt = '<div class="event-wrap col-xs-12 col-sm-offset-4 col-sm-4">';
                         }
-                        $evnt .=    '<div class="event-date">';
-                        $evnt .=        '<div class="event-date-month">'.strtoupper($date->format('M')).'</div>';
-                        $evnt .=        '<div class="event-date-day">'.$date->format('j').'</div>';
-                        $evnt .=    '</div>';
-                        $evnt .=    '<div class="event-name">';
-                        $evnt .=        '<h3>'.$events[$i]->name.'</h3>';
-                        $evnt .=    '</div>';
-                        $evnt .=    '<div class="event-description">';
-                        $evnt .=        '<p>'.$events[$i]->description.'</p>';
-                        $evnt .=    '</div>';
-                        $evnt .=    '<a href="events.php?call='.$events[$i]->filename.'" target="_self"><button type="button" class="event-btn btn btn-default col-xs-12 col-sm-12 col-md-12 col-lg-12">More</button></a>';
-                        $evnt .='</div>';
-                        echo $evnt;
+                    } else {
+                        $evnt = '<div class="event-wrap col-xs-12 col-sm-4">';
                     }
+                    $evnt .= '<div class="event-date">';
+                    $evnt .= '<div class="event-date-month">' . strtoupper($date->format('M')) . '</div>';
+                    $evnt .= '<div class="event-date-day">' . $date->format('j') . '</div>';
+                    $evnt .= '</div>';
+                    $evnt .= '<div class="event-name">';
+                    $evnt .= '<h3>' . $events[$i]->name . '</h3>';
+                    $evnt .= '</div>';
+                    $evnt .= '<div class="event-description">';
+                    $evnt .= '<p>' . $events[$i]->description . '</p>';
+                    $evnt .= '</div>';
+                    $evnt .= '<a href="events.php?call=' . $events[$i]->filename . '" target="_self"><button type="button" class="event-btn btn btn-default col-xs-12 col-sm-12 col-md-12 col-lg-12">More</button></a>';
+                    $evnt .= '</div>';
+                    echo $evnt;
+                }
                 ?>
             </div>
         </div>
@@ -153,7 +171,7 @@
                 clamp: 'auto'
             });
         }
-        $('a[href*=#]:not([href=#])').click(function() {
+        $('a[href*=#]:not([href=#])').click(function () {
             if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
                 var target = $(this.hash);
                 target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
@@ -165,17 +183,17 @@
                 }
             }
         });
-        $(window).scroll(function() {
+        $(window).scroll(function () {
             if ($(this).scrollTop() > 10) {
                 $('.navbar').css('background-color', 'rgba(68, 40, 26, 0.7)');
                 $('.navbar').css('-webkit-box-shadow', '0 1px 1px 0 rgba(0, 0, 0, 0.6)');
                 $('.navbar').css('box-shadow', '0 1px 1px 0 rgba(0, 0, 0, 0.6)');
                 $('.navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand').css('color', '#D7D3D0');
                 $('.navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand').hover(
-                    function() {
+                    function () {
                         $(this).css('color', '#44281A');
                     },
-                    function() {
+                    function () {
                         $(this).css('color', '#D7D3D0');
                     }
                 );
@@ -186,54 +204,54 @@
                 $('.navbar').css('box-shadow', 'none');
                 $('.navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand').css('color', '#44281A');
                 $('.navbar-default .navbar-nav>li>a').hover(
-                    function() {
+                    function () {
                         $(this).css('color', '#7A787D');
                     },
-                    function() {
+                    function () {
                         $(this).css('color', '#44281A');
                     }
                 );
                 $('.navbar-default .navbar-brand').hover(
-                    function() {
+                    function () {
                         $(this).css('color', '#D7D3D0');
                     },
-                    function() {
+                    function () {
                         $(this).css('color', '#44281A');
                     }
                 );
             }
         });
         $('.navbar-default .navbar-nav>li>a').hover(
-            function() {
+            function () {
                 $(this).css('color', '#7A787D');
             },
-            function() {
+            function () {
                 $(this).css('color', '#44281A');
             }
         );
         $('.navbar-default .navbar-brand').hover(
-            function() {
+            function () {
                 $(this).css('color', '#D7D3D0');
             },
-            function() {
+            function () {
                 $(this).css('color', '#44281A');
             }
         );
 
-        $('form').on('submit',function(e) {
+        $('form').on('submit', function (e) {
             e.preventDefault();
             $.ajax({
-                type        :   "POST",
-                cache       :   false,
-                url         :   $(this).attr('action'),
-                data        :   $(this).serialize(),
-                success     :   function() {
+                type: "POST",
+                cache: false,
+                url: $(this).attr('action'),
+                data: $(this).serialize(),
+                success: function () {
                     $("#name").val('');
                     $("#email").val('');
                     $("#message").val('');
                     alert("Your Message Has Been Sent");
                 },
-                error       :   function(xhr) {
+                error: function (xhr) {
                     alert("Please Complete all Sections");
                 },
             })

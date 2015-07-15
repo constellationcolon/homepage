@@ -29,20 +29,13 @@ class Query
         return $data;
     }
 
-//    public function insert($title, $description, $date) {
-//        $temp = 'INSERT INTO ' . $this->tbl . ' (`title`, `description`, `date`)
-//         VALUES ( "' . $title . '", "' . $description . '", "' . $date . '");';
-//        echo $temp . "\n";
-//        $result = $this->db->execute($temp);
-//        return $result;
-//    }
     /* insert: enter args as (key,value,key,value...) */
     public function insert() {
         $args = func_get_args();
         $start_datetime = $end_datetime = $name = $location = $description =
-            $facebook_link = $instagram_link = $twitter_link = $misc_link =
-                $profile = 0;
-        foreach ($args as $key=>$arg) {
+        $facebook_link = $instagram_link = $twitter_link = $misc_link =
+        $profile = 0;
+        foreach ($args as $key => $arg) {
             if ($arg === "start_datetime") {
                 $start_datetime = $args[$key + 1];
             }
@@ -81,9 +74,7 @@ class Query
             $location . '", "' . $description . '", "' . $facebook_link . '", "' .
             $instagram_link . '", "' . $twitter_link . '", "' . $misc_link . '", "' .
             $profile . '");';
-        echo $command;
         $this->db->execute($command);
-
     }
 
     public function delete($id) {
@@ -95,34 +86,76 @@ class Query
     updated */
     public function update() {
         $args = func_get_args();
-        foreach ($args as $key=>$arg) {
+        foreach ($args as $key => $arg) {
             if ($arg === "id") {
-                $id = $args[$key+1];
-            } elseif ($arg === "title") {
-                $title = $args[$key+1];
-            } elseif ($arg === "description") {
-                $description = $args[$key+1];
-            } elseif ($arg === "date") {
-                $date = $args[$key+1];
+                $id = $args[$key + 1];
+            } elseif ($arg === "start_datetime") {
+                $start_datetime = $args[$key + 1];
+            } elseif ($arg === "end_datetime") {
+                $end_datetime = $args[$key + 1];
+            } elseif ($arg === "name") {
+                $name = $args[$key + 1];
+            }elseif ($arg === "location") {
+                $location = $args[$key + 1];
+            }elseif ($arg === "description") {
+                $description = $args[$key + 1];
+            }elseif ($arg === "facebook_link") {
+                $facebook_link = $args[$key + 1];
+            }elseif ($arg === "instagram_link") {
+                $instagram_link = $args[$key + 1];
+            }elseif ($arg === "twitter_link") {
+                $twitter_link = $args[$key + 1];
+            }elseif ($arg === "misc_link") {
+                $misc_link = $args[$key + 1];
+            }elseif ($arg === "profile") {
+                $profile = $args[$key + 1];
             }
         }
         if (isset($id)) { //only update if id is sent
             $result = $this->db->fetch('SELECT * from `events` WHERE id = ' . $id . ';');
             //fetch the item and set parameters equal to original
-            if (!isset($title)) {
-                $title = $result[0]["title"];
+            if (!isset($start_datetime)) {
+                $start_datetime = $result[0]["start_datetime"];
+            }
+            if (!isset($end_datetime)) {
+                $end_datetime = $result[0]["end_datetime"];
+            }
+            if (!isset($name)) {
+                $name = $result[0]["name"];
+            }
+            if (!isset($location)) {
+                $location = $result[0]["location"];
             }
             if (!isset($description)) {
                 $description = $result[0]["description"];
             }
-            if (!isset($date)) {
-                $date = $result[0]["date"];
+            if (!isset($facebook_link)) {
+                $facebook_link = $result[0]["facebook_link"];
+            }
+            if (!isset($instagram_link)) {
+                $instagram_link = $result[0]["instagram_link"];
+            }
+            if (!isset($twitter_link)) {
+                $twitter_link = $result[0]["twitter_link"];
+            }
+            if (!isset($misc_link)) {
+                $misc_link = $result[0]["misc_link"];
+            }
+            if (!isset($profile)) {
+                $profile = $result[0]["profile"];
             }
         }
-        //UPDATE $table SET id=$id, title=$title, description=$description, date=$date
-        $command = 'UPDATE ' . $this->tbl  . ' SET title="' . $title . '",
-        description="' . $description . '", date=' . $date . ' WHERE id=' .
-            $id . ';';
+//        $command = 'UPDATE ' . $this->tbl . ' SET title="' . $title . '",
+//        description="' . $description . '", date=' . $date . ' WHERE id=' .
+//            $id . ';';
+        $command = 'UPDATE ' . $this->tbl . ' SET start_datetime="' .
+            $start_datetime . '", end_datetime="' . $end_datetime . '", name="' .
+            $name . '", location="' . $location . '", description="' .
+            $description . '", facebook_link="' . $facebook_link .
+            '", instagram_link="' . $instagram_link . '", twitter_link="' .
+            $twitter_link . '", misc_link="' . $misc_link . '", profile="' .
+            $profile . '" WHERE id=' . $id . ';';
+        echo $command;
         $this->db->execute($command);
     }
 }

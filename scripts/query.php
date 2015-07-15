@@ -29,12 +29,61 @@ class Query
         return $data;
     }
 
-    public function insert($title, $description, $date) {
-        $temp = 'INSERT INTO ' . $this->tbl . ' (`title`, `description`, `date`)
-         VALUES ( "' . $title . '", "' . $description . '", "' . $date . '");';
-        echo $temp . "\n";
-        $result = $this->db->execute($temp);
-        return $result;
+//    public function insert($title, $description, $date) {
+//        $temp = 'INSERT INTO ' . $this->tbl . ' (`title`, `description`, `date`)
+//         VALUES ( "' . $title . '", "' . $description . '", "' . $date . '");';
+//        echo $temp . "\n";
+//        $result = $this->db->execute($temp);
+//        return $result;
+//    }
+    /* insert: enter args as (key,value,key,value...) */
+    public function insert() {
+        $args = func_get_args();
+        $start_datetime = $end_datetime = $name = $location = $description =
+            $facebook_link = $instagram_link = $twitter_link = $misc_link =
+                $profile = 0;
+        foreach ($args as $key=>$arg) {
+            if ($arg === "start_datetime") {
+                $start_datetime = $args[$key + 1];
+            }
+            if ($arg === "end_datetime") {
+                $end_datetime = $args[$key + 1];
+            }
+            if ($arg === "name") {
+                $name = $args[$key + 1];
+            }
+            if ($arg === "location") {
+                $location = $args[$key + 1];
+            }
+            if ($arg === "description") {
+                $description = $args[$key + 1];
+            }
+            if ($arg === "facebook_link") {
+                $facebook_link = $args[$key + 1];
+            }
+            if ($arg === "instagram_link") {
+                $instagram_link = $args[$key + 1];
+            }
+            if ($arg === "twitter_link") {
+                $twitter_link = $args[$key + 1];
+            }
+            if ($arg === "misc_link") {
+                $misc_link = $args[$key + 1];
+            }
+            if ($arg === "profile") {
+                $profile = $args[$key + 1];
+            }
+        }
+        $command = 'INSERT INTO ' . $this->tbl . '(`start_datetime`,
+            `end_datetime`, `name`, `location`, `description`, `facebook_link`,
+            `instagram_link`, `twitter_link`, `misc_link`, `profile`) VALUES ('
+            . $start_datetime . ', ' . $end_datetime . ', "' . $name . '", "' .
+            $location . '", "' . $description . '", "' . $facebook_link . '", "' .
+            $instagram_link . '", "' . $twitter_link . '", "' . $misc_link . '", "' .
+            $profile . '");';
+        echo $command;
+        $this->db->execute($command);
+
     }
 
     public function delete($id) {
@@ -42,8 +91,9 @@ class Query
         $result = $this->db->execute($temp);
     }
 
-    public function update() { //enter args as key,value,key,value,...
-        //id represents the entry to be updated
+    /* update: enter args as (key,value,key,value).  id represents entry to be
+    updated */
+    public function update() {
         $args = func_get_args();
         foreach ($args as $key=>$arg) {
             if ($arg === "id") {

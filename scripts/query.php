@@ -1,7 +1,8 @@
 <?php
 require_once('db.php');
 
-class Query {
+class Query
+{
     private $db;
     private $server;
     private $user;
@@ -20,36 +21,29 @@ class Query {
         $this->db = new Db($this->server, $this->user, $this->pw, $this->dbn, $this->prt);
     }
 
-//    public function select($option) {
-//        if (($option === 1) || ($option === 2) || ($option === 3)) { //Web
-//            $command = "SELECT * FROM projects WHERE category = " . $option;
-//            $data = $this->db->fetch($command);
-//        } else if ($option === 4) { //other
-//            $command = "SELECT * FROM projects";
-//            $data = $this->db->fetch($command);
-//        } else {
-//            echo "invalid select option\n";
-//        }
-//        return $data;
-//    }
-//
-    public function insert ($title, $description, $date) {
-        $temp = 'INSERT INTO '. $this->tbl . ' (`title`, `description`, `date`) VALUES ( "'.$title.'", "'.$description.'", "'.$date.'");';
+    public function select() {
+        $command = 'SELECT * FROM ' . $this->tbl . ';';
+        $data = $this->db->fetch($command);
+        return $data;
+    }
+
+    public function insert($title, $description, $date) {
+        $temp = 'INSERT INTO ' . $this->tbl . ' (`title`, `description`, `date`) VALUES ( "' . $title . '", "' . $description . '", "' . $date . '");';
         echo $temp . "\n";
         $result = $this->db->execute($temp);
         return $result;
     }
 
-    public function delete ($id) {
-        $temp = 'DELETE FROM ' .$this->tbl. ' WHERE id = "'.$id.'";';
+    public function delete($id) {
+        $temp = 'DELETE FROM ' . $this->tbl . ' WHERE id = "' . $id . '";';
         echo $temp;
         $result = $this->db->execute($temp);
-        if ($result) {
-            echo "Record Deleted Successfully with id #" . $id;
-        }
-        else {
-            echo "Error Deleting Record";
-        }
+    }
+
+    public function update() {
+        $args = func_get_args();
+
     }
 }
+
 ?>

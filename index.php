@@ -11,8 +11,9 @@ if ($status) {
     }
 }
 
-//need to pass parameters
+//load database
 require_once('scripts/query.php');
+//database parameters
 $servername = "dev.kovits.com";
 $username = "acmcu";
 $password = "koi2104";
@@ -23,8 +24,6 @@ $table = "events";
 function getEvents($svr, $usr, $pwrd, $d, $pt, $tbl)
 {
     $db = new Query($svr, $usr, $pwrd, $d, $pt, $tbl);
-    //$db->insert("name", "nametest", "description", "descriptionTest" );
-    $db->update("id",7,"name","NewName2");
 }
 
 getEvents($servername, $username, $password, $db_name, $port, $table);

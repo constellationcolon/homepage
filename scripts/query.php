@@ -71,15 +71,15 @@ class Query
             `end_datetime`, `name`, `location`, `description`, `facebook_link`,
             `instagram_link`, `twitter_link`, `misc_link`, `profile`) VALUES ('
             . $start_datetime . ', ' . $end_datetime . ', "' . $name . '", "' .
-            $location . '", "' . $description . '", "' . $facebook_link . '", "' .
-            $instagram_link . '", "' . $twitter_link . '", "' . $misc_link . '", "' .
-            $profile . '");';
+            $location . '", "' . $description . '", "' . $facebook_link . '", "'
+            . $instagram_link . '", "' . $twitter_link . '", "' . $misc_link .
+            '", "' . $profile . '");';
         $this->db->execute($command);
     }
 
     public function delete($id) {
         $temp = 'DELETE FROM ' . $this->tbl . ' WHERE id = "' . $id . '";';
-        $result = $this->db->execute($temp);
+        $this->db->execute($temp);
     }
 
     /* update: enter args as (key,value,key,value).  id represents entry to be
@@ -145,9 +145,6 @@ class Query
                 $profile = $result[0]["profile"];
             }
         }
-//        $command = 'UPDATE ' . $this->tbl . ' SET title="' . $title . '",
-//        description="' . $description . '", date=' . $date . ' WHERE id=' .
-//            $id . ';';
         $command = 'UPDATE ' . $this->tbl . ' SET start_datetime="' .
             $start_datetime . '", end_datetime="' . $end_datetime . '", name="' .
             $name . '", location="' . $location . '", description="' .
@@ -155,7 +152,6 @@ class Query
             '", instagram_link="' . $instagram_link . '", twitter_link="' .
             $twitter_link . '", misc_link="' . $misc_link . '", profile="' .
             $profile . '" WHERE id=' . $id . ';';
-        echo $command;
         $this->db->execute($command);
     }
 }

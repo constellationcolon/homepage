@@ -23,6 +23,7 @@ $table = "events";
 function getEvents($svr, $usr, $pwrd, $d, $pt, $tbl)
 {
     $db = new Query($svr, $usr, $pwrd, $d, $pt, $tbl);
+    $db->update(1, 2, "hello", true, "id", "6", "title", "Newer Title");
 }
 
 getEvents($servername, $username, $password, $db_name, $port, $table);

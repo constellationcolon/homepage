@@ -23,9 +23,14 @@ class Query
             $this->prt);
     }
 
-    public function select() {
-        $command = 'SELECT * FROM ' . $this->tbl . ';';
-        $data = $this->db->fetch($command);
+    public function select($mode) { //set mode to indicate sort by time, etc.
+        if ($mode === "all") {
+            $command = 'SELECT * FROM ' . $this->tbl . ';';
+            $data = $this->db->fetch($command);
+        }
+        if ($mode === "future") {
+            //$command = $this->db->fetch
+        }
         return $data;
     }
 
@@ -69,8 +74,8 @@ class Query
         }
         $command = 'INSERT INTO ' . $this->tbl . '(`start_datetime`,
             `end_datetime`, `name`, `location`, `description`, `facebook_link`,
-            `instagram_link`, `twitter_link`, `misc_link`, `profile`) VALUES ('
-            . $start_datetime . ', ' . $end_datetime . ', "' . $name . '", "' .
+            `instagram_link`, `twitter_link`, `misc_link`, `profile`) VALUES ("'
+            . $start_datetime . '", "' . $end_datetime . '", "' . $name . '", "' .
             $location . '", "' . $description . '", "' . $facebook_link . '", "'
             . $instagram_link . '", "' . $twitter_link . '", "' . $misc_link .
             '", "' . $profile . '");';

@@ -22,16 +22,8 @@ class Query
             $this->prt);
     }
 
-    public function select($mode) { //set mode to indicate sort by time, etc.
-        if ($mode === "all") {
-            $command = 'SELECT * FROM events;';
-            $data = $this->db->fetch($command);
-        }
-//        if ($mode === "future") {
-//            $command = 'SELECT * FROM events WHERE
-//            start_datetime > NOW();'
-//        }
-        return $data;
+    public function select() { //set mode to indicate sort by time, etc.
+        $result = $this->db->fetch();
     }
 
     /* insert: enter args as (key,value,key,value...) */
@@ -68,18 +60,13 @@ class Query
                 $misc_link = $args[$key + 1];
             }
         }
-        $command = 'INSERT INTO events (start_datetime, end_datetime, name,
-          location, description, facebook_link, instagram_link, twitter_link,
-          misc_link) VALUES ("' . $start_datetime . '", "' . $end_datetime .
-            '", "' . $name . '", "' . $location . '", "' . $description . '", "'
-            . $facebook_link . '", "' . $instagram_link . '", "' . $twitter_link
-            . '", "' . $misc_link . '");';
-        $this->db->execute($command);
+        $this->db->execute("insert", $start_datetime, $end_datetime, $name,
+            $location, $description, $facebook_link, $instagram_link,
+            $twitter_link, $misc_link);
     }
 
     public function delete($id) {
-        $temp = 'DELETE FROM events WHERE id = "' . $id . '";';
-        $this->db->execute($temp);
+        $this->db->execute("delete", $id);
     }
 
     /* update: enter args as (key,value,key,value).  id represents entry to be
@@ -112,8 +99,7 @@ class Query
             }
         }
         if (isset($id)) { //only update if id is sent
-            $result = $this->db->fetch('SELECT * from events WHERE id = ' . $id
-                . ';');
+            $result = $this->db->fetch("id", $id);
             //fetch the item and set parameters equal to original
             if (!isset($start_datetime)) {
                 $start_datetime = $result[0]["start_datetime"];
@@ -142,14 +128,9 @@ class Query
             if (!isset($misc_link)) {
                 $misc_link = $result[0]["misc_link"];
             }
-            $command = 'UPDATE events SET start_datetime="' . $start_datetime .
-                '", end_datetime="' . $end_datetime . '", name="' . $name . '",
-                location="' . $location . '", description="' . $description .
-                '", facebook_link="' . $facebook_link . '", instagram_link="' .
-                $instagram_link . '", twitter_link="' . $twitter_link . '",
-                misc_link="' . $misc_link . '" WHERE event_id=' . $id . ';';
-            echo $command;
-            $this->db->execute($command);
+            $this->db->execute("update", $id, $start_datetime, $end_datetime,
+                $name, $location, $description, $facebook_link, $instagram_link,
+                $twitter_link, $misc_link);
         }
     }
 }

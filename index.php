@@ -21,19 +21,18 @@ $db_name = "acmcu";
 $port = 3306;
 $table = "events";
 
+function sortEvents($database) {
+    $upcoming = $database->select("upcoming");
+    if (count($upcoming) <= 3) {
+        $passed = $database->select("passed");
+    }
+    
+}
+
 function getEvents($svr, $usr, $pwrd, $d, $pt)
 {
     $db = new Query($svr, $usr, $pwrd, $d, $pt);
     sortEvents($db);
-}
-
-function sortEvents($database) {
-//    $eventList = $database->select(); //need to sort in query
-//    foreach ($eventList as $event) {
-//      //  if ($event )
-//    }
-//    var_dump($eventList);
-
 }
 
 getEvents($servername, $username, $password, $db_name, $port);

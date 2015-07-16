@@ -52,13 +52,22 @@ class Db {
         $args = func_get_args();
         if ((count($args)) === 0) { //select all
             $command = $this->conn->prepare('SELECT * FROM events');
-            $command->execute();
         } elseif(($args[0]) === "id") { //select individual id
             $command = $this->conn->prepare(
                 'SELECT * FROM events WHERE event_id = ?');
             $command->bind_param("i", $args[1]);
-            $command->execute();
+        } elseif ($args[0] === "upcoming") {
+            $command = $this->conn->prepare('
+            SELECT * FROM events
+            WHERE start_datetime >= NOW()
+            ORDER BY start_datetime');
+        } elseif ($args[0] === "passed") {
+            $command = $this->conn->prepare('
+            SELECT * FROM events
+            WHERE start_datetime <= NOW()
+            ORDER BY start_datetime');
         }
+        $command->execute();
         $result = $command->get_result();
         $rows = array();
         for ($i = 0; $i < $result->num_rows; $i++) {

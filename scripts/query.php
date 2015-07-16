@@ -23,7 +23,16 @@ class Query
     }
 
     public function select() { //set mode to indicate sort by time, etc.
-        $result = $this->db->fetch();
+        $args = func_get_args();
+        if (count($args) === 0) {
+            $result = $this->db->fetch();
+        }
+        elseif ($args[0] === "upcoming") {
+            $result = $this->db->fetch("upcoming");
+        } elseif ($args[0] === "passed") {
+            $result = $this->db->fetch("upcoming");
+        }
+        return $result;
     }
 
     /* insert: enter args as (key,value,key,value...) */

@@ -1,13 +1,13 @@
 <?php
 
-$events = array();
+$evnts = array();
 $cmd = "./sort.py events -d";
 exec(escapeshellcmd($cmd), $output, $status);
 if ($status) {
     echo "exec command failed";
 } else {
     foreach ($output as $line) {
-        array_push($events, json_decode($line));
+        array_push($evnts, json_decode($line));
     }
 }
 
@@ -22,17 +22,37 @@ $port = 3306;
 $table = "events";
 
 function sortEvents($database) {
+    $events = array();
     $upcoming = $database->select("upcoming");
     if (count($upcoming) <= 3) {
         $passed = $database->select("passed");
+        if (count($upcoming) === 0) {
+            array_push($events, $passed[2]);
+            array_push($events, $passed[1]);
+            array_push($events, $passed[0]);
+        }elseif (count($upcoming) === 1) {
+            array_push($events, $passed[2]);
+            array_push($events, $passed[1]);
+            array_push($events, $upcoming[0]);
+        }elseif (count($upcoming) === 2) {
+            array_push($events, $passed[2]);
+            array_push($events, $upcoming[0]);
+            array_push($events, $upcoming[1]);
+        }
     }
-    
+    else {
+        array_push($events, $upcoming[0]);
+        array_push($events, $upcoming[1]);
+        array_push($events, $upcoming[2]);
+    }
+    return $events;
 }
 
 function getEvents($svr, $usr, $pwrd, $d, $pt)
 {
     $db = new Query($svr, $usr, $pwrd, $d, $pt);
-    sortEvents($db);
+    $evs = sortEvents($db);
+    var_dump($evs);
 }
 
 getEvents($servername, $username, $password, $db_name, $port);

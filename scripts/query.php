@@ -12,25 +12,25 @@ class Query
     private $tbl;
 
     public function __Construct($servername, $username, $password, $db_name,
-                                $port, $table) {
+                                $port) {
         $this->server = $servername;
         $this->user = $username;
         $this->pw = $password;
         $this->dbn = $db_name;
         $this->prt = $port;
-        $this->tbl = $table;
         $this->db = new Db($this->server, $this->user, $this->pw, $this->dbn,
             $this->prt);
     }
 
     public function select($mode) { //set mode to indicate sort by time, etc.
         if ($mode === "all") {
-            $command = 'SELECT * FROM ' . $this->tbl . ';';
+            $command = 'SELECT * FROM events;';
             $data = $this->db->fetch($command);
         }
-        if ($mode === "future") {
-            //$command = $this->db->fetch
-        }
+//        if ($mode === "future") {
+//            $command = 'SELECT * FROM events WHERE
+//            start_datetime > NOW();'
+//        }
         return $data;
     }
 
@@ -38,8 +38,7 @@ class Query
     public function insert() {
         $args = func_get_args();
         $start_datetime = $end_datetime = $name = $location = $description =
-        $facebook_link = $instagram_link = $twitter_link = $misc_link =
-        $profile = 0;
+        $facebook_link = $instagram_link = $twitter_link = $misc_link = 0;
         foreach ($args as $key => $arg) {
             if ($arg === "start_datetime") {
                 $start_datetime = $args[$key + 1];
@@ -68,22 +67,18 @@ class Query
             if ($arg === "misc_link") {
                 $misc_link = $args[$key + 1];
             }
-            if ($arg === "profile") {
-                $profile = $args[$key + 1];
-            }
         }
-        $command = 'INSERT INTO ' . $this->tbl . '(`start_datetime`,
-            `end_datetime`, `name`, `location`, `description`, `facebook_link`,
-            `instagram_link`, `twitter_link`, `misc_link`, `profile`) VALUES ("'
-            . $start_datetime . '", "' . $end_datetime . '", "' . $name . '", "' .
-            $location . '", "' . $description . '", "' . $facebook_link . '", "'
-            . $instagram_link . '", "' . $twitter_link . '", "' . $misc_link .
-            '", "' . $profile . '");';
+        $command = 'INSERT INTO events (start_datetime, end_datetime, name,
+          location, description, facebook_link, instagram_link, twitter_link,
+          misc_link) VALUES ("' . $start_datetime . '", "' . $end_datetime .
+            '", "' . $name . '", "' . $location . '", "' . $description . '", "'
+            . $facebook_link . '", "' . $instagram_link . '", "' . $twitter_link
+            . '", "' . $misc_link . '");';
         $this->db->execute($command);
     }
 
     public function delete($id) {
-        $temp = 'DELETE FROM ' . $this->tbl . ' WHERE id = "' . $id . '";';
+        $temp = 'DELETE FROM events WHERE id = "' . $id . '";';
         $this->db->execute($temp);
     }
 
@@ -91,6 +86,8 @@ class Query
     updated */
     public function update() {
         $args = func_get_args();
+        $start_datetime = $end_datetime = $name = $location = $description =
+            $facebook_link = $instagram_link = $twitter_link = $misc_link = 0;
         foreach ($args as $key => $arg) {
             if ($arg === "id") {
                 $id = $args[$key + 1];
@@ -112,12 +109,11 @@ class Query
                 $twitter_link = $args[$key + 1];
             }elseif ($arg === "misc_link") {
                 $misc_link = $args[$key + 1];
-            }elseif ($arg === "profile") {
-                $profile = $args[$key + 1];
             }
         }
         if (isset($id)) { //only update if id is sent
-            $result = $this->db->fetch('SELECT * from `events` WHERE id = ' . $id . ';');
+            $result = $this->db->fetch('SELECT * from events WHERE id = ' . $id
+                . ';');
             //fetch the item and set parameters equal to original
             if (!isset($start_datetime)) {
                 $start_datetime = $result[0]["start_datetime"];
@@ -146,18 +142,15 @@ class Query
             if (!isset($misc_link)) {
                 $misc_link = $result[0]["misc_link"];
             }
-            if (!isset($profile)) {
-                $profile = $result[0]["profile"];
-            }
+            $command = 'UPDATE events SET start_datetime="' . $start_datetime .
+                '", end_datetime="' . $end_datetime . '", name="' . $name . '",
+                location="' . $location . '", description="' . $description .
+                '", facebook_link="' . $facebook_link . '", instagram_link="' .
+                $instagram_link . '", twitter_link="' . $twitter_link . '",
+                misc_link="' . $misc_link . '" WHERE event_id=' . $id . ';';
+            echo $command;
+            $this->db->execute($command);
         }
-        $command = 'UPDATE ' . $this->tbl . ' SET start_datetime="' .
-            $start_datetime . '", end_datetime="' . $end_datetime . '", name="' .
-            $name . '", location="' . $location . '", description="' .
-            $description . '", facebook_link="' . $facebook_link .
-            '", instagram_link="' . $instagram_link . '", twitter_link="' .
-            $twitter_link . '", misc_link="' . $misc_link . '", profile="' .
-            $profile . '" WHERE id=' . $id . ';';
-        $this->db->execute($command);
     }
 }
 

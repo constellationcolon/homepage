@@ -151,19 +151,19 @@ if (isset($_GET["call"])) {
                 <div class="col-xs-12 col-sm-pull-7 col-sm-2 col-md-pull-8 col-md-2 col-lg-pull-7 col-lg-2" id="event-speakers-wrap">
                     <div id="event-speakers">
                         <?php
-                        $profiles = $db->select("attends", $event["id"]);
-                        foreach ($event->profiles as $filename) {
-                            if (!($profile = json_decode(file_get_contents("profiles/" . $filename)))) {
-                                header("HTTP/1.0 500 Bad Request");
-                                include("errors/500.php");
-                                exit();
-                            }
+                        $profiles = $db->select("attends", $event["event_id"]);
+                        foreach ($profiles as $profile) {
+//                            if (!($profile = json_decode(file_get_contents("profiles/" . $filename)))) {
+//                                header("HTTP/1.0 500 Bad Request");
+//                                include("errors/500.php");
+//                                exit();
+//                            }
                             echo '<div class="profile">';
                             echo '<div class="profile-frame">';
-                            echo '<div class="profile-glass" style="background-image: url(\'images/profiles/' . $profile->image . "')\"></div>";
+                            echo '<div class="profile-glass" style="background-image: url(\'images/profiles/' . $profile["image"] . "')\"></div>";
                             echo '</div>';
-                            echo '<h5 class="profile-name">' . $profile->full_name . '</h5>';
-                            echo '<h6 class="profile-company">' . $profile->company . '</h6>';
+                            echo '<h5 class="profile-name">' . $profile["full_name"] . '</h5>';
+                            echo '<h6 class="profile-company">' . $profile["company"] . '</h6>';
                             echo '</div>';
                         }
                         ?>

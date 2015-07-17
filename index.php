@@ -52,7 +52,6 @@ function getEvents($svr, $usr, $pwrd, $d, $pt)
 {
     $db = new Query($svr, $usr, $pwrd, $d, $pt);
     $evs = sortEvents($db);
-    $db->insert("name", "nulltest");
     return $evs;
 }
 

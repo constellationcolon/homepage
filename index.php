@@ -1,15 +1,15 @@
 <?php
 
-$evnts = array();
-$cmd = "./sort.py events -d";
-exec(escapeshellcmd($cmd), $output, $status);
-if ($status) {
-    echo "exec command failed";
-} else {
-    foreach ($output as $line) {
-        array_push($evnts, json_decode($line));
-    }
-}
+//$evnts = array();
+//$cmd = "./sort.py events -d";
+//exec(escapeshellcmd($cmd), $output, $status);
+//if ($status) {
+//    echo "exec command failed";
+//} else {
+//    foreach ($output as $line) {
+//        array_push($evnts, json_decode($line));
+//    }
+//}
 
 //load database
 require_once('scripts/query.php');
@@ -52,6 +52,7 @@ function getEvents($svr, $usr, $pwrd, $d, $pt)
 {
     $db = new Query($svr, $usr, $pwrd, $d, $pt);
     $evs = sortEvents($db);
+    $db->insert("name", "nulltest");
     return $evs;
 }
 
@@ -140,7 +141,7 @@ $events = getEvents($servername, $username, $password, $db_name, $port);
                     $evnt .= '<div class="event-description">';
                     $evnt .= '<p>' . $events[$i]["description"] . '</p>';
                     $evnt .= '</div>';
-                    $evnt .= '<a href="events.php?call=' . $events[$i]["name"] . '" target="_self"><button type="button" class="event-btn btn btn-default col-xs-12 col-sm-12 col-md-12 col-lg-12">More</button></a>';
+                    $evnt .= '<a href="events.php?call=' . $events[$i]["event_id"] . '" target="_self"><button type="button" class="event-btn btn btn-default col-xs-12 col-sm-12 col-md-12 col-lg-12">More</button></a>';
                     $evnt .= '</div>';
                     echo $evnt;
                 }

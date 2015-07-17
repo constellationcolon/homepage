@@ -1,15 +1,41 @@
 <?php
-    if (isset($_GET["call"])) {
-        if (!($event = json_decode(file_get_contents("events/" . $_GET["call"])))) {
-            header("HTTP/1.0 404 Bad Request");
-            include("errors/404.php");
-            exit();
-        }
-    } else {
-        header("HTTP/1.0 400 Bad Request");
-        include("errors/400.php");
-        exit();
-    }
+//load database
+require_once('scripts/query.php');
+//database parameters
+$servername = "dev.kovits.com";
+$username = "acmcu";
+$password = "koi2104";
+$db_name = "acmcu";
+$port = 3306;
+$table = "events";
+
+$db = new Query($servername, $username, $password, $db_name, $port);
+
+$event = $db->select($_GET["call"]);
+
+if (isset($_GET["call"])) {
+    $servername = "dev.kovits.com";
+    $username = "acmcu";
+    $password = "koi2104";
+    $db_name = "acmcu";
+    $port = 3306;
+    $table = "events";
+
+    $db = new Query($servername, $username, $password, $db_name, $port);
+
+    $event = $db->select("id", $_GET["call"])[0];
+
+//        if (!($event = json_decode(file_get_contents("events/" . $_GET["call"])))) {
+//            header("HTTP/1.0 404 Bad Request");
+//            include("errors/404.php");
+//            exit();
+//        }
+
+} else {
+    header("HTTP/1.0 400 Bad Request");
+    include("errors/400.php");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,9 +52,9 @@
     <link href="css/events.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 
 <body>
@@ -64,30 +90,45 @@
             <div class="col-xs-12" id="event-wrap">
                 <div class="col-xs-12 col-sm-offset-1 col-sm-push-3 col-sm-7 col-md-push-2 col-md-8 col-lg-7" id="event-details">
                     <div class="col-xs-12" id="event-name">
-                        <h3><?php echo $event->name ?></h3>
+                        <h3><?php echo $event["name]"] ?></h3>
                     </div>
                     <div class="col-xs-12" id="event-description">
-                        <p><?php echo $event->description ?></p>
+                        <p><?php echo $event["description"] ?></p>
                     </div>
                     <div class="col-xs-12 col-sm-5" id="event-details-split">
-                        <?php 
-                            $start_dt = date_create($event->start_datetime);
-                            $end_dt = date_create($event->end_datetime);
+                        <?php
+                        $start_dt = date_create($event["start_datetime"]);
+                        $end_dt = date_create($event["end_datetime"]);
                         ?>
                         <div class="col-xs-12" id="event-date">
-                            <h5><i class="hidden-xs icon-calendar"></i><?php echo $start_dt->format('F j, Y')?></h5>
+                            <h5>
+                                <i class="hidden-xs icon-calendar"></i><?php echo $start_dt->format('F j, Y') ?>
+                            </h5>
                         </div>
                         <div class="col-xs-12" id="event-time">
-                            <h5><i class="hidden-xs icon-clock"></i><?php echo $start_dt->format('g:ia') . " - " . $end_dt->format('g:ia')?></h5>
+                            <h5>
+                                <i class="hidden-xs icon-clock"></i><?php echo $start_dt->format('g:ia') . " - " . $end_dt->format('g:ia') ?>
+                            </h5>
                         </div>
                         <div class="col-xs-12" id="event-location">
-                            <h5><i class="hidden-xs icon-location"></i><?php echo $event->location ?></h5>
+                            <h5>
+                                <i class="hidden-xs icon-location"></i><?php echo $event["location"] ?>
+                            </h5>
                         </div>
                         <div class="col-xs-12" id="event-links">
                             <?php
-                                foreach ($event->external_links as $key => $link) {
-                                    echo '<a class="event-links" href="' . $link . '"><i class="icon-' . $key . '"></i></a>';
-                                }
+                            if (isset($event["facebook_link"]) && ($event["facebook_link"] != "0")) {
+                                echo '<a class="event-links" href="' . $event["facebook_link"] . '"><i class="icon-facebook"></i></a>';
+                            }
+                            if (isset($event["instagram_link"]) && $event["instagram_link"] != "0") {
+                                echo '<a class="event-links" href="' . $event["instagram_link"] . '"><i class="icon-instagram"></i></a>';
+                            }
+                            if (isset($event["twitter_link"]) && $event["twitter_link"] != "0") {
+                                echo '<a class="event-links" href="' . $event["twitter_link"] . '"><i class="icon-twitter"></i></a>';
+                            }
+                            if (isset($event["misc_link"]) && $event["misc_link"] != "0") {
+                                echo '<a class="event-links" href="' . $event["misc_link"] . '"><i class="icon-link"></i></a>';
+                            }
                             ?>
                         </div>
                     </div>
@@ -110,20 +151,21 @@
                 <div class="col-xs-12 col-sm-pull-7 col-sm-2 col-md-pull-8 col-md-2 col-lg-pull-7 col-lg-2" id="event-speakers-wrap">
                     <div id="event-speakers">
                         <?php
-                            foreach ($event->profiles as $filename) {
-                                if (!($profile = json_decode(file_get_contents("profiles/" . $filename)))) {
-                                    header("HTTP/1.0 500 Bad Request");
-                                    include("errors/500.php");
-                                    exit();
-                                }
-                                echo '<div class="profile">';
-                                echo    '<div class="profile-frame">';
-                                echo        '<div class="profile-glass" style="background-image: url(\'images/profiles/' . $profile->image . "')\"></div>";
-                                echo    '</div>';
-                                echo    '<h5 class="profile-name">' . $profile->full_name . '</h5>';
-                                echo    '<h6 class="profile-company">' . $profile->company . '</h6>';
-                                echo'</div>';
+                        $profiles = $db->select("attends", $event["id"]);
+                        foreach ($event->profiles as $filename) {
+                            if (!($profile = json_decode(file_get_contents("profiles/" . $filename)))) {
+                                header("HTTP/1.0 500 Bad Request");
+                                include("errors/500.php");
+                                exit();
                             }
+                            echo '<div class="profile">';
+                            echo '<div class="profile-frame">';
+                            echo '<div class="profile-glass" style="background-image: url(\'images/profiles/' . $profile->image . "')\"></div>";
+                            echo '</div>';
+                            echo '<h5 class="profile-name">' . $profile->full_name . '</h5>';
+                            echo '<h6 class="profile-company">' . $profile->company . '</h6>';
+                            echo '</div>';
+                        }
                         ?>
                     </div>
                 </div>

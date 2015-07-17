@@ -26,11 +26,14 @@ class Query
         $args = func_get_args();
         if (count($args) === 0) {
             $result = $this->db->fetch();
-        }
-        elseif ($args[0] === "upcoming") {
+        } elseif ($args[0] === "upcoming") {
             $result = $this->db->fetch("upcoming");
         } elseif ($args[0] === "passed") {
             $result = $this->db->fetch("upcoming");
+        } elseif ($args[0] === "id") {
+            $result = $this->db->fetch($args[0], $args[1]);
+        } elseif ($args[0] === "attends") {
+            $result = $this->db->fetch($args[0], $args[1]);
         }
         return $result;
     }

@@ -66,6 +66,11 @@ class Db {
             SELECT * FROM events
             WHERE start_datetime <= NOW()
             ORDER BY start_datetime');
+        } elseif ($args[0] === "attends") {
+            $command = $this->conn->prepare('
+            SELECT * FROM profiles
+            WHERE profile_id = attends.?');
+            $command->bind_param("s", $args[1]);
         }
         $command->execute();
         $result = $command->get_result();

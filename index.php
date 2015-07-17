@@ -22,40 +22,41 @@ $port = 3306;
 $table = "events";
 
 function sortEvents($database) {
-    $events = array();
+    $evts = array();
     $upcoming = $database->select("upcoming");
     if (count($upcoming) <= 3) {
         $passed = $database->select("passed");
         if (count($upcoming) === 0) {
-            array_push($events, $passed[2]);
-            array_push($events, $passed[1]);
-            array_push($events, $passed[0]);
+            array_push($evts, $passed[2]);
+            array_push($ents, $passed[1]);
+            array_push($evts, $passed[0]);
         }elseif (count($upcoming) === 1) {
-            array_push($events, $passed[2]);
-            array_push($events, $passed[1]);
-            array_push($events, $upcoming[0]);
+            array_push($evts, $passed[2]);
+            array_push($evts, $passed[1]);
+            array_push($evts, $upcoming[0]);
         }elseif (count($upcoming) === 2) {
-            array_push($events, $passed[2]);
-            array_push($events, $upcoming[0]);
-            array_push($events, $upcoming[1]);
+            array_push($evts, $passed[2]);
+            array_push($evts, $upcoming[0]);
+            array_push($evts, $upcoming[1]);
         }
     }
     else {
-        array_push($events, $upcoming[0]);
-        array_push($events, $upcoming[1]);
-        array_push($events, $upcoming[2]);
+        array_push($evts, $upcoming[0]);
+        array_push($evts, $upcoming[1]);
+        array_push($evts, $upcoming[2]);
     }
-    return $events;
+    return $evts;
 }
 
 function getEvents($svr, $usr, $pwrd, $d, $pt)
 {
     $db = new Query($svr, $usr, $pwrd, $d, $pt);
     $evs = sortEvents($db);
-    var_dump($evs);
+    return $evs;
 }
 
-getEvents($servername, $username, $password, $db_name, $port);
+$events = getEvents($servername, $username, $password, $db_name, $port);
+//var_dump($events);
 
 ?>
 <!DOCTYPE html>
@@ -117,7 +118,7 @@ getEvents($servername, $username, $password, $db_name, $port);
             <div class="events-container col-xs-12 col-sm-12 col-md-offset-1 col-md-10">
                 <?php
                 for ($i = 0; $i < count($events); $i++) {
-                    $date = date_create($events[$i]->start_datetime);
+                    $date = date_create($events[$i]["start_datetime"]);
                     if ($i == 0) {
                         if (count($events) == 3) {
                             $evnt = '<div class="event-wrap col-xs-12 col-sm-4">';
@@ -134,12 +135,12 @@ getEvents($servername, $username, $password, $db_name, $port);
                     $evnt .= '<div class="event-date-day">' . $date->format('j') . '</div>';
                     $evnt .= '</div>';
                     $evnt .= '<div class="event-name">';
-                    $evnt .= '<h3>' . $events[$i]->name . '</h3>';
+                    $evnt .= '<h3>' . $events[$i]["name"] . '</h3>';
                     $evnt .= '</div>';
                     $evnt .= '<div class="event-description">';
-                    $evnt .= '<p>' . $events[$i]->description . '</p>';
+                    $evnt .= '<p>' . $events[$i]["description"] . '</p>';
                     $evnt .= '</div>';
-                    $evnt .= '<a href="events.php?call=' . $events[$i]->filename . '" target="_self"><button type="button" class="event-btn btn btn-default col-xs-12 col-sm-12 col-md-12 col-lg-12">More</button></a>';
+                    $evnt .= '<a href="events.php?call=' . $events[$i]["name"] . '" target="_self"><button type="button" class="event-btn btn btn-default col-xs-12 col-sm-12 col-md-12 col-lg-12">More</button></a>';
                     $evnt .= '</div>';
                     echo $evnt;
                 }

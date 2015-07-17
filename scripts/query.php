@@ -29,7 +29,7 @@ class Query
         } elseif ($args[0] === "upcoming") {
             $result = $this->db->fetch("upcoming");
         } elseif ($args[0] === "passed") {
-            $result = $this->db->fetch("upcoming");
+            $result = $this->db->fetch("passed");
         } elseif ($args[0] === "id") {
             $result = $this->db->fetch($args[0], $args[1]);
         } elseif ($args[0] === "attends") {

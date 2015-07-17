@@ -24,18 +24,18 @@ $table = "events";
 function sortEvents($database) {
     $evts = array();
     $upcoming = $database->select("upcoming");
-    if (count($upcoming) <= 3) {
+    if (count($upcoming) < 3) {
         $passed = $database->select("passed");
         if (count($upcoming) === 0) {
-            array_push($evts, $passed[2]);
-            array_push($ents, $passed[1]);
-            array_push($evts, $passed[0]);
+            array_push($evts, $passed[count($passed)-3]);
+            array_push($ents, $passed[count($passed)-2]);
+            array_push($evts, $passed[count($passed)-1]);
         }elseif (count($upcoming) === 1) {
-            array_push($evts, $passed[2]);
-            array_push($evts, $passed[1]);
+            array_push($evts, $passed[count($passed)-2]);
+            array_push($evts, $passed[count($passed)-1]);
             array_push($evts, $upcoming[0]);
         }elseif (count($upcoming) === 2) {
-            array_push($evts, $passed[2]);
+            array_push($evts, $passed[count($passed)-1]);
             array_push($evts, $upcoming[0]);
             array_push($evts, $upcoming[1]);
         }

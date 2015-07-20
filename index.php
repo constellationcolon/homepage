@@ -14,7 +14,7 @@ function sortEvents($database) {
     $evts = array();
     $upcoming = $database->select("upcoming");
     $passed = $database->select("passed");
-    $i=0;
+    $i = 0;
     $index = 3;
     $passed_index = (count($passed));
     $upcoming_index = (count($upcoming));
@@ -29,14 +29,13 @@ function sortEvents($database) {
     return array_reverse($evts);
 }
 
-function getEvents($svr, $usr, $pwrd, $d, $pt)
-{
-    $db = new Query($svr, $usr, $pwrd, $d, $pt);
-    $evs = sortEvents($db);
+function getEvents($database) {
+    $evs = sortEvents($database);
     return $evs;
 }
 
-$events = getEvents($servername, $username, $password, $db_name, $port);
+$db = new Query($servername, $username, $password, $db_name, $port);
+$events = getEvents($db);
 
 ?>
 <!DOCTYPE html>
@@ -126,7 +125,28 @@ $events = getEvents($servername, $username, $password, $db_name, $port);
                 }
                 ?>
             </div>
+            <div class="events-all">
+                <button type="button" class="btn btn-block btn-lg btn-info" data-toggle="collapse" data-target="#events-all">
+                    <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                </button>
+                <div id="events-all" class="collapse">
+                    <?php
+                    $all_events = $db->select();
+                    $records = '<ul class = "event-list">All Events</ul>';
+                    for ($i=0; $i < count($all_events); $i++) {
+                        $date = date_create($all_events[$i]["start_datetime"]);
+                        $record = '<li class="event"></li>';
+                        $record .= '<p>' . strtoupper($date->format('m/d/y')) . '</p>';
+                        $record .= '<p>' . $all_events[$i]["name"] . '</p>';
+                        $record .= '<p>' . $all_events[$i]["description"] . '</p>';
+                        $records .= $record;
+                    }
+                    echo $records;
+                    ?>
+                </div>
+            </div>
         </div>
+
         <div class="row" id="about-wrap">
             <div id="about-overlay">
                 <div class="col-xs-12" id="about-title">

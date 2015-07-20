@@ -168,6 +168,12 @@ a {
     left: 20%;
     bottom: 5px;
 }
+.events-all {
+
+}
+.btn-block {
+    border-radius: 0;
+}
 #about-overlay {
     position: relative;
     overflow: hidden;

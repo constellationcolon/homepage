@@ -81,5 +81,7 @@ class Db {
         }
         return $rows;
     }
+
 }
+
 ?>

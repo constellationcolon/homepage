@@ -1,16 +1,5 @@
 <?php
 
-//$evnts = array();
-//$cmd = "./sort.py events -d";
-//exec(escapeshellcmd($cmd), $output, $status);
-//if ($status) {
-//    echo "exec command failed";
-//} else {
-//    foreach ($output as $line) {
-//        array_push($evnts, json_decode($line));
-//    }
-//}
-
 //load database
 require_once('scripts/query.php');
 //database parameters
@@ -24,28 +13,20 @@ $table = "events";
 function sortEvents($database) {
     $evts = array();
     $upcoming = $database->select("upcoming");
-    if (count($upcoming) < 3) {
-        $passed = $database->select("passed");
-        if (count($upcoming) === 0) {
-            array_push($evts, $passed[count($passed)-3]);
-            array_push($ents, $passed[count($passed)-2]);
-            array_push($evts, $passed[count($passed)-1]);
-        }elseif (count($upcoming) === 1) {
-            array_push($evts, $passed[count($passed)-2]);
-            array_push($evts, $passed[count($passed)-1]);
-            array_push($evts, $upcoming[0]);
-        }elseif (count($upcoming) === 2) {
-            array_push($evts, $passed[count($passed)-1]);
-            array_push($evts, $upcoming[0]);
-            array_push($evts, $upcoming[1]);
-        }
+    $passed = $database->select("passed");
+    $i=0;
+    $index = 3;
+    $passed_index = (count($passed));
+    $upcoming_index = (count($upcoming));
+    if ($upcoming_index + $passed_index < 3) {
+        $index = ($upcoming_index + $passed_index);
     }
-    else {
-        array_push($evts, $upcoming[0]);
-        array_push($evts, $upcoming[1]);
-        array_push($evts, $upcoming[2]);
+    while ($i < $index) {
+        ($upcoming_index > 0) ? array_push($evts, $upcoming[--$upcoming_index])
+            : array_push($evts, $passed[--$passed_index]);
+        $i++;
     }
-    return $evts;
+    return array_reverse($evts);
 }
 
 function getEvents($svr, $usr, $pwrd, $d, $pt)
@@ -56,7 +37,6 @@ function getEvents($svr, $usr, $pwrd, $d, $pt)
 }
 
 $events = getEvents($servername, $username, $password, $db_name, $port);
-//var_dump($events);
 
 ?>
 <!DOCTYPE html>

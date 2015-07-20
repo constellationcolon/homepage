@@ -133,13 +133,13 @@ $events = getEvents($db);
                 <div id="events-all" class="collapse">
                     <?php
                     $all_events = $db->select();
-                    $records = '<ul class = "event-list">All Events';
+                    $records = '<ul class = "event-list">All Events<br><br>';
                     for ($i=0; $i < count($all_events); $i++) {
                         $date = date_create($all_events[$i]["start_datetime"]);
-                        $record = '<li class="event"></li>';
+                        $record = '<li class="event">';
                         $record .= '<p>' . strtoupper($date->format('m/d/y')) . '</p>';
                         $record .= '<a href="events.php?call=' . $all_events[$i]["event_id"] . '" target="_self">' . $all_events[$i]["name"] . '</a>';
-                        $record .= '<p>' . $all_events[$i]["description"] . '</p>';
+                        $record .= '<p>' . $all_events[$i]["description"] . '<br><br></p></li>';
                         $records .= $record;
                     }
                     $records .= '</ul>';

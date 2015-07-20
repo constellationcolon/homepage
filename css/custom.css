@@ -169,7 +169,8 @@ a {
     bottom: 5px;
 }
 .events-all {
-
+    color: #7a787d;
+    font-size: 1.2em;
 }
 .btn-block {
     border-radius: 0;
@@ -185,6 +186,17 @@ a {
 }
 .collapsed > .glyphicon-chevron-up {
     display: none;
+}
+.event-list {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+li {
+    font-size: .8em;
+    font-weight: normal;
+}
+li > p {
+    margin-bottom: 0;
 }
 #about-overlay {
     position: relative;

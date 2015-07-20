@@ -174,6 +174,18 @@ a {
 .btn-block {
     border-radius: 0;
 }
+.glyphicon-chevron-up {
+    display: block;
+}
+.glyphicon-chevron-down {
+    display: none;
+}
+.collapsed > .glyphicon-chevron-down {
+    display: block;
+}
+.collapsed > .glyphicon-chevron-up {
+    display: none;
+}
 #about-overlay {
     position: relative;
     overflow: hidden;

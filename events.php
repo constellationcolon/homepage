@@ -90,7 +90,7 @@ if (isset($_GET["call"])) {
             <div class="col-xs-12" id="event-wrap">
                 <div class="col-xs-12 col-sm-offset-1 col-sm-push-3 col-sm-7 col-md-push-2 col-md-8 col-lg-7" id="event-details">
                     <div class="col-xs-12" id="event-name">
-                        <h3><?php echo $event["name]"] ?></h3>
+                        <h3><?php echo $event["name"] ?></h3>
                     </div>
                     <div class="col-xs-12" id="event-description">
                         <p><?php echo $event["description"] ?></p>

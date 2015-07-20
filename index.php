@@ -126,21 +126,23 @@ $events = getEvents($db);
                 ?>
             </div>
             <div class="events-all">
-                <button type="button" class="btn btn-block btn-lg btn-info" data-toggle="collapse" data-target="#events-all">
+                <button type="button" class="btn btn-block btn-lg btn-info collapsed" data-toggle="collapse" data-target="#events-all">
                     <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
                 </button>
                 <div id="events-all" class="collapse">
                     <?php
                     $all_events = $db->select();
-                    $records = '<ul class = "event-list">All Events</ul>';
+                    $records = '<ul class = "event-list">All Events';
                     for ($i=0; $i < count($all_events); $i++) {
                         $date = date_create($all_events[$i]["start_datetime"]);
                         $record = '<li class="event"></li>';
                         $record .= '<p>' . strtoupper($date->format('m/d/y')) . '</p>';
-                        $record .= '<p>' . $all_events[$i]["name"] . '</p>';
+                        $record .= '<a href="events.php?call=' . $all_events[$i]["event_id"] . '" target="_self">' . $all_events[$i]["name"] . '</a>';
                         $record .= '<p>' . $all_events[$i]["description"] . '</p>';
                         $records .= $record;
                     }
+                    $records .= '</ul>';
                     echo $records;
                     ?>
                 </div>

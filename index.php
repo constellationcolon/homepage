@@ -92,7 +92,7 @@ $events = sortEvents($db);
             </div>
             <div class="events-container col-xs-12 col-sm-12 col-md-offset-1 col-md-10">
                 <?php
-                for ($i = 0; $i < count($events); $i++) {
+                for ($i = 0; $i < (count($events)); $i++) {
                     $date = date_create($events[$i]["start_datetime"]);
                     if ($i == 0) {
                         if (count($events) == 3) {
@@ -127,24 +127,35 @@ $events = sortEvents($db);
                     <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
                 </button>
                 <div id="events-all" class="collapse">
-                    <?php
-                    $all_events = $db->select();
-                    $records = '<ul class = "event-list">All Events<br><br>';
-                    for ($i=0; $i < count($all_events); $i++) {
-                        $date = date_create($all_events[$i]["start_datetime"]);
-                        $record = '<li class="event">';
-                        $record .= '<p>' . strtoupper($date->format('m/d/y')) . '</p>';
-                        $record .= '<a href="events.php?call=' . $all_events[$i]["event_id"] . '" target="_self">' . $all_events[$i]["name"] . '</a>';
-                        $record .= '<p>' . $all_events[$i]["description"] . '<br><br></p></li>';
-                        $records .= $record;
-                    }
-                    $records .= '</ul>';
-                    echo $records;
-                    ?>
+                    <div class="events-all-inner col-md-10 col-md-offset-1">
+<!--                        <div class="events-all-1 col-md-5 col-md-offset-1">-->
+                            <?php
+                            $all_events = $db->select();
+                            $records = '<h5 class="events-title">ALL EVENTS</h5><div class="events-all-1 col-md-5 col-md-offset-1"><ul class = "event-list">';
+                            for ($i=0; $i < (count($all_events)/2); $i++) {
+                                $date = date_create($all_events[$i]["start_datetime"]);
+                                $record = '<li class="event">';
+                                $record .= '<span>' . strtoupper($date->format('m/d/y')) . '</span>';
+                                $record .= '<a href="events.php?call=' . $all_events[$i]["event_id"] . '" target="_self"> - ' . $all_events[$i]["name"] . '</a>';
+                                $record .= '<br></li>';
+                                $records .= $record;
+                            }
+                            $records .= '</ul></div><div class="events-all-2 col-md-5"><ul class = "event-list">';
+                            for ($i=(count($all_events)/2); $i < count($all_events); $i++) {
+                                $date = date_create($all_events[$i]["start_datetime"]);
+                                $record = '<li class="event">';
+                                $record .= '<span>' . strtoupper($date->format('m/d/y')) . '</span>';
+                                $record .= '<a href="events.php?call=' . $all_events[$i]["event_id"] . '" target="_self"> - ' . $all_events[$i]["name"] . '</a>';
+                                $record .= '<br></li>';
+                                $records .= $record;
+                            }
+                            $records .= '</ul></div>';
+                            echo $records;
+                            ?>
+                    </div>
                 </div>
             </div>
         </div>
-
         <div class="row" id="about-wrap">
             <div id="about-overlay">
                 <div class="col-xs-12" id="about-title">

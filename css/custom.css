@@ -172,6 +172,11 @@ a {
     color: #7a787d;
     font-size: 1.2em;
 }
+.events-title {
+    color: #7a787d;
+    font-size: 1.2em
+    text-align: center;
+}
 .btn-block {
     border-radius: 0;
 }
@@ -187,13 +192,19 @@ a {
 .collapsed > .glyphicon-chevron-up {
     display: none;
 }
-.event-list {
+.events-all-inner {
+    height: 300px;
     font-size: 1.5em;
     font-weight: bold;
+    overflow: scroll;
+}
+.events-all-2 {
+    float: right;
 }
 li {
     font-size: .8em;
     font-weight: normal;
+    display: inline;
 }
 li > p {
     margin-bottom: 0;

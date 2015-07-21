@@ -10,6 +10,7 @@ $db_name = "acmcu";
 $port = 3306;
 $table = "events";
 
+//returns array of 3 events in proper display order (or less)
 function sortEvents($database) {
     $evts = array();
     $upcoming = $database->select("upcoming");
@@ -29,13 +30,8 @@ function sortEvents($database) {
     return array_reverse($evts);
 }
 
-function getEvents($database) {
-    $evs = sortEvents($database);
-    return $evs;
-}
-
 $db = new Query($servername, $username, $password, $db_name, $port);
-$events = getEvents($db);
+$events = sortEvents($db);
 
 ?>
 <!DOCTYPE html>

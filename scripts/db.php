@@ -51,10 +51,12 @@ class Db {
     public function fetch (){
         $args = func_get_args();
         if ((count($args)) === 0) { //select all
-            $command = $this->conn->prepare('SELECT * FROM events');
+            $command = $this->conn->prepare('
+            SELECT * FROM events
+            ORDER BY start_datetime');
         } elseif(($args[0]) === "id") { //select individual id
             $command = $this->conn->prepare(
-                'SELECT * FROM events WHERE event_id = ?');
+            'SELECT * FROM events WHERE event_id = ?');
             $command->bind_param("i", $args[1]);
         } elseif ($args[0] === "upcoming") {
             $command = $this->conn->prepare('

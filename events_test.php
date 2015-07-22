@@ -32,25 +32,60 @@
             <div class="row events-list col-md-6">
                 <ul>
                     <li>
-                        Event 1
+                        <time datetime="2014-09-20" class="icon">
+                            <em>Saturday</em>
+                            <strong>September</strong>
+                            <span>20</span>
+                        </time>
+                        <p>Event 1</p>
                     </li>
                     <li>
-                        Event 2
+                        <time datetime="2014-09-20" class="icon">
+                            <em>Saturday</em>
+                            <strong>September</strong>
+                            <span>20</span>
+                        </time>
+                        <p>Event 2</p>
                     </li>
                     <li>
-                        Event 3
+                        <time datetime="2014-09-20" class="icon">
+                            <em>Saturday</em>
+                            <strong>September</strong>
+                            <span>20</span>
+                        </time>
+                        <p>Event 3</p>
                     </li>
                     <li>
-                        Event 4
+                        <time datetime="2014-09-20" class="icon">
+                            <em>Saturday</em>
+                            <strong>September</strong>
+                            <span>20</span>
+                        </time>
+                        <p>Event 4</p>
                     </li>
                     <li>
-                        Event 5
+                        <time datetime="2014-09-20" class="icon">
+                            <em>Saturday</em>
+                            <strong>September</strong>
+                            <span>20</span>
+                        </time>
+                        <p>Event 5</p>
                     </li>
                     <li>
-                        Event 6
+                        <time datetime="2014-09-20" class="icon">
+                            <em>Saturday</em>
+                            <strong>September</strong>
+                            <span>20</span>
+                        </time>
+                        <p>Event 6</p>
                     </li>
                     <li>
-                        Event 7
+                        <time datetime="2014-09-20" class="icon">
+                            <em>Saturday</em>
+                            <strong>September</strong>
+                            <span>20</span>
+                        </time>
+                        <p>Event 7</p>
                     </li>
                 </ul>
             </div>

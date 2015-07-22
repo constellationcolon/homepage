@@ -121,37 +121,37 @@ $events = sortEvents($db);
                 }
                 ?>
             </div>
-            <div class="events-all">
-                <button type="button" class="btn btn-block btn-lg btn-info collapsed" data-toggle="collapse" data-target="#events-all">
-                    <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
-                    <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
-                </button>
-                <div id="events-all" class="collapse">
-                    <div class="events-all-inner col-md-10 col-md-offset-1">
-<!--                        <div class="events-all-1 col-md-5 col-md-offset-1">-->
+            <button type="button" class="btn btn-block btn-lg btn-info collapsed" data-toggle="collapse" data-target="#events-all">
+                <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+            </button>
+            <div id="events-all" class="collapse">
+                <div class="row events-all-wrapper col-md-12">
+                    <div class="row events-search col-md-6">
+                        <div class="input-group input-group-lg">
+                            <input type="text" id="search" class="form-control search-text" placeholder="Search for...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row events-list col-md-6">
+                        <ul>
                             <?php
-                            $all_events = $db->select();
-                            $records = '<h5 class="events-title">ALL EVENTS</h5><div class="events-all-1 col-md-5 col-md-offset-1"><ul class = "event-list">';
-                            for ($i=0; $i < (count($all_events)/2); $i++) {
-                                $date = date_create($all_events[$i]["start_datetime"]);
-                                $record = '<li class="event">';
-                                $record .= '<span>' . strtoupper($date->format('m/d/y')) . '</span>';
-                                $record .= '<a href="events.php?call=' . $all_events[$i]["event_id"] . '" target="_self"> - ' . $all_events[$i]["name"] . '</a>';
-                                $record .= '<br></li>';
-                                $records .= $record;
+                            $past = $db->select("passed");
+                            for ($i = 0; $i < count($past); $i++) {
+                                $date = date_create($past[$i]["start_datetime"]);
+                                $item = '<li><time datetime="' . $date->format('y/m/d') . '"class="icon">';
+                                $item .= '<em>' . $date->format('F') . '</em>';
+                                $item .= '<strong>' . $date->format('Y') . '</strong>';
+                                $item .= '<span>' . $date->format('d') . '</span></time>';
+                                $item .= '<p>' . $past[$i]["name"] . '</p></li>';
+                                echo $item;
                             }
-                            $records .= '</ul></div><div class="events-all-2 col-md-5"><ul class = "event-list">';
-                            for ($i=(count($all_events)/2); $i < count($all_events); $i++) {
-                                $date = date_create($all_events[$i]["start_datetime"]);
-                                $record = '<li class="event">';
-                                $record .= '<span>' . strtoupper($date->format('m/d/y')) . '</span>';
-                                $record .= '<a href="events.php?call=' . $all_events[$i]["event_id"] . '" target="_self"> - ' . $all_events[$i]["name"] . '</a>';
-                                $record .= '<br></li>';
-                                $records .= $record;
-                            }
-                            $records .= '</ul></div>';
-                            echo $records;
                             ?>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -295,6 +295,20 @@ $events = sortEvents($db);
                     alert("Please Complete all Sections");
                 },
             })
+        })
+
+        //make :contains case insensitive
+        $.expr[":"].contains = $.expr.createPseudo(function (arg) {
+            return function (elem) {
+                return $(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
+            };
+        });
+
+        //show only active search results
+        $('#search').keyup(function () {
+            $('p').parent().hide();
+            var text = $('#search').val();
+            $("p:contains('" + text + "')").parent().show();
         })
     </script>
 </body>

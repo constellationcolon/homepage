@@ -121,9 +121,9 @@ $events = sortEvents($db);
                 }
                 ?>
             </div>
-            <button type="button" class="btn btn-block btn-lg btn-info collapsed" data-toggle="collapse" data-target="#events-all">
-                <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
-                <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+            <button type="button" class="btn btn-block btn-lg btn-info btn-open collapsed" data-toggle="collapse" data-target="#events-all">
+                <span class="past-btn">PAST EVENTS <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></span>
+                <span class="past-btn-pressed"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span></span>
             </button>
             <div id="events-all" class="collapse">
                 <div class="row events-all-wrapper col-md-12">
@@ -143,11 +143,11 @@ $events = sortEvents($db);
                             $past = $db->select("passed");
                             for ($i = 0; $i < count($past); $i++) {
                                 $date = date_create($past[$i]["start_datetime"]);
-                                $item = '<li><time datetime="' . $date->format('y/m/d') . '"class="icon">';
+                                $item = '<a href="events.php?call=' . $past[$i]["event_id"] . '"target="_self"><li><time datetime="' . $date->format('y/m/d') . '"class="icon">';
                                 $item .= '<em>' . $date->format('F') . '</em>';
                                 $item .= '<strong>' . $date->format('Y') . '</strong>';
                                 $item .= '<span>' . $date->format('d') . '</span></time>';
-                                $item .= '<p>' . $past[$i]["name"] . '</p></li>';
+                                $item .= '<p>' . $past[$i]["name"] . '</p></li></a>';
                                 echo $item;
                             }
                             ?>

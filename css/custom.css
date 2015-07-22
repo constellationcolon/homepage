@@ -180,17 +180,21 @@ a {
 .btn-block {
     border-radius: 0;
 }
-.glyphicon-chevron-up {
-    display: block;
-}
-.glyphicon-chevron-down {
+.past-btn {
     display: none;
 }
-.collapsed > .glyphicon-chevron-down {
+.past-btn-pressed {
     display: block;
 }
-.collapsed > .glyphicon-chevron-up {
+.collapsed > .past-btn-pressed {
     display: none;
+}
+.collapsed > .past-btn {
+    display: block;
+}
+.btn.btn-open:hover {
+    background: #E98B33;
+    color: #44281A;
 }
 .events-all-wrapper {
     height: 300px;
@@ -225,7 +229,7 @@ a {
     color: #555;
 }
 
-.events-list ul > li {
+.events-list a > li {
     list-style: none;
     border-top: 1px solid #ddd;
     display: block;
@@ -237,12 +241,12 @@ a {
     border-bottom: 1px solid #ddd;
 }
 
-.events-list ul > li:hover {
+.events-list a > li:hover {
     background: #efefef;
 }
 
 .events-list::-webkit-scrollbar {
-    /*display: none;*/
+    display: none;
 }
 time.icon
 {
@@ -270,10 +274,10 @@ time.icon *
 
 time.icon strong
 {
-    font-size: 1.6em;
+    font-size: 1.7em;
     position: absolute;
     top: 0;
-    padding: 0.1em 0;
+    padding: 0;
     color: #fff;
     background-color: #fd9f1b;
     border-bottom: 1px dashed #f37302;

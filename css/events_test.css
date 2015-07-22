@@ -107,9 +107,10 @@ time.icon *
 
 time.icon strong
 {
+    font-size: 1.6em;
     position: absolute;
     top: 0;
-    padding: 0.4em 0;
+    padding: 0.1em 0;
     color: #fff;
     background-color: #fd9f1b;
     border-bottom: 1px dashed #f37302;

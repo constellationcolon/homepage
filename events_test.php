@@ -1,3 +1,20 @@
+<?php
+
+//load database
+require_once('scripts/query.php');
+//database parameters
+$servername = "dev.kovits.com";
+$username = "acmcu";
+$password = "koi2104";
+$db_name = "acmcu";
+$port = 3306;
+$table = "events";
+
+$db = new Query($servername, $username, $password, $db_name, $port);
+$events = $db->select("passed");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +38,7 @@
         <div class="row events-all-wrapper col-md-12">
             <div class="row events-search col-md-6">
                 <div class="input-group input-group-lg">
-                    <input type="text" class="form-control search-text" placeholder="Search for...">
+                    <input type="text" id="search" class="form-control search-text" placeholder="Search for...">
                     <span class="input-group-btn">
                         <button class="btn btn-default" type="button">
                             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
@@ -31,64 +48,38 @@
             </div>
             <div class="row events-list col-md-6">
                 <ul>
-                    <li>
-                        <time datetime="2014-09-20" class="icon">
-                            <em>Saturday</em>
-                            <strong>September</strong>
-                            <span>20</span>
-                        </time>
-                        <p>Event 1</p>
-                    </li>
-                    <li>
-                        <time datetime="2014-09-20" class="icon">
-                            <em>Saturday</em>
-                            <strong>September</strong>
-                            <span>20</span>
-                        </time>
-                        <p>Event 2</p>
-                    </li>
-                    <li>
-                        <time datetime="2014-09-20" class="icon">
-                            <em>Saturday</em>
-                            <strong>September</strong>
-                            <span>20</span>
-                        </time>
-                        <p>Event 3</p>
-                    </li>
-                    <li>
-                        <time datetime="2014-09-20" class="icon">
-                            <em>Saturday</em>
-                            <strong>September</strong>
-                            <span>20</span>
-                        </time>
-                        <p>Event 4</p>
-                    </li>
-                    <li>
-                        <time datetime="2014-09-20" class="icon">
-                            <em>Saturday</em>
-                            <strong>September</strong>
-                            <span>20</span>
-                        </time>
-                        <p>Event 5</p>
-                    </li>
-                    <li>
-                        <time datetime="2014-09-20" class="icon">
-                            <em>Saturday</em>
-                            <strong>September</strong>
-                            <span>20</span>
-                        </time>
-                        <p>Event 6</p>
-                    </li>
-                    <li>
-                        <time datetime="2014-09-20" class="icon">
-                            <em>Saturday</em>
-                            <strong>September</strong>
-                            <span>20</span>
-                        </time>
-                        <p>Event 7</p>
-                    </li>
+                    <?php
+                    for ($i=0; $i<count($events); $i++) {
+                        $date = date_create($events[$i]["start_datetime"]);
+                        $item = '<li><time datetime="' . $date->format('y/m/d') . '"class="icon">';
+                        $item .= '<em>' . $date->format('F') . '</em>';
+                        $item .= '<strong>' . $date->format('Y') . '</strong>';
+                        $item .= '<span>' . $date->format('d') . '</span></time>';
+                        $item .= '<p>' . $events[$i]["name"] . '</p></li>';
+                        echo $item;
+                    }
+                    ?>
                 </ul>
             </div>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+
+        //make :contains case insensitive
+        $.expr[":"].contains = $.expr.createPseudo(function(arg) {
+            return function( elem ) {
+                return $(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
+            };
+        });
+
+        //show only active search results
+        $('#search').keyup(function() {
+            $('p').parent().hide();
+            var text = $('#search').val();
+            $("p:contains('" + text + "')").parent().show();
+        })
+
+    </script>
 </body>

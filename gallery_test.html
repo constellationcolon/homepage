@@ -1,0 +1,63 @@
+<?php
+
+//load database
+require_once('scripts/query.php');
+//database parameters
+$servername = "dev.kovits.com";
+$username = "acmcu";
+$password = "koi2104";
+$db_name = "acmcu";
+$port = 3306;
+$table = "events";
+
+$db = new Query($servername, $username, $password, $db_name, $port);
+$events = sortEvents($db);
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Gallery Tester</title>
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/gallery_test.css.css" rel="stylesheet">
+</head>
+<body>
+    <div class="row gallery-wrapper col-md-12">
+        <div id="gallery-carousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#gallery-carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#gallery-carousel" data-slide-to="1"></li>
+                <li data-target="#gallery-carousel" data-slide-to="2"></li>
+                <li data-target="#gallery-carousel" data-slide-to="3"></li>
+            </ol>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img src="events/event_sample_1.jpeg">
+                </div>
+                <div class="item">
+                    <img src="events/event_sample_2.jpg">
+                </div>
+                <div class="item">
+                    <img src="events/event_sample_3.jpg">
+                </div>
+                <div class="item">
+                    <img src="events/event_sample_4.jpg">
+                </div>
+            </div>
+            <!-- Right controls -->
+            <a class="right carousel-control" href="#gallery-carousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript"></script>
+</body>
+</html>

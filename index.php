@@ -122,8 +122,8 @@ $events = sortEvents($db);
                 ?>
             </div>
             <button type="button" class="btn btn-block btn-lg btn-info btn-open collapsed" data-toggle="collapse" data-target="#events-all">
-                <span class="past-btn">PAST EVENTS <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></span>
-                <span class="past-btn-pressed"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span></span>
+                <span class="past-btn">SEE PAST EVENTS <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></span>
+                <span class="past-btn-pressed">CLOSE <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span></span>
             </button>
             <div id="events-all" class="collapse">
                 <div class="row events-all-wrapper col-md-12">

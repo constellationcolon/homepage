@@ -160,7 +160,7 @@ if (isset($_GET["call"])) {
 //                            }
                             echo '<div class="profile">';
                             echo '<div class="profile-frame">';
-                            echo '<div class="profile-glass" style="background-image: url(\'images/profiles/' . $profile["image"] . "')\"></div>";
+                            echo '<div class="profile-glass" style="background-image: url(\'assets/profiles/' . $profile["image"] . "')\"></div>";
                             echo '</div>';
                             echo '<h5 class="profile-name">' . $profile["full_name"] . '</h5>';
                             echo '<h6 class="profile-company">' . $profile["company"] . '</h6>';

@@ -1,9 +1,0 @@
-{
-    "start_datetime": "2015-04-06 06:00:00",
-    "end_datetime": "2015-04-06  09:00:00",
-    "name": "Research Spotlight Event",
-    "location": "CS Lounge",
-    "description": "Have you ever had a conversation with Siri and wondered how it's more responsive than your friends? How can computers make anything out of what we say? Find out more about Natural Language Processing from Professor Dragomir Radev! Not only is he a visiting professor from the University of Michigan, but he's also an expert in NLP and Information Retrieval (IR). If you're interested to know what it takes to be as cool as he (or if you just want a general idea of how you and your computer can interact), come to talk!",
-    "external_links": {},
-   "profiles": ["konstantin_itskov.pro"]
-}

@@ -1,9 +1,0 @@
-{
-    "start_datetime": "2015-03-27 00:00:00",
-    "end_datetime": "2015-03-27 00:00:00",
-    "name": "Quick and Dirty Machine Learning in Python",
-    "location": "TBD",
-    "description": "Come join CCSPS for a presentation of the k-means algorithm for unsupervised machine learning classification. The entire demo project will be built during presentation, so you'll leave with a great new project to keep in your git repository. Our project will be planned in python, so we assume that you have basic python skills already. In the process of this event we are planning to introduce you to ipython notebook, numpy, scipy which we'll use in support to building the algorithm. If you are planning to do mathematically driven work with python in your future these libraries are a MUST KNOW python libraries. See you there!",
-    "external_links": {},
-    "profiles": ["konstantin_itskov.pro", "konstantin_itskov.pro"]
-}

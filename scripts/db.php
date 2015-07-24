@@ -74,6 +74,10 @@ class Db {
             JOIN profiles AS b ON a.profile_id = b.profile_id
             WHERE a.event_id = ?');
             $command->bind_param("s", $args[1]);
+        } elseif ($args[0] === "allImages") {
+            $command = $this->conn->prepare('
+            SELECT * FROM images
+            ORDER BY RAND()');
         }
         $command->execute();
         $result = $command->get_result();

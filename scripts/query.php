@@ -34,6 +34,8 @@ class Query
             $result = $this->db->fetch($args[0], $args[1]);
         } elseif ($args[0] === "attends") {
             $result = $this->db->fetch($args[0], $args[1]);
+        } elseif ($args[0] === "allImages") {
+            $result = $this->db->fetch("allImages");
         }
         return $result;
     }

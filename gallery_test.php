@@ -12,7 +12,6 @@ $table = "events";
 
 $db = new Query($servername, $username, $password, $db_name, $port);
 $images = $db->select("allImages");
-var_dump($images);
 ?>
 
 <!DOCTYPE html>

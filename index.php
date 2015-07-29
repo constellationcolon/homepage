@@ -32,6 +32,7 @@ function sortEvents($database) {
 
 $db = new Query($servername, $username, $password, $db_name, $port);
 $events = sortEvents($db);
+$images = $db->select("allImages");
 
 ?>
 <!DOCTYPE html>
@@ -174,6 +175,47 @@ $events = sortEvents($db);
                 </div>
             </div>
         </div>
+        <div class="row" id="gallery-wrap">
+            <div class="gallery-wrapper col-md-12">
+                <h1>GALLERY</h1>
+                <div id="gallery-carousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner" role="listbox">
+                        <?php
+                        $path = "assets/events/";
+                        $gallery = '<div class="item active"><img src="' . $path . $images[0]["img_filename"] . '"></div>';
+                        $thumbnails = <<<EOT
+    <div class="gallery-small"><div class="gallery-img-sm" style="background-image: url('
+EOT;
+                        $thumbnails .= $path . $images[0]["img_filename"];
+                        $thumbnails .= <<<EOT
+    ');></div>"
+EOT;
+                        $thumbnails .= <<<EOT
+    <div class="gallery-img-sm" style="background-image: url('
+EOT;
+                        $thumbnails .= $path . $images[1]["img_filename"];
+                        $thumbnails .= <<<EOT
+    ');"></div>
+EOT;
+                        for ($i = 1; $i < 16; $i++) {
+                            $gallery .= '<div class="item"><img src="' . $path . $images[$i]["img_filename"] . '"></div>';
+                            $thumbnails .= <<<EOT
+    <div class="gallery-img-sm" style="background-image: url('
+EOT;
+                            $thumbnails .= $path . $images[$i]["img_filename"];
+                            $thumbnails .= <<<EOT
+    ');"></div>
+EOT;
+                        }
+                        $gallery .= '</div>';
+                        $controls = '<a class="right carousel-control" href="#gallery-carousel" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">Next</span></a></div>';
+                        $thumbnails .= '</div>';
+                        echo $gallery;
+                        echo $controls;
+                        echo $thumbnails;
+                        ?>
+            </div>
+        </div>
         <div class="row" id="contact-wrap">
             <div id="contact-overlay">
                 <div class="col-xs-12" id="contact-title">
@@ -309,6 +351,21 @@ $events = sortEvents($db);
             $('p').parent().hide();
             var text = $('#search').val();
             $("p:contains('" + text + "')").parent().show();
+        })
+
+        //gallery thumbnails correspond to image on display on click
+        $('.gallery-img-sm').click(function () {
+            $('.carousel').carousel('pause');
+            var file = $(this).css('background-image').split('/');
+            file = file[file.length - 1].replace(')', '');
+            $('.active').removeClass('active');
+            $('.item').children().each(function () {
+                var src = $(this).attr('src').split('/');
+                src = src[src.length - 1];
+                if (src === file) {
+                    $(this).parent().addClass('active');
+                }
+            })
         })
     </script>
 </body>

@@ -78,6 +78,11 @@ class Db {
             $command = $this->conn->prepare('
             SELECT * FROM images
             ORDER BY RAND()');
+        } elseif ($args[0] === "eventImages") {
+            $command = $this->conn->prepare('
+            SELECT * FROM images
+            WHERE event_id = ?');
+            $command->bind_param("i", $args[1]);
         }
         $command->execute();
         $result = $command->get_result();

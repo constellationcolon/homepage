@@ -176,11 +176,12 @@ $images = $db->select("allImages");
             </div>
         </div>
         <div class="row" id="gallery-wrap">
-            <div class="gallery-wrapper col-md-12">
+            <div class="gallery-wrapper col-md-10 col-md-offset-1">
                 <h1>GALLERY</h1>
                 <div id="gallery-carousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner" role="listbox">
                         <?php
+                        $THUMBNAIL_QUANTITY = 16;
                         $path = "assets/events/";
                         $gallery = '<div class="item active"><img src="' . $path . $images[0]["img_filename"] . '"></div>';
                         $thumbnails = <<<EOT
@@ -197,7 +198,7 @@ EOT;
                         $thumbnails .= <<<EOT
     ');"></div>
 EOT;
-                        for ($i = 1; $i < 16; $i++) {
+                        for ($i = 1; $i < $THUMBNAIL_QUANTITY; $i++) {
                             $gallery .= '<div class="item"><img src="' . $path . $images[$i]["img_filename"] . '"></div>';
                             $thumbnails .= <<<EOT
     <div class="gallery-img-sm" style="background-image: url('
@@ -369,12 +370,12 @@ EOT;
                 });
 
                 function resize_thumbnails () {
-                    var TN_QUANTITY = 10;
+                    var THUMBNAILS_PER_ROW = 8;
                     var IND_SPACING = 22;
-                    var BUFFER = 10;
-                    var TOTAL_SPACING = TN_QUANTITY * IND_SPACING
+                    var THUMBNAIL_BUFFER = 6;
+                    var TOTAL_SPACING = THUMBNAILS_PER_ROW * IND_SPACING;
                     var width = $('.gallery-small').width();
-                    var tn_width = ((width - TOTAL_SPACING - BUFFER) / TN_QUANTITY);
+                    var tn_width = ((width - TOTAL_SPACING - THUMBNAIL_BUFFER) / THUMBNAILS_PER_ROW);
                     var tn_height = (tn_width *.75);
                     $('.gallery-img-sm').css({
                         'width': tn_width,

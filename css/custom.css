@@ -442,10 +442,10 @@ li > p {
     .item {
         height: 750px;
     }
-    .gallery-img-sm {
-        width: 100px;
-        height: 80px;
-    }
+    /*.gallery-img-sm {*/
+        /*width: 100px;*/
+        /*height: 80px;*/
+    /*}*/
 }
 @media (min-width: 992px) {
     .pull-right-md {
@@ -460,10 +460,10 @@ li > p {
     .item {
         height: 750px;
     }
-    .gallery-img-sm {
-        width: 110px;
-        height: 90px;
-    }
+    /*.gallery-img-sm {*/
+        /*width: 110px;*/
+        /*height: 90px;*/
+    /*}*/
 }
 @media (min-width: 1200px) {
     .pull-right-lg {
@@ -475,10 +475,10 @@ li > p {
     .item {
         height: 750px;
     }
-    .gallery-img-sm {
-        width: 120px;
-        height: 100px;
-    }
+    /*.gallery-img-sm {*/
+        /*width: 120px;*/
+        /*height: 100px;*/
+    /*}*/
 }
 @media all and (orientation: portrait) {
     #about-overlay {

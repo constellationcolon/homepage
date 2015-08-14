@@ -214,77 +214,95 @@ EOT;
                         echo $controls;
                         echo $thumbnails;
                         ?>
-            </div>
-        </div>
-        <div class="row" id="contact-wrap">
-            <div id="contact-overlay">
-                <div class="col-xs-12" id="contact-title">
-                    <h1>CONTACT</h1>
+                    </div>
                 </div>
-                <div class="col-xs-12" id="contact-form-wrap">
-                    <form role="form" action="scripts/send.php">
-                        <div class="col-xs-12" id="contact-form-fields">
-                            <div class="form-group col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
-                                <input type="textarea" class="form-control" id="name" name="name" placeholder="Full Name">
-                            </div>
-                            <div class="form-group col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Email Address">
-                            </div>
-                            <div class="form-group col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
-                                <textarea class="form-control" rows="8" id="message" name="message" placeholder="Enter Message"></textarea>
-                            </div>
+                <div class="row" id="contact-wrap">
+                    <div id="contact-overlay">
+                        <div class="col-xs-12" id="contact-title">
+                            <h1>CONTACT</h1>
                         </div>
-                        <div id="contact-btn-wrap">
-                            <button type="submit" class="btn btn-default" id="contact-btn">Submit</button>
+                        <div class="col-xs-12" id="contact-form-wrap">
+                            <form role="form" action="scripts/send.php">
+                                <div class="col-xs-12" id="contact-form-fields">
+                                    <div class="form-group col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
+                                        <input type="textarea" class="form-control" id="name" name="name" placeholder="Full Name">
+                                    </div>
+                                    <div class="form-group col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="Email Address">
+                                    </div>
+                                    <div class="form-group col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
+                                        <textarea class="form-control" rows="8" id="message" name="message" placeholder="Enter Message"></textarea>
+                                    </div>
+                                </div>
+                                <div id="contact-btn-wrap">
+                                    <button type="submit" class="btn btn-default" id="contact-btn">Submit</button>
+                                </div>
+                            </form>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- javascript -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/clamp.min.js"></script>
-    <script type="text/javascript">
-        var elems = $('.event-description > p')
-        for (i = 0; i < elems.length; i++) {
-            $clamp(elems[i], {
-                clamp: 'auto'
-            });
-        }
-        $('a[href*=#]:not([href=#])').click(function () {
-            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-                var target = $(this.hash);
-                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                if (target.length) {
-                    $('html,body').animate({
-                        scrollTop: target.offset().top
-                    }, 1000);
-                    return false;
+            <!-- javascript -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+            <script src="js/clamp.min.js"></script>
+            <script type="text/javascript">
+                var elems = $('.event-description > p')
+                for (i = 0; i < elems.length; i++) {
+                    $clamp(elems[i], {
+                        clamp: 'auto'
+                    });
                 }
-            }
-        });
-        $(window).scroll(function () {
-            if ($(this).scrollTop() > 10) {
-                $('.navbar').css('background-color', 'rgba(68, 40, 26, 0.7)');
-                $('.navbar').css('-webkit-box-shadow', '0 1px 1px 0 rgba(0, 0, 0, 0.6)');
-                $('.navbar').css('box-shadow', '0 1px 1px 0 rgba(0, 0, 0, 0.6)');
-                $('.navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand').css('color', '#D7D3D0');
-                $('.navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand').hover(
-                    function () {
-                        $(this).css('color', '#44281A');
-                    },
-                    function () {
-                        $(this).css('color', '#D7D3D0');
+                $('a[href*=#]:not([href=#])').click(function () {
+                    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                        var target = $(this.hash);
+                        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                        if (target.length) {
+                            $('html,body').animate({
+                                scrollTop: target.offset().top
+                            }, 1000);
+                            return false;
+                        }
                     }
-                );
+                });
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > 10) {
+                        $('.navbar').css('background-color', 'rgba(68, 40, 26, 0.7)');
+                        $('.navbar').css('-webkit-box-shadow', '0 1px 1px 0 rgba(0, 0, 0, 0.6)');
+                        $('.navbar').css('box-shadow', '0 1px 1px 0 rgba(0, 0, 0, 0.6)');
+                        $('.navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand').css('color', '#D7D3D0');
+                        $('.navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand').hover(
+                            function () {
+                                $(this).css('color', '#44281A');
+                            },
+                            function () {
+                                $(this).css('color', '#D7D3D0');
+                            }
+                        );
 
-            } else {
-                $('.navbar').css('background-color', 'transparent');
-                $('.navbar').css('-webkit-box-shadow', 'none');
-                $('.navbar').css('box-shadow', 'none');
-                $('.navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand').css('color', '#44281A');
+                    } else {
+                        $('.navbar').css('background-color', 'transparent');
+                        $('.navbar').css('-webkit-box-shadow', 'none');
+                        $('.navbar').css('box-shadow', 'none');
+                        $('.navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand').css('color', '#44281A');
+                        $('.navbar-default .navbar-nav>li>a').hover(
+                            function () {
+                                $(this).css('color', '#7A787D');
+                            },
+                            function () {
+                                $(this).css('color', '#44281A');
+                            }
+                        );
+                        $('.navbar-default .navbar-brand').hover(
+                            function () {
+                                $(this).css('color', '#D7D3D0');
+                            },
+                            function () {
+                                $(this).css('color', '#44281A');
+                            }
+                        );
+                    }
+                });
                 $('.navbar-default .navbar-nav>li>a').hover(
                     function () {
                         $(this).css('color', '#7A787D');
@@ -301,73 +319,79 @@ EOT;
                         $(this).css('color', '#44281A');
                     }
                 );
-            }
-        });
-        $('.navbar-default .navbar-nav>li>a').hover(
-            function () {
-                $(this).css('color', '#7A787D');
-            },
-            function () {
-                $(this).css('color', '#44281A');
-            }
-        );
-        $('.navbar-default .navbar-brand').hover(
-            function () {
-                $(this).css('color', '#D7D3D0');
-            },
-            function () {
-                $(this).css('color', '#44281A');
-            }
-        );
 
-        $('form').on('submit', function (e) {
-            e.preventDefault();
-            $.ajax({
-                type: "POST",
-                cache: false,
-                url: $(this).attr('action'),
-                data: $(this).serialize(),
-                success: function () {
-                    $("#name").val('');
-                    $("#email").val('');
-                    $("#message").val('');
-                    alert("Your Message Has Been Sent");
-                },
-                error: function (xhr) {
-                    alert("Please Complete all Sections");
-                },
-            })
-        })
+                $('form').on('submit', function (e) {
+                    e.preventDefault();
+                    $.ajax({
+                        type: "POST",
+                        cache: false,
+                        url: $(this).attr('action'),
+                        data: $(this).serialize(),
+                        success: function () {
+                            $("#name").val('');
+                            $("#email").val('');
+                            $("#message").val('');
+                            alert("Your Message Has Been Sent");
+                        },
+                        error: function (xhr) {
+                            alert("Please Complete all Sections");
+                        }
+                    })
+                });
 
-        //make :contains case insensitive
-        $.expr[":"].contains = $.expr.createPseudo(function (arg) {
-            return function (elem) {
-                return $(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
-            };
-        });
+                //make :contains case insensitive
+                $.expr[":"].contains = $.expr.createPseudo(function (arg) {
+                    return function (elem) {
+                        return $(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
+                    };
+                });
 
-        //show only active search results
-        $('#search').keyup(function () {
-            $('p').parent().hide();
-            var text = $('#search').val();
-            $("p:contains('" + text + "')").parent().show();
-        })
+                //show only active search results
+                $('#search').keyup(function () {
+                    $('p').parent().hide();
+                    var text = $('#search').val();
+                    $("p:contains('" + text + "')").parent().show();
+                });
 
-        //gallery thumbnails correspond to image on display on click
-        $('.gallery-img-sm').click(function () {
-            $('.carousel').carousel('pause');
-            var file = $(this).css('background-image').split('/');
-            file = file[file.length - 1].replace(')', '');
-            $('.active').removeClass('active');
-            $('.item').children().each(function () {
-                var src = $(this).attr('src').split('/');
-                src = src[src.length - 1];
-                if (src === file) {
-                    $(this).parent().addClass('active');
+                //gallery thumbnails correspond to image on display on click
+                $('.gallery-img-sm').click(function () {
+                    $('.carousel').carousel('pause');
+                    var file = $(this).css('background-image').split('/');
+                    file = file[file.length - 1].replace(')', '');
+                    $('.active').removeClass('active');
+                    $('.item').children().each(function () {
+                        var src = $(this).attr('src').split('/');
+                        src = src[src.length - 1];
+                        if (src === file) {
+                            $(this).parent().addClass('active');
+                        }
+                    })
+                });
+
+                function resize_thumbnails () {
+                    var TN_QUANTITY = 10;
+                    var IND_SPACING = 22;
+                    var BUFFER = 10;
+                    var TOTAL_SPACING = TN_QUANTITY * IND_SPACING
+                    var width = $('.gallery-small').width();
+                    var tn_width = ((width - TOTAL_SPACING - BUFFER) / TN_QUANTITY);
+                    var tn_height = (tn_width *.75);
+                    $('.gallery-img-sm').css({
+                        'width': tn_width,
+                        'height': tn_height
+                    });
                 }
-            })
-        })
-    </script>
+
+                //initial size of gallery thumbnails
+                $(document).ready(function () {
+                    resize_thumbnails();
+                });
+
+                //resize gallery thumbnails on window resize
+                $(window).resize(function () {
+                    resize_thumbnails();
+                });
+            </script>
 </body>
 
 </html>

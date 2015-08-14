@@ -236,6 +236,20 @@ EOT;
     <script src="js/bootstrap.min.js"></script>
     <script src="js/clamp.min.js"></script>
     <script type="text/javascript">
+        //gallery thumbnails correspond to image on display on click
+        $('.gallery-img-sm').click(function () {
+            $('.carousel').carousel('pause');
+            var file = $(this).css('background-image').split('/');
+            file = file[file.length - 1].replace(')', '');
+            $('.active').removeClass('active');
+            $('.item').children().each(function () {
+                var src = $(this).attr('src').split('/');
+                src = src[src.length - 1];
+                if (src === file) {
+                    $(this).parent().addClass('active');
+                }
+            })
+        })
     </script>
 </body>
 

@@ -344,6 +344,10 @@ li > p {
     float: left;
 }
 
+.past-date-wrap {
+    float: right;
+}
+
 .past-date {
     background-color: #A8CEE2;
     color: #FFF;
@@ -381,7 +385,7 @@ li > p {
 .past-year > h3 {
     font-family: 'Lobster', cursive;
     color: #E98B33;
-    font-size: 1.5em;
+    font-size: 2em;
 }
 
 #about-overlay {

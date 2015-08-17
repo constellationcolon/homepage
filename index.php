@@ -142,16 +142,28 @@ $images = $db->select("allImages");
                         <ul>
                             <?php
                             $past = $db->select("passed");
-//                            for ($i = 0; $i < count($past); $i++) {
-//                                $date = date_create($past[$i]["start_datetime"]);
-//                                $item = '<a href="events.php?call=' . $past[$i]["event_id"] . '"target="_self"><li><time datetime="' . $date->format('y/m/d') . '"class="icon">';
-//                                $item .= '<em>' . $date->format('F') . '</em>';
-//                                $item .= '<strong>' . $date->format('Y') . '</strong>';
-//                                $item .= '<span>' . $date->format('d') . '</span></time>';
-//                                $item .= '<p>' . $past[$i]["name"] . '</p></li></a>';
-//                                echo $item;
-//                            }
-                            for ($i = 0; $i < )
+                            //                            for ($i = 0; $i < count($past); $i++) {
+                            //                                $date = date_create($past[$i]["start_datetime"]);
+                            //                                $item = '<a href="events.php?call=' . $past[$i]["event_id"] . '"target="_self"><li><time datetime="' . $date->format('y/m/d') . '"class="icon">';
+                            //                                $item .= '<em>' . $date->format('F') . '</em>';
+                            //                                $item .= '<strong>' . $date->format('Y') . '</strong>';
+                            //                                $item .= '<span>' . $date->format('d') . '</span></time>';
+                            //                                $item .= '<p>' . $past[$i]["name"] . '</p></li></a>';
+                            //                                echo $item;
+                            //                            }
+                            for ($i = 0; $i < count($past); $i++) {
+                                $date = date_create($past[$i]["start_datetime"]);
+                                $item = '<a href="events.php?call=' . $past[$i]["event_id"] . '"target="_self"><li>';
+                                $item .= '<div class="past-date-wrap">';
+                                $item .= '<div class="past-date">';
+                                $item .= '<div class="past-date-month">' . strtoupper($date->format('M')) . '</div>';
+                                $item .= '<div class="past-date-day">' . $date->format('j') . '</div>';
+                                $item .= '</div>';
+                                $item .= '<div class="past-year">';
+                                $item .= '<h3>' . $date->format('Y') . '</h3>';
+                                $item .= '</div></div></li></a>';
+                                echo $item;
+                            }
                             ?>
                         </ul>
                     </div>
@@ -370,7 +382,7 @@ EOT;
                     })
                 });
 
-                function resize_thumbnails () {
+                function resize_thumbnails() {
                     var width = $('.gallery-small').width();
                     console.log(width);
                     if (width > 700) {
@@ -402,7 +414,7 @@ EOT;
                 });
 
                 // Enable Carousel Controls
-                $(".right").click(function(){
+                $(".right").click(function () {
                     $("#gallery-carousel").carousel("next");
                 });
             </script>

@@ -370,6 +370,7 @@ EOT;
                 });
 
                 function resize_thumbnails () {
+                    $('#gallery-wrap').css('display', 'block');
                     var width = $('.gallery-small').width();
                     if (width > 700) {
                         var THUMBNAILS_PER_ROW = 8;
@@ -383,7 +384,6 @@ EOT;
                             'height': tn_height,
                             'display': 'inline-block'
                         });
-                        $('#gallery-wrap').css('display', 'block');
                     }
                     else {
                         $('#gallery-wrap').hide();
@@ -398,6 +398,11 @@ EOT;
                 //resize gallery thumbnails on window resize
                 $(window).resize(function () {
                     resize_thumbnails();
+                });
+
+                // Enable Carousel Controls
+                $(".right").click(function(){
+                    $("#gallery-carousel").carousel("next");
                 });
             </script>
 </body>

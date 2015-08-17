@@ -187,7 +187,7 @@ if (isset($_GET["call"])) {
             </div>
         </div>
         <div class="row" id="gallery-wrap">
-            <div class="gallery-wrapper col-md-12">
+            <div class="gallery-wrapper col-xs-10 col-xs-offset-1">
                 <h1>GALLERY</h1>
                 <div id="gallery-carousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner" role="listbox">
@@ -249,7 +249,38 @@ EOT;
                     $(this).parent().addClass('active');
                 }
             })
-        })
+        });
+
+        function resize_thumbnails () {
+            var width = $('.gallery-small').width();
+            console.log(width);
+            if (width > 700) {
+                var THUMBNAILS_PER_ROW = 8;
+                var IND_SPACING = 22;
+                var THUMBNAIL_BUFFER = 6;
+                var TOTAL_SPACING = THUMBNAILS_PER_ROW * IND_SPACING;
+                var tn_width = ((width - TOTAL_SPACING - THUMBNAIL_BUFFER) / THUMBNAILS_PER_ROW);
+                var tn_height = (tn_width * .75);
+                $('.gallery-img-sm').css({
+                    'width': tn_width,
+                    'height': tn_height,
+                    'display': 'inline-block'
+                });
+            }
+            else {
+                $('.gallery-img-sm').css('display', 'none');
+            }
+        }
+
+        //initial size of gallery thumbnails
+        $(document).ready(function () {
+            resize_thumbnails();
+        });
+
+        //resize gallery thumbnails on window resize
+        $(window).resize(function () {
+            resize_thumbnails();
+        });
     </script>
 </body>
 

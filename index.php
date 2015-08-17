@@ -176,7 +176,7 @@ $images = $db->select("allImages");
             </div>
         </div>
         <div class="row" id="gallery-wrap">
-            <div class="gallery-wrapper col-md-10 col-md-offset-1">
+            <div class="gallery-wrapper col-sm-10 col-sm-offset-1">
                 <h1>GALLERY</h1>
                 <div id="gallery-carousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner" role="listbox">

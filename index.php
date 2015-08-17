@@ -370,8 +370,8 @@ EOT;
                 });
 
                 function resize_thumbnails () {
-                    $('#gallery-wrap').css('display', 'block');
                     var width = $('.gallery-small').width();
+                    console.log(width);
                     if (width > 700) {
                         var THUMBNAILS_PER_ROW = 8;
                         var IND_SPACING = 22;
@@ -386,7 +386,7 @@ EOT;
                         });
                     }
                     else {
-                        $('#gallery-wrap').hide();
+                        $('.gallery-img-sm').css('display', 'none');
                     }
                 }
 

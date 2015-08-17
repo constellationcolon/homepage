@@ -209,7 +209,7 @@ EOT;
 EOT;
                         }
                         $gallery .= '</div>';
-                        $controls = '<a class="right carousel-control" href="#gallery-carousel" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">Next</span></a></div>';
+                        $controls = '<a class="right carousel-control" href="#gallery-carousel" role="button" data-slide="next" ><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">Next</span></a></div>';
                         $thumbnails .= '</div>';
                         echo $gallery;
                         echo $controls;
@@ -370,17 +370,24 @@ EOT;
                 });
 
                 function resize_thumbnails () {
-                    var THUMBNAILS_PER_ROW = 8;
-                    var IND_SPACING = 22;
-                    var THUMBNAIL_BUFFER = 6;
-                    var TOTAL_SPACING = THUMBNAILS_PER_ROW * IND_SPACING;
                     var width = $('.gallery-small').width();
-                    var tn_width = ((width - TOTAL_SPACING - THUMBNAIL_BUFFER) / THUMBNAILS_PER_ROW);
-                    var tn_height = (tn_width *.75);
-                    $('.gallery-img-sm').css({
-                        'width': tn_width,
-                        'height': tn_height
-                    });
+                    if (width > 700) {
+                        var THUMBNAILS_PER_ROW = 8;
+                        var IND_SPACING = 22;
+                        var THUMBNAIL_BUFFER = 6;
+                        var TOTAL_SPACING = THUMBNAILS_PER_ROW * IND_SPACING;
+                        var tn_width = ((width - TOTAL_SPACING - THUMBNAIL_BUFFER) / THUMBNAILS_PER_ROW);
+                        var tn_height = (tn_width * .75);
+                        $('.gallery-img-sm').css({
+                            'width': tn_width,
+                            'height': tn_height,
+                            'display': 'inline-block'
+                        });
+                        $('#gallery-wrap').css('display', 'block');
+                    }
+                    else {
+                        $('#gallery-wrap').hide();
+                    }
                 }
 
                 //initial size of gallery thumbnails

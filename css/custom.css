@@ -344,6 +344,46 @@ li > p {
     float: left;
 }
 
+.past-date {
+    background-color: #A8CEE2;
+    color: #FFF;
+    border-radius: 50%;
+    margin: 0 auto;
+    width: 75px;
+    height: 75px;
+}
+
+.past-date-month {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    font-size: 15px;
+    font-weight: bold;
+    top: 7.5px;
+    right: 0;
+}
+
+.past-date-day {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    font-size: 40px;
+    top: 17.5px;
+    right: 0;
+}
+
+.past-year {
+    text-align: center;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.past-year > h3 {
+    font-family: 'Lobster', cursive;
+    color: #E98B33;
+    font-size: 1.5em;
+}
+
 #about-overlay {
     position: relative;
     overflow: hidden;

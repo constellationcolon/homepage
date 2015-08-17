@@ -142,15 +142,16 @@ $images = $db->select("allImages");
                         <ul>
                             <?php
                             $past = $db->select("passed");
-                            for ($i = 0; $i < count($past); $i++) {
-                                $date = date_create($past[$i]["start_datetime"]);
-                                $item = '<a href="events.php?call=' . $past[$i]["event_id"] . '"target="_self"><li><time datetime="' . $date->format('y/m/d') . '"class="icon">';
-                                $item .= '<em>' . $date->format('F') . '</em>';
-                                $item .= '<strong>' . $date->format('Y') . '</strong>';
-                                $item .= '<span>' . $date->format('d') . '</span></time>';
-                                $item .= '<p>' . $past[$i]["name"] . '</p></li></a>';
-                                echo $item;
-                            }
+//                            for ($i = 0; $i < count($past); $i++) {
+//                                $date = date_create($past[$i]["start_datetime"]);
+//                                $item = '<a href="events.php?call=' . $past[$i]["event_id"] . '"target="_self"><li><time datetime="' . $date->format('y/m/d') . '"class="icon">';
+//                                $item .= '<em>' . $date->format('F') . '</em>';
+//                                $item .= '<strong>' . $date->format('Y') . '</strong>';
+//                                $item .= '<span>' . $date->format('d') . '</span></time>';
+//                                $item .= '<p>' . $past[$i]["name"] . '</p></li></a>';
+//                                echo $item;
+//                            }
+                            for ($i = 0; $i < )
                             ?>
                         </ul>
                     </div>

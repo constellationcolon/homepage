@@ -241,12 +241,10 @@ a {
 
 .events-all-wrapper {
     height: 300px;
-    /*overflow: auto;*/
 }
 
 .input-group {
-    /*height: 60px;*/
-    width: 60%;
+    width: 75%;
     margin: 0 auto;
 }
 
@@ -274,14 +272,20 @@ a {
 
 .events-list li {
     list-style: none;
-    border-top: 1px solid #ddd;
     display: block;
     padding: 15px;
     overflow: hidden;
 }
 
-.events-list a:first-child > li {
-    border-top: none;
+.line {
+    width: 95%;
+    margin: auto;
+    border: 1px solid #ddd;
+    transform: translateY(98px);
+}
+
+a:last-child > li > .line {
+    display: none;
 }
 
 .events-list a > li:hover {

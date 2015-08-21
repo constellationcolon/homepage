@@ -153,7 +153,7 @@ $images = $db->select("allImages");
                                 $item .= '<div class="past-year">';
                                 $item .= '<h3>' . $date->format('Y') . '</h3>';
                                 $item .= '</div></div>';
-                                $item .= '<p>' . $past[$i]["name"] . '</p></li></a>';
+                                $item .= '<p>' . $past[$i]["name"] . '</p><div class="line"></div></li></a>';
                                 echo $item;
                             }
                             ?>

@@ -281,10 +281,9 @@ a {
     width: 95%;
     margin: auto;
     border: 1px solid #ddd;
-    transform: translateY(98px);
 }
 
-a:last-child > li > .line {
+a:last-child > .line {
     display: none;
 }
 
@@ -300,11 +299,12 @@ li > p {
     font-size: 1.2em;
     color: #999;
     float: left;
-    transform: translateY(30px);
+    transform: translateY(20%);
 }
 
 .past-date-wrap {
     float: right;
+    display: none;
 }
 
 .past-date {
@@ -526,6 +526,7 @@ li > p {
     .item {
         height: 450px;
     }
+
 }
 
 @media (min-width: 992px) {
@@ -543,6 +544,14 @@ li > p {
 
     .item {
         height: 600px;
+    }
+
+    .past-date-wrap {
+        display: block;
+    }
+
+    li > p {
+        transform: translateY(30px);
     }
 }
 

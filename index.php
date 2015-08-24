@@ -127,8 +127,8 @@ $images = $db->select("allImages");
                 <span class="past-btn-pressed">CLOSE <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span></span>
             </button>
             <div id="events-all" class="collapse">
-                <div class="row events-all-wrapper col-md-12">
-                    <div class="row events-search col-md-6">
+                <div class="row events-all-wrapper col-xs-12">
+                    <div class="row events-search col-xs-6">
                         <div class="input-group input-group-lg">
                             <input type="text" id="search" class="form-control search-text" placeholder="Search for...">
                             <span class="input-group-btn">
@@ -138,7 +138,7 @@ $images = $db->select("allImages");
                             </span>
                         </div>
                     </div>
-                    <div class="row events-list col-md-6">
+                    <div class="row events-list col-xs-6">
                         <ul>
                             <?php
                             $past = $db->select("passed");
@@ -153,7 +153,7 @@ $images = $db->select("allImages");
                                 $item .= '<div class="past-year">';
                                 $item .= '<h3>' . $date->format('Y') . '</h3>';
                                 $item .= '</div></div>';
-                                $item .= '<p>' . $past[$i]["name"] . '</p><div class="line"></div></li></a>';
+                                $item .= '<p>' . $past[$i]["name"] . '</p></li><div class="line"></div></a>';
                                 echo $item;
                             }
                             ?>

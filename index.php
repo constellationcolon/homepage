@@ -412,6 +412,7 @@ EOT;
                                 console.log(returndata["tree"][i]["path"]);
                             }
                             //filter out LICENSE and README
+                            //goto https://github.com/acmcu/resources/tree/master/PATH
 
                         }
                     })

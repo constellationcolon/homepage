@@ -395,6 +395,32 @@ EOT;
                     }
                 }
 
+                function getResources(query) {
+                    $.ajax({
+                        method: 'GET',
+                        dataType: 'json',
+                        Accept: 'application/vnd.github.v3+json',
+                        url: 'https://api.github.com/repos/acmcu/resources/git/trees/master',
+//                        data: {
+//                            { 'q' : query },
+//                            { 'jquery in: name,description'}
+//                        },
+                        success: function(returndata) {
+                            console.log(returndata);
+                            console.log(returndata["tree"]);
+                            for (var i = 0; i < returndata["tree"].length; i++) {
+                                console.log(returndata["tree"][i]["path"]);
+                            }
+                            //filter out LICENSE and README
+
+                        }
+                    })
+                }
+
+                $(document).ready(function () {
+                    getResources('x');
+                });
+
                 //initial size of gallery thumbnails
                 $(document).ready(function () {
                     resize_thumbnails();

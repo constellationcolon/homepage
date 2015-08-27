@@ -188,8 +188,9 @@ $images = $db->select("allImages");
                 <div class="input-group input-group-lg" id="resources-bar">
                     <input type="text" id="resources-text" class="form-control search-text" placeholder="Search our resources...">
                     <span class="input-group-btn dropdown">
-                        <button class="btn btn-default dropdown-toggle" type="button">
-                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                            <!--                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>-->
+                            <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
                         </ul>
@@ -427,8 +428,7 @@ EOT;
                     $("#gallery-carousel").carousel("next");
                 });
 
-                //update resources dropdown menu
-                $('#resources-text').keyup(function () {
+                function populate_resources() {
                     $.ajax({
                         method: 'GET',
                         dataType: 'json',
@@ -441,16 +441,26 @@ EOT;
                             dropdown.empty();
                             for (var i = 0; i < tree.length; i++) {
                                 var item = tree[i]["path"];
-                                if (item.toLowerCase().indexOf(query) >= 0) {
-                                    dropdown.append('<li>' + item + '</li>');
+                                if ((item != 'LICENSE') && (item != 'README.md')) {
+                                    if (item.toLowerCase().indexOf(query) >= 0) {
+                                        dropdown.append('<li class="resource-link"><a href="https://github.com/acmcu/resources/tree/master/' + item + '">' + item + '</li>');
+                                    }
                                 }
-
                             }
-                            //filter out LICENSE and README
-                            //goto https://github.com/acmcu/resources/tree/master/PATH
                         }
                     })
+                }
+
+                //initially populate resources drodown menu
+                $(document).ready(function () {
+                    populate_resources();
                 });
+
+                //update resources dropdown menu
+                $('#resources-text').keyup(function () {
+                    populate_resources();
+                });
+
             </script>
 </body>
 

@@ -423,6 +423,11 @@ li > p {
     margin-bottom: 140px;
 }
 
+.dropdown-menu {
+    /*position: relative;*/
+    /*left: -1000px;*/
+}
+
 .pull-right-xs {
     float: right;
 }

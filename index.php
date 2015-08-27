@@ -187,10 +187,12 @@ $images = $db->select("allImages");
                 </div>
                 <div class="input-group input-group-lg" id="resources-bar">
                     <input type="text" id="resources-text" class="form-control search-text" placeholder="Search our resources...">
-                    <span class="input-group-btn">
+                    <span class="input-group-btn dropdown">
                         <button class="btn btn-default dropdown-toggle" type="button">
                             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                         </button>
+                        <ul class="dropdown-menu">
+                        </ul>
                     </span>
                 </div>
             </div>
@@ -410,33 +412,6 @@ EOT;
                     }
                 }
 
-                function getResources(query) {
-                    $.ajax({
-                        method: 'GET',
-                        dataType: 'json',
-                        Accept: 'application/vnd.github.v3+json',
-                        url: 'https://api.github.com/repos/acmcu/resources/git/trees/master',
-//                        data: {
-//                            { 'q' : query },
-//                            { 'jquery in: name,description'}
-//                        },
-                        success: function (returndata) {
-                            console.log(returndata);
-                            console.log(returndata["tree"]);
-                            for (var i = 0; i < returndata["tree"].length; i++) {
-                                console.log(returndata["tree"][i]["path"]);
-                            }
-                            //filter out LICENSE and README
-                            //goto https://github.com/acmcu/resources/tree/master/PATH
-
-                        }
-                    })
-                }
-
-                $(document).ready(function () {
-                    getResources('x');
-                });
-
                 //initial size of gallery thumbnails
                 $(document).ready(function () {
                     resize_thumbnails();
@@ -450,6 +425,31 @@ EOT;
                 // Enable Carousel Controls
                 $(".right").click(function () {
                     $("#gallery-carousel").carousel("next");
+                });
+
+                //update resources dropdown menu
+                $('#resources-text').keyup(function () {
+                    $.ajax({
+                        method: 'GET',
+                        dataType: 'json',
+                        Accept: 'application/vnd.github.v3+json',
+                        url: 'https://api.github.com/repos/acmcu/resources/git/trees/master',
+                        success: function (returndata) {
+                            var dropdown = $('.dropdown-menu');
+                            var tree = returndata["tree"];
+                            var query = document.getElementById('resources-text').value;
+                            dropdown.empty();
+                            for (var i = 0; i < tree.length; i++) {
+                                var item = tree[i]["path"];
+                                if (item.toLowerCase().indexOf(query) >= 0) {
+                                    dropdown.append('<li>' + item + '</li>');
+                                }
+
+                            }
+                            //filter out LICENSE and README
+                            //goto https://github.com/acmcu/resources/tree/master/PATH
+                        }
+                    })
                 });
             </script>
 </body>

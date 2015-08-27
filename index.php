@@ -180,6 +180,21 @@ $images = $db->select("allImages");
                 </div>
             </div>
         </div>
+        <div class="row" id="resources-wrap">
+            <div id="resources-overlay">
+                <div class="col-xs-12" id="resources-title">
+                    <h1>RESOURCES</h1>
+                </div>
+                <div class="input-group input-group-lg" id="resources-bar">
+                    <input type="text" id="resources-text" class="form-control search-text" placeholder="Search our resources...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default dropdown-toggle" type="button">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
         <div class="row" id="gallery-wrap">
             <div class="gallery-wrapper col-sm-10 col-sm-offset-1">
                 <h1>GALLERY</h1>
@@ -405,7 +420,7 @@ EOT;
 //                            { 'q' : query },
 //                            { 'jquery in: name,description'}
 //                        },
-                        success: function(returndata) {
+                        success: function (returndata) {
                             console.log(returndata);
                             console.log(returndata["tree"]);
                             for (var i = 0; i < returndata["tree"].length; i++) {

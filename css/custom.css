@@ -409,6 +409,20 @@ li > p {
     margin: 0 auto;
 }
 
+#resources-title {
+    margin: 30px 0;
+}
+
+#resources-title > h1 {
+    color: #ffffff;
+    text-align: center;
+    font-size: 5em;
+}
+
+#resources-bar {
+    margin-bottom: 140px;
+}
+
 .pull-right-xs {
     float: right;
 }
@@ -591,6 +605,13 @@ li > p {
         background-repeat: no-repeat;
         background-position: center;
     }
+
+    #resources-wrap {
+        background: url('../assets/contact-port.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
 }
 
 @media all and (orientation: landscape) {
@@ -610,6 +631,13 @@ li > p {
         background-size: cover;
         background-repeat: no-repeat;
         background-position: top;
+    }
+
+    #resources-wrap {
+        background: url('../assets/contact-port.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
     }
 }
 

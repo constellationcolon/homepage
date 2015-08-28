@@ -189,8 +189,7 @@ $images = $db->select("allImages");
                     <input type="text" id="resources-text" class="form-control search-text" placeholder="Search our resources...">
                     <span class="input-group-btn dropdown">
                         <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-                            <!--                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>-->
-                            <span class="caret"></span>
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                         </button>
                         <ul class="dropdown-menu">
                         </ul>
@@ -394,7 +393,6 @@ EOT;
 
                 function resize_thumbnails() {
                     var width = $('.gallery-small').width();
-                    console.log(width);
                     if (width > 700) {
                         var THUMBNAILS_PER_ROW = 8;
                         var IND_SPACING = 22;
@@ -451,7 +449,7 @@ EOT;
                     })
                 }
 
-                //initially populate resources drodown menu
+                //initially populate resources dropdown menu
                 $(document).ready(function () {
                     populate_resources();
                 });

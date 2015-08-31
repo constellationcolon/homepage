@@ -1,6 +1,6 @@
 <?php
-class Db {
 
+class Db {
     private $conn;
 
     public function __construct($servername, $username, $password, $db_name, $port) {
@@ -10,7 +10,7 @@ class Db {
         }
     }
 
-    public function getConn() {
+    public function get_conn() {
         return $this->conn;
     }
 
@@ -30,7 +30,7 @@ class Db {
                 $args[4], $args[5], $args[6], $args[7], $args[8], $args[9]);
         } elseif ($args[0] === "update") {
             $command = $this->conn->prepare('
-            UPDATE events set start_datetime=?, end_datetime=?, name=?,
+            UPDATE events SET start_datetime=?, end_datetime=?, name=?,
             location=?, description=?, facebook_link=?, instagram_link=?,
             twitter_link=?, misc_link=?
             WHERE event_id=?');
@@ -48,40 +48,24 @@ class Db {
         return $result;
     }
 
-    public function fetch (){
+    public function fetch() {
         $args = func_get_args();
         if ((count($args)) === 0) { //select all
-            $command = $this->conn->prepare('
-            SELECT * FROM events
-            ORDER BY start_datetime');
-        } elseif(($args[0]) === "id") { //select individual id
-            $command = $this->conn->prepare(
-            'SELECT * FROM events WHERE event_id = ?');
+            $command = $this->conn->prepare('SELECT * FROM events ORDER BY start_datetime');
+        } elseif (($args[0]) === "id") { //select individual id
+            $command = $this->conn->prepare('SELECT * FROM events WHERE event_id = ?');
             $command->bind_param("i", $args[1]);
         } elseif ($args[0] === "upcoming") {
-            $command = $this->conn->prepare('
-            SELECT * FROM events
-            WHERE start_datetime >= NOW()
-            ORDER BY start_datetime');
+            $command = $this->conn->prepare('SELECT * FROM events WHERE start_datetime >= NOW() ORDER BY start_datetime');
         } elseif ($args[0] === "passed") {
-            $command = $this->conn->prepare('
-            SELECT * FROM events
-            WHERE start_datetime <= NOW()
-            ORDER BY start_datetime');
+            $command = $this->conn->prepare('SELECT * FROM events WHERE start_datetime <= NOW() ORDER BY start_datetime');
         } elseif ($args[0] === "attends") {
-            $command = $this->conn->prepare('
-            SELECT * FROM attends AS a
-            JOIN profiles AS b ON a.profile_id = b.profile_id
-            WHERE a.event_id = ?');
+            $command = $this->conn->prepare('SELECT * FROM attends AS a JOIN profiles AS b ON a.profile_id = b.profile_id WHERE a.event_id = ?');
             $command->bind_param("s", $args[1]);
         } elseif ($args[0] === "allImages") {
-            $command = $this->conn->prepare('
-            SELECT * FROM images
-            ORDER BY RAND()');
+            $command = $this->conn->prepare('SELECT * FROM images ORDER BY RAND()');
         } elseif ($args[0] === "eventImages") {
-            $command = $this->conn->prepare('
-            SELECT * FROM images
-            WHERE event_id = ?');
+            $command = $this->conn->prepare('SELECT * FROM images WHERE event_id = ?');
             $command->bind_param("i", $args[1]);
         }
         $command->execute();
@@ -94,5 +78,3 @@ class Db {
     }
 
 }
-
-?>

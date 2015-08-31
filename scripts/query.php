@@ -4,26 +4,18 @@ require_once('db.php');
 class Query
 {
     private $db;
-    private $server;
-    private $user;
-    private $pw;
-    private $prt;
-    private $dbn;
-    private $tbl;
 
-    public function __Construct($servername, $username, $password, $db_name,
-                                $port) {
-        $this->server = $servername;
-        $this->user = $username;
-        $this->pw = $password;
-        $this->dbn = $db_name;
-        $this->prt = $port;
-        $this->db = new Db($this->server, $this->user, $this->pw, $this->dbn,
-            $this->prt);
+    public function __Construct($servername, $username, $password, $db_name, $port) {
+        $this->db = new Db($servername, $username, $password, $db_name, $port);
+    }
+
+    public function get_db() {
+        return $this->db;
     }
 
     public function select() { //set mode to indicate sort by time, etc.
         $args = func_get_args();
+        $result = null;
         if (count($args) === 0) {
             $result = $this->db->fetch();
         } elseif ($args[0] === "upcoming") {
@@ -90,7 +82,7 @@ class Query
     public function update() {
         $args = func_get_args();
         $start_datetime = $end_datetime = $name = $location = $description =
-            $facebook_link = $instagram_link = $twitter_link = $misc_link = 0;
+        $facebook_link = $instagram_link = $twitter_link = $misc_link = 0;
         foreach ($args as $key => $arg) {
             if ($arg === "id") {
                 $id = $args[$key + 1];
@@ -100,17 +92,17 @@ class Query
                 $end_datetime = $args[$key + 1];
             } elseif ($arg === "name") {
                 $name = $args[$key + 1];
-            }elseif ($arg === "location") {
+            } elseif ($arg === "location") {
                 $location = $args[$key + 1];
-            }elseif ($arg === "description") {
+            } elseif ($arg === "description") {
                 $description = $args[$key + 1];
-            }elseif ($arg === "facebook_link") {
+            } elseif ($arg === "facebook_link") {
                 $facebook_link = $args[$key + 1];
-            }elseif ($arg === "instagram_link") {
+            } elseif ($arg === "instagram_link") {
                 $instagram_link = $args[$key + 1];
-            }elseif ($arg === "twitter_link") {
+            } elseif ($arg === "twitter_link") {
                 $twitter_link = $args[$key + 1];
-            }elseif ($arg === "misc_link") {
+            } elseif ($arg === "misc_link") {
                 $misc_link = $args[$key + 1];
             }
         }
@@ -150,5 +142,3 @@ class Query
         }
     }
 }
-
-?>

@@ -84,7 +84,7 @@ $images = $query->select("allImages");
     <div class="container-fluid" id="container">
         <div class="row " id="billboard-wrap">
             <div id="billboard-overlay">
-
+                <img class="site-logo" src="assets/white-logo.png">
             </div>
         </div>
         <div class="row" id="events-wrap">

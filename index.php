@@ -203,7 +203,6 @@ $images = $query->select("allImages");
         <div class="row" id="gallery-wrap">
             <div class="gallery-wrapper col-sm-10 col-sm-offset-1">
                 <h1>GALLERY</h1>
-
                 <div id="gallery-carousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner" role="listbox">
                         <?php
@@ -229,17 +228,15 @@ $images = $query->select("allImages");
                 </div>
                 <div class="col-xs-12" id="contact-form-wrap">
                     <form role="form" action="scripts/send.php">
-                        <div class="col-xs-12" id="contact-form-fields">
+                        <div id="contact-form-fields" class="col-xs-12">
                             <div class="form-group col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
-                                <textarea class="form-control" id="name" name="name" placeholder="Full Name"></textarea>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Full Name">
                             </div>
                             <div class="form-group col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
-                                <input type="email" class="form-control" id="email" name="email"
-                                       placeholder="Email Address">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email Address">
                             </div>
                             <div class="form-group col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
-                                    <textarea class="form-control" rows="8" id="message" name="message"
-                                              placeholder="Enter Message"></textarea>
+                                <textarea class="form-control" rows="8" id="message" name="message" placeholder="Enter Message"></textarea>
                             </div>
                         </div>
                         <div id="contact-btn-wrap">
@@ -372,7 +369,7 @@ $images = $query->select("allImages");
                     var IND_SPACING = 10;
                     var TOTAL_SPACING = ((THUMBNAILS_PER_ROW - 1) * IND_SPACING);
                     var tn_width = ((width - TOTAL_SPACING) / THUMBNAILS_PER_ROW);
-                    var tn_height = (tn_width * (5/7));
+                    var tn_height = (tn_width * (5 / 7));
                     $('.gallery-img-sm').css({
                         'width': tn_width,
                         'height': tn_height

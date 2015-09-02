@@ -165,6 +165,13 @@ body {
     font-size: 2em;
     font-weight: bold;
 }
+.gallery-small {
+    height: auto;
+}
+.gallery-wrapper {
+    height: auto;
+    margin-bottom: 100px;
+}
 @media (min-width: 768px) {
     #event-name {
         text-align: left;

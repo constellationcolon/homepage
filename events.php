@@ -9,6 +9,8 @@ $db_name = "acmcu";
 $port = 3306;
 $table = "events";
 
+$path = "assets/events/";
+
 $db = new Query($servername, $username, $password, $db_name, $port);
 $event = $db->select($_GET["call"]);
 
@@ -67,7 +69,7 @@ if (isset($_GET["call"])) {
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">CCSPS</a>
+                <a class="navbar-brand" href="index.php#billboard-wrap">HOME</a>
             </div>
             <div class="collapse navbar-collapse" id="collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -75,9 +77,9 @@ if (isset($_GET["call"])) {
                     </li>
                     <li><a href="index.php#about-wrap">ABOUT US</a>
                     </li>
-                    <li><a href="">RESOURCES</a>
+                    <li><a href="index.php#resources-wrap">RESOURCES</a>
                     </li>
-                    <li><a href="">GALLERY</a>
+                    <li><a href="index.php#gallery-wrap">GALLERY</a>
                     </li>
                     <li><a href="index.php#contact-wrap">CONTACT</a>
                     </li>
@@ -192,96 +194,72 @@ if (isset($_GET["call"])) {
                 <div id="gallery-carousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner" role="listbox">
                         <?php
-                        $path = "assets/events/";
-                        $gallery = '<div class="item active"><img src="' . $path . $images[0]["img_filename"] . '"></div>';
-                        $thumbnails = <<<EOT
-    <div class="gallery-small"><div class="gallery-img-sm" style="background-image: url('
-EOT;
-                        $thumbnails .= $path . $images[0]["img_filename"];
-                        $thumbnails .= <<<EOT
-    ');></div>"
-EOT;
-                        //fix for missing item in index 1??
-                        if (count($images) > 1) {
-                            $thumbnails .= <<<EOT
-    <div class="gallery-img-sm" style="background-image: url('
-EOT;
-                            $thumbnails .= $path . $images[1]["img_filename"];
-                            $thumbnails .= <<<EOT
-    ');"></div>
-EOT;
+                        for ($i = 0; $i < count($images); $i++) {
+                            echo '<div class="item ' . ($i == 0 ? 'active' : '') . '" style="background: url(\'' . $path . $images[$i]["img_filename"] . '\') no-repeat center; background-size: cover;"></div>';
                         }
-                        for ($i = 1; $i < count($images); $i++) {
-                            $gallery .= '<div class="item"><img src="' . $path . $images[$i]["img_filename"] . '"></div>';
-                            $thumbnails .= <<<EOT
-    <div class="gallery-img-sm" style="background-image: url('
-EOT;
-                            $thumbnails .= $path . $images[$i]["img_filename"];
-                            $thumbnails .= <<<EOT
-    ');"></div>
-EOT;
+                        ?>
+                    </div>
+                    <div class="gallery-small">
+                        <?php
+                        for ($i = 0; $i < count($images); $i++) {
+                            echo '<div class="gallery-img-sm" style="background: url(\'' . $path . $images[$i]["img_filename"] . '\') no-repeat center; background-size: cover;"></div>';
                         }
-                        $gallery .= '</div>';
-                        $controls = '<a class="right carousel-control" href="#gallery-carousel" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">Next</span></a></div>';
-                        $thumbnails .= '</div>';
-                        echo $gallery;
-                        echo $controls;
-                        echo $thumbnails;
                         ?>
                     </div>
                 </div>
-    </div>
-    <!-- javascript -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/clamp.min.js"></script>
-    <script type="text/javascript">
-        //gallery thumbnails correspond to image on display on click
-        $('.gallery-img-sm').click(function () {
-            $('.carousel').carousel('pause');
-            var file = $(this).css('background-image').split('/');
-            file = file[file.length - 1].replace(')', '');
-            $('.active').removeClass('active');
-            $('.item').children().each(function () {
-                var src = $(this).attr('src').split('/');
-                src = src[src.length - 1];
-                if (src === file) {
-                    $(this).parent().addClass('active');
+            </div>
+        </div>
+        <!-- javascript -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/clamp.min.js"></script>
+        <script type="text/javascript">
+            //gallery thumbnails correspond to image on display on click
+            $('.gallery-img-sm').click(function () {
+                $('.carousel').carousel('pause');
+                var file = $(this).css('background-image').split('/');
+                file = file[file.length - 1].replace(')', '');
+                $('.active').removeClass('active');
+                $('.item').children().each(function () {
+                    var src = $(this).attr('src').split('/');
+                    src = src[src.length - 1];
+                    if (src === file) {
+                        $(this).parent().addClass('active');
+                    }
+                })
+            });
+
+            function resize_thumbnails() {
+                var width = $('.gallery-small').width();
+                console.log(width);
+                if (width > 700) {
+                    var THUMBNAILS_PER_ROW = 8;
+                    var IND_SPACING = 22;
+                    var THUMBNAIL_BUFFER = 6;
+                    var TOTAL_SPACING = THUMBNAILS_PER_ROW * IND_SPACING;
+                    var tn_width = ((width - TOTAL_SPACING - THUMBNAIL_BUFFER) / THUMBNAILS_PER_ROW);
+                    var tn_height = (tn_width * .75);
+                    $('.gallery-img-sm').css({
+                        'width': tn_width,
+                        'height': tn_height,
+                        'display': 'inline-block'
+                    });
                 }
-            })
-        });
-
-        function resize_thumbnails () {
-            var width = $('.gallery-small').width();
-            console.log(width);
-            if (width > 700) {
-                var THUMBNAILS_PER_ROW = 8;
-                var IND_SPACING = 22;
-                var THUMBNAIL_BUFFER = 6;
-                var TOTAL_SPACING = THUMBNAILS_PER_ROW * IND_SPACING;
-                var tn_width = ((width - TOTAL_SPACING - THUMBNAIL_BUFFER) / THUMBNAILS_PER_ROW);
-                var tn_height = (tn_width * .75);
-                $('.gallery-img-sm').css({
-                    'width': tn_width,
-                    'height': tn_height,
-                    'display': 'inline-block'
-                });
+                else {
+                    $('.gallery-img-sm').css('display', 'none');
+                }
             }
-            else {
-                $('.gallery-img-sm').css('display', 'none');
-            }
-        }
 
-        //initial size of gallery thumbnails
-        $(document).ready(function () {
-            resize_thumbnails();
-        });
+            //initial size of gallery thumbnails
+            $(document).ready(function () {
+                resize_thumbnails();
+            });
 
-        //resize gallery thumbnails on window resize
-        $(window).resize(function () {
-            resize_thumbnails();
-        });
-    </script>
+            //resize gallery thumbnails on window resize
+            $(window).resize(function () {
+                resize_thumbnails();
+            });
+        </script>
 </body>
 
 </html>

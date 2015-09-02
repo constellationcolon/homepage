@@ -210,7 +210,7 @@ a {
 }
 .events-list {
     height: 285px;
-    overflow: hidden;
+    overflow: auto;
     float: right;
 }
 .search-text {
@@ -315,7 +315,7 @@ a:last-child > .line {
 #about-container {
     position: relative;
     overflow: hidden;
-    margin-bottom: 220px;
+    margin-bottom: 100px;
     max-height: 1200px;
 }
 #about-short > h3 {

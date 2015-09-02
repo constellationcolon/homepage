@@ -178,9 +178,6 @@ $images = $query->select("allImages");
                             whether they're interested in core tech jobs or in interdisciplinary academia.</p>
                     </div>
                 </div>
-                <div class="col-xs-12" id="about-btn-wrap">
-                    <button type="button" class="btn btn-default" id="about-btn">Directory</button>
-                </div>
             </div>
         </div>
         <div class="row" id="resources-wrap">

@@ -41,6 +41,21 @@ h3 > a:hover {
     color: #E98B33;
     text-decoration: none;
 }
+h5 {
+    font-family: Lora;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.5em;
+    /*letter-spacing: 0.05em;*/
+    margin: 0 0 0 0;
+    color: white;
+}
+h6 {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #44281A;
+    font-size: 0.7em;
+}
 * {
     outline: none;
 }
@@ -81,6 +96,7 @@ a {
 .btn, .btn:hover, .btn:focus, .btn:active, .btn:active:focus {
     color: #FFF;
     font-size: 0.75em;
+    text-transform: uppercase;
     letter-spacing: 0.4em;
     outline: 0 none;
     border: none;
@@ -449,7 +465,7 @@ a:last-child > .line {
 }
 .gallery-wrapper > h1 {
     text-align: center;
-    font-size: 4em;
+    /*font-size: 4em;*/
     /*margin: 100px 0;*/
 }
 .item {
@@ -588,7 +604,7 @@ a:last-child > .line {
         background-size: cover;
     }
     #contact-wrap {
-        background: url('../assets/contact-port.jpg') no-repeat center;
+        background: url('../assets/contact-land.jpg') no-repeat center;
         background-size: cover;
     }
     #resources-wrap {

@@ -69,7 +69,7 @@ if (isset($_GET["call"])) {
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php#billboard-wrap">HOME</a>
+                <a class="navbar-brand" href="index.php#billboard-wrap">ACMCU HOME</a>
             </div>
             <div class="collapse navbar-collapse" id="collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -90,13 +90,27 @@ if (isset($_GET["call"])) {
     <div class="container-fluid" id="container">
         <div class="row" id="event-container">
             <div class="col-xs-12" id="event-wrap">
+                <div class="col-xs-12" id="event-name">
+                    <h1><?php echo $event["name"] ?></h1>
+                    <div class="col-xs-12" id="event-links">
+                        <?php
+                        if (isset($event["facebook_link"]) && ($event["facebook_link"] != "0")) {
+                            echo '<a class="event-links" href="' . $event["facebook_link"] . '"><i class="icon-facebook"></i></a>';
+                        }
+                        if (isset($event["instagram_link"]) && $event["instagram_link"] != "0") {
+                            echo '<a class="event-links" href="' . $event["instagram_link"] . '"><i class="icon-instagram"></i></a>';
+                        }
+                        if (isset($event["twitter_link"]) && $event["twitter_link"] != "0") {
+                            echo '<a class="event-links" href="' . $event["twitter_link"] . '"><i class="icon-twitter"></i></a>';
+                        }
+                        if (isset($event["misc_link"]) && $event["misc_link"] != "0") {
+                            echo '<a class="event-links" href="' . $event["misc_link"] . '"><i class="icon-link"></i></a>';
+                        }
+                        ?>
+                    </div>
+                </div>
                 <div class="col-xs-12 col-sm-offset-1 col-sm-push-3 col-sm-7 col-md-push-2 col-md-8 col-lg-7" id="event-details">
-                    <div class="col-xs-12" id="event-name">
-                        <h3><?php echo $event["name"] ?></h3>
-                    </div>
-                    <div class="col-xs-12" id="event-description">
-                        <p><?php echo $event["description"] ?></p>
-                    </div>
+                    <div></div>
                     <div class="col-xs-12 col-sm-5" id="event-details-split">
                         <?php
                         $start_dt = date_create($event["start_datetime"]);
@@ -104,34 +118,21 @@ if (isset($_GET["call"])) {
                         ?>
                         <div class="col-xs-12" id="event-date">
                             <h5>
-                                <i class="hidden-xs icon-calendar"></i><?php echo $start_dt->format('F j, Y') ?>
+                                <!-- <i class="hidden-xs icon-calendar"></i> -->
+                                <?php echo $start_dt->format('F j, Y') ?>
                             </h5>
                         </div>
                         <div class="col-xs-12" id="event-time">
                             <h5>
-                                <i class="hidden-xs icon-clock"></i><?php echo $start_dt->format('g:ia') . " - " . $end_dt->format('g:ia') ?>
+                                <!-- <i class="hidden-xs icon-clock"></i> -->
+                                <?php echo $start_dt->format('g:ia') . " - " . $end_dt->format('g:ia') ?>
                             </h5>
                         </div>
                         <div class="col-xs-12" id="event-location">
                             <h5>
-                                <i class="hidden-xs icon-location"></i><?php echo $event["location"] ?>
+                                <!-- <i class="hidden-xs icon-location"></i> -->
+                                <?php echo $event["location"] ?>
                             </h5>
-                        </div>
-                        <div class="col-xs-12" id="event-links">
-                            <?php
-                            if (isset($event["facebook_link"]) && ($event["facebook_link"] != "0")) {
-                                echo '<a class="event-links" href="' . $event["facebook_link"] . '"><i class="icon-facebook"></i></a>';
-                            }
-                            if (isset($event["instagram_link"]) && $event["instagram_link"] != "0") {
-                                echo '<a class="event-links" href="' . $event["instagram_link"] . '"><i class="icon-instagram"></i></a>';
-                            }
-                            if (isset($event["twitter_link"]) && $event["twitter_link"] != "0") {
-                                echo '<a class="event-links" href="' . $event["twitter_link"] . '"><i class="icon-twitter"></i></a>';
-                            }
-                            if (isset($event["misc_link"]) && $event["misc_link"] != "0") {
-                                echo '<a class="event-links" href="' . $event["misc_link"] . '"><i class="icon-link"></i></a>';
-                            }
-                            ?>
                         </div>
                     </div>
                     <div class="hidden-xs col-xs-12 col-sm-offset-1 col-sm-6" id="register-form">
@@ -149,6 +150,9 @@ if (isset($_GET["call"])) {
                             </div>
                         </form>
                     </div>
+                    <div class="col-xs-12" id="event-description">
+                        <p><?php echo $event["description"] ?></p>
+                    </div>
                 </div>
                 <div class="col-xs-12 col-sm-pull-7 col-sm-2 col-md-pull-8 col-md-2 col-lg-pull-7 col-lg-2" id="event-speakers-wrap">
                     <div id="event-speakers">
@@ -164,7 +168,7 @@ if (isset($_GET["call"])) {
                             echo '<div class="profile-frame">';
                             echo '<div class="profile-glass" style="background-image: url(\'assets/profiles/' . $profile["image"] . "')\"></div>";
                             echo '</div>';
-                            echo '<h5 class="profile-name">' . $profile["full_name"] . '</h5>';
+                            echo '<h6 class="profile-name">' . $profile["full_name"] . '</h5>';
                             echo '<h6 class="profile-company">' . $profile["company"] . '</h6>';
                             echo '</div>';
                         }
@@ -190,7 +194,7 @@ if (isset($_GET["call"])) {
         </div>
         <div class="row" id="gallery-wrap">
             <div class="gallery-wrapper col-xs-10 col-xs-offset-1">
-                <h1>GALLERY</h1>
+                <!-- <h1>GALLERY</h1> -->
                 <div id="gallery-carousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner" role="listbox">
                         <?php

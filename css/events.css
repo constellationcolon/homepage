@@ -1,9 +1,15 @@
 @charset "utf-8";
 body {
+    /*font-size: 18px;*/
     background-color: #C4D8E2;
+    font-family: 'Oxygen', sans-serif;
+    font-size: 14px;
+    color: #7A787D;
 }
-.navbar {
-    background-color: rgba(68, 40, 26, 0.7);
+h1 {
+    color: white;
+    text-transform: uppercase;
+    padding: 0 0 0 0;
 }
 #container {
     height: auto;
@@ -14,7 +20,27 @@ body {
     padding-top: 30px;
     height: 100%;
 }
-.navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand {
+.navbar {
+    background-color: rgba(256, 256, 256, 0.8);
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+    -webkit-transition: all 0.25s linear;
+    -moz-transition: all 0.25s linear;
+    -o-transition: all 0.25s linear;
+    transition: all 0.25s linear;
+}
+.navbar-default .navbar-brand {
+    color: #C4D8E2;
+}
+.navbar-default .navbar-brand:hover {
+    color: #A8CEE2;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #7A787D;
+}
+.navbar-default .navbar-nav > li > a:hover {
+    color: black;
+}
+/*.navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand {
     color: #D7D3D0;
     font-size: 18px;
 }
@@ -33,7 +59,7 @@ body {
 .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-brand:hover {
     color: #44281A;
     font-size: 18px;
-}
+}*/
 #event-wrap {
     padding: 0px;
 }
@@ -46,69 +72,77 @@ body {
 #event-name {
     text-align: center;
     height: auto;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
-#event-name > h3 {
+/*#event-name > h3 {
     font-family: 'Lobster', cursive;
     color: #E98B33;
     font-size: 3em;
     margin: 0px;
-}
+}*/
 #event-description {
     overflow: visible;
-    margin-bottom: 20px;
+    margin-top: 3em;
+    margin-bottom: 3em;
 }
 #event-description > p {
-    color: #7A787D;
-    font-size: 1.5em;
+    /*color: #7A787D;*/
+    font-size: 1.2em;
+    line-height: 1.5em;
     text-align: center;
     max-height: none;
 }
 #event-date {
     text-align: center;
 }
-#event-date > h5 > i, #event-time > h5 > i, #event-location > h5 > i {
+/*#event-date > h5 > i, #event-time > h5 > i, #event-location > h5 > i {
     color: #75AADB;
-}
-#event-date > h5 {
+}*/
+/*#event-date > h5 {
 	padding-left: 1em;
 	text-indent: -1em;
     display: inline-block;
     margin: 0px;
     font-size: 1.5em;
     color: #7A787D;
-}
+}*/
 #event-time {
     text-align: center;
 }
-#event-time > h5 {
+/*#event-time > h5 {
 	padding-left: 1em;
 	text-indent: -1em;
     display: inline-block;
     margin: 0px;
     font-size: 1.5em;
     color: #7A787D;
-}
+}*/
 #event-location {
     text-align: center;
 }
-#event-location > h5 {
+/*#event-location > h5 {
 	padding-left: 1em;
 	text-indent: -1em;
     display: inline-block;
     margin: 0px;
     font-size: 1.5em;
     color: #7A787D;
-}
+}*/
 #event-links {
     text-align: center;
 }
 #event-links i {
-    color: #E98B33;
-    font-size: 3em;
+    color: white;
+    opacity: 0.5;
+    font-size: 1.5em;
+    margin: 0.1em 0.5em 0.1em 0em;
+    -webkit-transition: all 0.25s linear;
+    -moz-transition: all 0.25s linear;
+    -o-transition: all 0.25s linear;
+    transition: all 0.25s linear;
 }
 #event-links i:hover {
-    color: #EDA25B;
+    opacity: 1;
 }
 #event-speakers-wrap {
     text-align: center;
@@ -121,7 +155,6 @@ body {
 .profile {
     display: inline-block;
     text-align: center;
-    color: #7A787D;
     padding: 0px 10px;
 }
 .profile-name {
@@ -132,7 +165,7 @@ body {
     margin: 0px;
 }
 .profile-frame {
-    background-color: #44281A;
+    /*background-color: #44281A;*/
     margin: 0 auto;
     width: 120px;
     height: 120px;
@@ -161,10 +194,17 @@ body {
 #register-form {
     margin-bottom: 30px;
 }
-#register-btn {
-    font-size: 2em;
-    font-weight: bold;
+.btn, .btn:hover{
+    padding: 1em 1em 1em 1em;
 }
+.btn {
+    background-color: 
+}
+
+/*#register-btn {*/
+    /*font-size: 2em;*/
+    /*font-weight: bold;*/
+/*}*/
 .gallery-small {
     height: auto;
 }
@@ -182,25 +222,28 @@ body {
         text-align: left;
         height: auto;
     }
+    #event-details-split {
+        margin-top: 1em;
+    }
     #event-details-split > div {
-        padding: 0px;
-        margin-bottom: 10px;
+        padding: 0 0 0 0;
+        /*margin-bottom: 10px;*/
     }
     #event-date {
-        text-align: left;
-        text-indent: 1em;
+        text-align: center;
+        /*text-indent: 1em;*/
     }
     #event-time {
-        text-align: left;
-        text-indent: 1em;
+        text-align: center;
+        /*text-indent: 1em;*/
     }
     #event-location {
-        text-align: left;
-        text-indent: 1em;
+        text-align: center;
+        /*text-indent: 1em;*/
         margin-bottom: 0px !important;
     }
     #event-links {
-        text-align: left;
+        text-align: center;
     }
 }
 @media (min-width: 992px) {
@@ -258,16 +301,16 @@ body {
         margin-bottom: 10px;
     }
     #event-date {
-        text-align: left;
+        text-align: center;
     }
     #event-time {
-        text-align: left;
+        text-align: center;
     }
     #event-location {
-        text-align: left;
+        text-align: center;
         margin-bottom: 5px !important;
     }
     #event-links {
-        text-align: left;
+        text-align: center;
     }
 }

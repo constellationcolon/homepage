@@ -63,7 +63,7 @@ $images = $query->select("allImages");
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#billboard-wrap">HOME</a>
+                <a class="navbar-brand" href="#billboard-wrap">ACMCU HOME</a>
             </div>
             <div class="collapse navbar-collapse" id="collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -84,11 +84,14 @@ $images = $query->select("allImages");
     <div class="container-fluid" id="container">
         <div class="row " id="billboard-wrap">
             <div id="billboard-overlay">
-                <img class="site-logo" src="assets/white-logo.png">
+                <!-- <img id="landing-logo" src="assets/CCPSS_Logo_White.png"> -->
+                <p id="landing-name">COLUMBIA UNIVERSITY ASSOCIATION FOR COMPUTING MACHINERY</p>
+                <!-- <img class="site-logo" src="assets/white-logo.png"> -->
             </div>
         </div>
         <div class="row" id="events-wrap">
-            <div class="col-xs-12" id="events-title">
+            <!-- <div class="col-xs-12" id="events-title"> -->
+            <div class="col-xs-12">
                 <h1>EVENTS</h1>
             </div>
             <div class="events-container col-xs-12 col-sm-12 col-md-offset-1 col-md-10">
@@ -111,12 +114,12 @@ $images = $query->select("allImages");
                     $evnt .= '<div class="event-date-day">' . $date->format('j') . '</div>';
                     $evnt .= '</div>';
                     $evnt .= '<div class="event-name">';
-                    $evnt .= '<h3>' . $events[$i]["name"] . '</h3>';
+                    $evnt .= '<h3><a href="events.php?call=' . $events[$i]["event_id"] . '" target="_self">' . $events[$i]["name"] . '</a></h3>';
                     $evnt .= '</div>';
                     $evnt .= '<div class="event-description">';
                     $evnt .= '<p>' . $events[$i]["description"] . '</p>';
                     $evnt .= '</div>';
-                    $evnt .= '<a href="events.php?call=' . $events[$i]["event_id"] . '" target="_self"><button type="button" class="event-btn btn btn-default col-xs-12 col-sm-12 col-md-12 col-lg-12">More</button></a>';
+                    // $evnt .= '<a href="events.php?call=' . $events[$i]["event_id"] . '" target="_self"><button type="button" class="event-btn btn btn-default col-xs-12 col-sm-12 col-md-12 col-lg-12">More</button></a>';
                     $evnt .= '</div>';
                     echo $evnt;
                 }
@@ -144,14 +147,14 @@ $images = $query->select("allImages");
                             $past = $query->select("passed");
                             for ($i = 0; $i < count($past); $i++) {
                                 $date = date_create($past[$i]["start_datetime"]);
-                                $item = '<a href="events.php?call=' . $past[$i]["event_id"] . '"target="_self"><li class="events-list-item">';
-                                $item .= '<div class="past-date-wrap">';
-                                $item .= '<div class="past-date">';
-                                $item .= '<div class="past-date-month">' . strtoupper($date->format('M')) . '</div>';
-                                $item .= '<div class="past-date-day">' . $date->format('j') . '</div>';
-                                $item .= '</div>';
-                                $item .= '</div>';
-                                $item .= '<p>' . $past[$i]["name"] . '</p></li></a>';
+                                $item = '<h3><a href="events.php?call=' . $past[$i]["event_id"] . '"target="_self"><li class="events-list-item">';
+                                // $item .= '<div class="past-date-wrap">';
+                                // $item .= '<div class="past-date">';
+                                // $item .= '<div class="past-date-month">' . strtoupper($date->format('M')) . '</div>';
+                                // $item .= '<div class="past-date-day">' . $date->format('j') . '</div>';
+                                // $item .= '</div>';
+                                // $item .= '</div>';
+                                $item .= '' . $past[$i]["name"] . '</li></a></h3>';
                                 echo $item;
                             }
                             ?>
@@ -163,6 +166,7 @@ $images = $query->select("allImages");
         <div class="row" id="about-wrap">
             <div id="about-overlay">
                 <div class="col-xs-12" id="about-title">
+                <!-- <div class="col-xs-12"> -->
                     <h1>ABOUT</h1>
                 </div>
                 <div class="col-xs-12" id="about-container">
@@ -183,6 +187,7 @@ $images = $query->select("allImages");
         <div class="row" id="resources-wrap">
             <div id="resources-overlay">
                 <div class="col-xs-12" id="resources-title">
+                <!-- <div class="col-xs-12"> -->
                     <h1>RESOURCES</h1>
                 </div>
                 <div class="input-group input-group-lg" id="resources-bar">
@@ -221,7 +226,8 @@ $images = $query->select("allImages");
         <div class="row" id="contact-wrap">
             <div id="contact-overlay">
                 <div class="col-xs-12" id="contact-title">
-                    <h1>CONTACT</h1>
+                <!-- <div class="col-xs-12"> -->
+                    <h1>CONTACT US</h1>
                 </div>
                 <div class="col-xs-12" id="contact-form-wrap">
                     <form role="form" action="scripts/send.php">
@@ -237,7 +243,7 @@ $images = $query->select("allImages");
                             </div>
                         </div>
                         <div id="contact-btn-wrap">
-                            <button type="submit" class="btn btn-default" id="contact-btn">Submit</button>
+                            <button type="submit" class="btn btn-default" id="contact-btn">SUBMIT</button>
                         </div>
                     </form>
                 </div>
@@ -269,55 +275,57 @@ $images = $query->select("allImages");
             $(window).scroll(function () {
                 var navbar = $('.navbar');
                 if ($(this).scrollTop() > 10) {
-                    navbar.css('background-color', 'rgba(68, 40, 26, 0.7)');
-                    navbar.css('-webkit-box-shadow', '0 1px 1px 0 rgba(0, 0, 0, 0.6)');
-                    navbar.css('box-shadow', '0 1px 1px 0 rgba(0, 0, 0, 0.6)');
-                    $('.navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand').css('color', '#D7D3D0').hover(
-                        function () {
-                            $(this).css('color', '#44281A');
-                        },
-                        function () {
-                            $(this).css('color', '#D7D3D0');
-                        }
-                    );
+                    // navbar.css('background-color', 'rgba(68, 40, 26, 0.7)');
+                    navbar.css('background-color', 'rgba(196, 216, 226, 0.8)');
+                    navbar.css('-webkit-box-shadow', '0 2px 2px 0 rgba(0, 0, 0, 0.1)');
+                    // navbar.css('box-shadow', '0 1px 1px 0 rgba(0, 0, 0, 0.2)');
+                    // $('.navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand').hover(
+                    //     function () {
+                    //         $(this).css('color', '#A8CEE2');
+                    //     },
+                    //     function () {
+                    //         $(this).css('color', '#A8CEE2');
+                    //     }
+                    // );
+                    $('.navbar-default .navbar-brand').css('color', 'white');
 
                 } else {
                     navbar.css('background-color', 'transparent');
                     navbar.css('-webkit-box-shadow', 'none');
                     navbar.css('box-shadow', 'none');
-                    $('.navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand').css('color', '#44281A');
-                    $('.navbar-default .navbar-nav>li>a').hover(
-                        function () {
-                            $(this).css('color', '#7A787D');
-                        },
-                        function () {
-                            $(this).css('color', '#44281A');
-                        }
-                    );
-                    $('.navbar-default .navbar-brand').hover(
-                        function () {
-                            $(this).css('color', '#D7D3D0');
-                        },
-                        function () {
-                            $(this).css('color', '#44281A');
-                        }
-                    );
+                    // $('.navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand').css('color', '#44281A');
+                    // $('.navbar-default .navbar-nav>li>a').hover(
+                    //     function () {
+                    //         $(this).css('color', '#7A787D');
+                    //     },
+                    //     function () {
+                    //         $(this).css('color', '#44281A');
+                    //     }
+                    // );
+                    // $('.navbar-default .navbar-brand').hover(
+                    //     function () {
+                    //         $(this).css('color', '#D7D3D0');
+                    //     },
+                    //     function () {
+                    //         $(this).css('color', '#44281A');
+                    //     }
+                    // );
                 }
             });
             $('.navbar-default .navbar-nav>li>a').hover(
                 function () {
-                    $(this).css('color', '#7A787D');
+                    $(this).css('color', 'white');
                 },
                 function () {
-                    $(this).css('color', '#44281A');
+                    $(this).css('color', 'black');
                 }
             );
             $('.navbar-default .navbar-brand').hover(
                 function () {
-                    $(this).css('color', '#D7D3D0');
+                    $(this).css('color', '#A8CEE2');
                 },
                 function () {
-                    $(this).css('color', '#44281A');
+                    $(this).css('color', 'white');
                 }
             );
 

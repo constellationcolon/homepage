@@ -184,7 +184,7 @@ $images = $query->select("allImages");
                 </div>
             </div>
         </div>
-        <div class="row" id="resources-wrap">
+        <div class="row resources-color" id="resources-wrap">
             <div id="resources-overlay">
                 <div class="col-xs-12" id="resources-title">
                 <!-- <div class="col-xs-12"> -->

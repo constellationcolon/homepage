@@ -287,7 +287,7 @@ a {
     display: block;
 }
 .btn.btn-open:hover {
-    background-color: #44281A;
+    background-color: #C4D8E2;
 }
 .events-all-wrapper {
     height: 285px;
@@ -399,7 +399,7 @@ a:last-child > .line {
     text-align: center;
 }
 #about-short {
-    /*margin-bottom: 20px;*/
+    margin-bottom: 2em;
 }
 #about-container {
     position: relative;
@@ -448,6 +448,10 @@ a:last-child > .line {
 #resources-bar {
     margin-bottom: 140px;
 }
+.resources-color {
+    background-color: rgba(68, 40, 26, 0.5);
+
+}
 .dropdown-menu {
     position: absolute;
     margin: 0;
@@ -461,7 +465,6 @@ a:last-child > .line {
 }
 .gallery-wrapper {
     position: relative;
-    height: 1000px;
 }
 .gallery-wrapper > h1 {
     text-align: center;
@@ -474,7 +477,7 @@ a:last-child > .line {
 .gallery-small {
     position: relative;
     margin-top: 20px;
-    height: 280px;
+    margin-bottom: 100px;
     width: 100%;
 }
 .gallery-img-sm {
@@ -556,9 +559,6 @@ a:last-child > .line {
     #about-long > p {
         text-align: left;
     }
-    .gallery-wrapper {
-        height: 1000px;
-    }
     .item {
         height: 450px;
     }
@@ -570,9 +570,6 @@ a:last-child > .line {
     }
     .events-container {
         padding: 0;
-    }
-    .gallery-wrapper {
-        height: 1200px;
     }
     .item {
         height: 600px;
@@ -587,9 +584,6 @@ a:last-child > .line {
     }
     .events-container {
         padding: 0;
-    }
-    .gallery-wrapper {
-        height: 1400px;
     }
     .item {
         height: 750px;
@@ -609,6 +603,8 @@ a:last-child > .line {
     }
     #resources-wrap {
         background: url('../assets/contact-port.jpg') no-repeat center;
+        background-color: rgba(68, 40, 26, 0.5);
+        background-blend-mode: multiply;
         background-size: cover;
     }
 }
@@ -626,6 +622,8 @@ a:last-child > .line {
     }
     #resources-wrap {
         background: url('../assets/contact-port.jpg') no-repeat center;
+        background-color: rgba(68, 40, 26, 0.5);
+        background-blend-mode: multiply;
         background-size: cover;
     }
 }
